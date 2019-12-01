@@ -32,7 +32,7 @@ void Daemon::readUSBDaemonPid()
 {
    key_t key = ftok("/Daemons/USBDaemon", 65);
    if (key == (key_t) -1) {
-                  qDebug() << "ftok failed with errno = " << strerror(errno);
+                  qDebug() << "The ftok failed with errno = " << strerror(errno);
               }
 
    //shmget returns an identifier in shmid
