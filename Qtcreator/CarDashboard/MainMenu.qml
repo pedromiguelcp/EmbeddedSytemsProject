@@ -24,7 +24,7 @@ Item {
         width: 100
         height: 100
         opacity: 1
-        source: "images/OnOff.png"
+        source: "images/power-off.svg"
         visible: true
 
         MouseArea{
@@ -52,7 +52,7 @@ Item {
         border.width: 1
         border.color: "blue"
 
-        Text {
+        /*Text {
             id: id_time_var
             x: 0
             y: 0
@@ -73,19 +73,19 @@ Item {
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 38
             visible: window.bTimeVisibility
-        }
+        }*/
 
     }
 
     //choice menu button
     Image {
         id: id_button_menu1
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 20
+        y: 20
+        width: 70
+        height: 70
         opacity: 1
-        source: "images/Options.png"
+        source: "images/menu-options.svg"
         visible: true
         //mousearea, click to go for MainMenu
         MouseArea {

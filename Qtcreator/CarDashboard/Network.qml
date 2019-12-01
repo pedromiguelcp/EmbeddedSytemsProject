@@ -22,13 +22,13 @@ Item {
     //Back
     Image {
         id: id_back_img
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 10
+        y: 20
+        width: 50
+        height: 50
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/Back.png"
+        source: "images/back.svg"
         MouseArea {
             id: id_back_mousearea
             anchors.fill: parent

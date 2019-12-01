@@ -22,13 +22,13 @@ Item {
     //Back
     Image {
         id: id_back_img
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 10
+        y: 20
+        width: 50
+        height: 50
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/Back.png"
+        source: "images/back.svg"
         MouseArea {
             id: id_back_mousearea
             anchors.fill: parent
@@ -56,7 +56,7 @@ Item {
             width: 89
             height: 81
             //fillMode: Image.PreserveAspectFit
-            source: "images/MusicPlay.png"
+            source: "images/music-play.svg"
             MouseArea {
                 id: id_musicplay_mousearea
                 anchors.rightMargin: 70
@@ -77,7 +77,7 @@ Item {
             width: 35
             height: 35
             //fillMode: Image.PreserveAspectFit
-            source: "images/MusicNext.png"
+            source: "images/music-forward.svg"
             MouseArea {
                 id: id_musicnext_mousearea
                 anchors.rightMargin: -150
@@ -98,7 +98,7 @@ Item {
             width: 35
             height: 35
             //fillMode: Image.PreserveAspectFit
-            source: "images/MusicBack.png"
+            source: "images/music-backward.svg"
             MouseArea {
                 id: id_musicback_mousearea
                 anchors.rightMargin: -150

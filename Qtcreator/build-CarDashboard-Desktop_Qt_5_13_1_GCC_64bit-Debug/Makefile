@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = CarDashboard1.0.0
-DISTDIR = /home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/.tmp/CarDashboard1.0.0
+DISTDIR = /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/.tmp/CarDashboard1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/pedro/Qt/5.13.1/gcc_64/lib -Wl,-rpath-link,/home/pedro/Qt/5.13.1/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5QuickControls2.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Quick.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Gui.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Qml.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Network.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Sql.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5SerialPort.so /home/pedro/Qt/5.13.1/gcc_64/lib/libQt5Core.so -lGL -lpthread  -lrt 
@@ -744,30 +744,26 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/AmbientLight.qml \
 		../CarDashboard/automotive.qml \
 		../CarDashboard/main.qml \
-		../CarDashboard/images/MusicBack.png \
-		../CarDashboard/images/OnOff.png \
-		../CarDashboard/images/Network.png \
-		../CarDashboard/images/MusicStop.png \
-		../CarDashboard/images/Settings.svg \
-		../CarDashboard/images/Camera.png \
-		../CarDashboard/images/Home_Video.png \
-		../CarDashboard/images/BrightMinus.png \
-		../CarDashboard/images/MenuOptions.png \
-		../CarDashboard/images/CarInfo.png \
-		../CarDashboard/images/MusicPlay.png \
-		../CarDashboard/images/BrightPlus.png \
-		../CarDashboard/images/MusicPause.png \
-		../CarDashboard/images/Home_Setup.png \
-		../CarDashboard/images/Back.jpg \
-		../CarDashboard/images/Home_Music.png \
-		../CarDashboard/images/Settings.png \
-		../CarDashboard/images/Back.png \
-		../CarDashboard/images/Freesample.svg \
-		../CarDashboard/images/Options.png \
-		../CarDashboard/images/Music.png \
-		../CarDashboard/images/AmbientLight.png \
-		../CarDashboard/images/MusicNext.png \
-		../CarDashboard/images/BackGround.png \
+		../CarDashboard/images/camera.svg \
+		../CarDashboard/images/light-blue.svg \
+		../CarDashboard/images/music-play.svg \
+		../CarDashboard/images/menu-options.svg \
+		../CarDashboard/images/internet.svg \
+		../CarDashboard/images/light-magenta.svg \
+		../CarDashboard/images/settings.svg \
+		../CarDashboard/images/music-backward.svg \
+		../CarDashboard/images/music-file.svg \
+		../CarDashboard/images/bright-plus.svg \
+		../CarDashboard/images/power-off.svg \
+		../CarDashboard/images/back.svg \
+		../CarDashboard/images/music-forward.svg \
+		../CarDashboard/images/car.svg \
+		../CarDashboard/images/light-aqua.svg \
+		../CarDashboard/images/bright-minus.svg \
+		../CarDashboard/images/light-off.svg \
+		../CarDashboard/images/light-red.svg \
+		../CarDashboard/images/light-green.svg \
+		../CarDashboard/images/light-yellow.svg \
 		../CarDashboard/component/SampleButton.qml
 	/home/pedro/Qt/5.13.1/gcc_64/bin/rcc -name qml ../CarDashboard/qml.qrc -o qrc_qml.cpp
 
@@ -1055,7 +1051,7 @@ moc_dash.cpp: ../CarDashboard/dash.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QJsonArray \
 		moc_predefs.h \
 		/home/pedro/Qt/5.13.1/gcc_64/bin/moc
-	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/dash.h -o moc_dash.cpp
+	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/dash.h -o moc_dash.cpp
 
 moc_network.cpp: ../CarDashboard/network.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork/QtNetwork \
@@ -1322,7 +1318,7 @@ moc_network.cpp: ../CarDashboard/network.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QJsonArray \
 		moc_predefs.h \
 		/home/pedro/Qt/5.13.1/gcc_64/bin/moc
-	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/network.h -o moc_network.cpp
+	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/network.h -o moc_network.cpp
 
 moc_uartstm.cpp: ../CarDashboard/uartstm.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QObject \
@@ -1396,7 +1392,7 @@ moc_uartstm.cpp: ../CarDashboard/uartstm.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QByteArray \
 		moc_predefs.h \
 		/home/pedro/Qt/5.13.1/gcc_64/bin/moc
-	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/QT/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/uartstm.h -o moc_uartstm.cpp
+	/home/pedro/Qt/5.13.1/gcc_64/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Desktop_Qt_5_13_1_GCC_64bit-Debug/moc_predefs.h -I/home/pedro/Qt/5.13.1/gcc_64/mkspecs/linux-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/Qt/5.13.1/gcc_64/include -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuickControls2 -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQuick -I/home/pedro/Qt/5.13.1/gcc_64/include/QtGui -I/home/pedro/Qt/5.13.1/gcc_64/include/QtQml -I/home/pedro/Qt/5.13.1/gcc_64/include/QtNetwork -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSql -I/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort -I/home/pedro/Qt/5.13.1/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../CarDashboard/uartstm.h -o moc_uartstm.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

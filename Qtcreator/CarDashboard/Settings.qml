@@ -19,13 +19,13 @@ Item {
     //Back
     Image {
         id: id_back_img
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 10
+        y: 20
+        width: 50
+        height: 50
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/Back.png"
+        source: "images/back.svg"
         MouseArea {
             id: id_back_mousearea
             anchors.fill: parent
@@ -37,8 +37,8 @@ Item {
 
     Text {
         id: id_settingsmenu_text1
-        x: 128
-        y: 157
+        x: 111
+        y: 151
         width: 161
         height: 53
         text: qsTr("Brightness")
@@ -51,12 +51,12 @@ Item {
     Image {
         id: id_decrease_Bright
         x: 105
-        y: 180
-        width: 100
-        height: 100
+        y: 190
+        width: 70
+        height: 70
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/BrightMinus.png"
+        source: "images/bright-minus.svg"
         MouseArea {
             id: id_decrease_mousearea
             anchors.fill: parent
@@ -69,12 +69,12 @@ Item {
     Image {
         id: id_inscrease_Bright
         x: 215
-        y: 180
-        width: 100
-        height: 100
+        y: 190
+        width: 70
+        height: 70
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/BrightPlus.png"
+        source: "images/bright-plus.svg"
         MouseArea {
             id: id_inscrease_mousearea
             anchors.fill: parent

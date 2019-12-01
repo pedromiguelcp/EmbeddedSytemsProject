@@ -19,13 +19,13 @@ Item {
     //Back
     Image {
         id: id_back_img
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 10
+        y: 20
+        width: 50
+        height: 50
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/Back.png"
+        source: "images/back.svg"
         MouseArea {
             id: id_back_mousearea
             anchors.fill: parent
@@ -57,7 +57,7 @@ Item {
                 width: 168
                 height: 117
                 fillMode: Image.PreserveAspectFit
-                source: "images/CarInfo.png"
+                source: "images/car.svg"
             }
             Text {
                 id: id_carinfo_text
@@ -113,7 +113,7 @@ Item {
                 width: 117
                 height: 89
                 fillMode: Image.PreserveAspectFit
-                source: "images/Network.png"
+                source: "images/internet.svg"
             }
             Text {
                 id: id_network_text
@@ -167,7 +167,7 @@ Item {
                 width: 117
                 height: 89
                 fillMode: Image.PreserveAspectFit
-                source: "images/Settings.svg"
+                source: "images/settings.svg"
             }
             Text {
                 id: id_settings_text
@@ -222,7 +222,7 @@ Item {
                 width: 117
                 height: 89
                 fillMode: Image.PreserveAspectFit
-                source: "images/Camera.png"
+                source: "images/camera.svg"
             }
             Text {
                 id: id_camera_text
@@ -279,7 +279,7 @@ Item {
                 width: 117
                 height: 89
                 fillMode: Image.PreserveAspectFit
-                source: "images/Music.png"
+                source: "images/music-file.svg"
             }
             Text {
                 id: id_music_text
@@ -329,13 +329,40 @@ Item {
             buttonHeight: 190
             anchors.centerIn: parent
             Image {
-                id: id_ambientlight_image
-                x: 75
-                y: 39
-                width: 117
-                height: 89
+                id: id_ambientlightblue_image
+                x: 40
+                y: 17
+                width: 85
+                height: 58
                 fillMode: Image.PreserveAspectFit
-                source: "images/AmbientLight.png"
+                source: "images/light-blue.svg"
+            }
+            Image {
+                id: id_ambientlightgreen_image
+                x: 131
+                y: 17
+                width: 85
+                height: 58
+                fillMode: Image.PreserveAspectFit
+                source: "images/light-green.svg"
+            }
+            Image {
+                id: id_ambientlightred_image
+                x: 40
+                y: 81
+                width: 85
+                height: 58
+                fillMode: Image.PreserveAspectFit
+                source: "images/light-red.svg"
+            }
+            Image {
+                id: id_ambientlightyellow_image
+                x: 131
+                y: 81
+                width: 85
+                height: 58
+                fillMode: Image.PreserveAspectFit
+                source: "images/light-yellow.svg"
             }
             Text {
                 id: id_ambientlight_text
@@ -367,16 +394,6 @@ Item {
                 stack.push(ambient_light_menu)
             }
         }*/
-    }
-
-    Image {
-        id: image
-        x: 126
-        y: -50
-        width: 168
-        height: 230
-        fillMode: Image.PreserveAspectFit
-        source: "images/Freesample.svg"
     }
 
 }

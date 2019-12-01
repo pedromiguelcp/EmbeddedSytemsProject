@@ -10,7 +10,7 @@ Item {
         y: 22
         width: 350
         height: 57
-        text: qsTr("Ambient Light Menu")
+        text: qsTr("Ambient Light")
         horizontalAlignment: Text.AlignHCenter
         elide: Text.ElideLeft
         font.pixelSize: 36
@@ -19,13 +19,13 @@ Item {
     //Back
     Image {
         id: id_back_img
-        x: 0
-        y: 0
-        width: 100
-        height: 100
+        x: 10
+        y: 20
+        width: 50
+        height: 50
         visible: true
         fillMode: Image.PreserveAspectFit
-        source: "images/Back.png"
+        source: "images/back.svg"
         MouseArea {
             id: id_back_mousearea
             anchors.fill: parent
@@ -35,174 +35,109 @@ Item {
         }
     }
 
-
-    Rectangle {
-        id: id_turn_off_rectangle
-        x: 494
-        y: 166
+    Image {
+        id: id_lightoff_img
+        x: 100
+        y: 150
         width: 100
         height: 100
-        color: "#090808"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_turn_off_text
-            color: "#ffffff"
-            text: qsTr("Turn Off")
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            anchors.fill: parent
-            font.pixelSize: 18
-        }*/
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-off.svg"
         MouseArea {
-            id: id_turn_off_mousearea
-            width: id_turn_off_rectangle.width
-            height: id_turn_off_rectangle.height
+            id: id_lightoff_mousearea
+            anchors.fill: parent
             onClicked: {
                 myclass.setColor("0")
             }
         }
     }
-
-    Rectangle {
-        id: id_red_rectangle
-        x: 49
-        y: 186
-        width: 143
-        height: 39
-        color: "#ff0000"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_red_text
-            text: qsTr("Red")
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            anchors.fill: parent
-            font.pixelSize: 24
-        }*/
+    Image {
+        id: id_lightblue_img
+        x: 200
+        y: 150
+        width: 100
+        height: 100
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-blue.svg"
         MouseArea {
-            id: id_red_button
-            width: parent.width
-            height: parent.height
-            onClicked: {
-                myclass.setColor("1")
-            }
-        }
-    }
-
-    Rectangle {
-        id: id_green_rectangle
-        x: 48
-        y: 237
-        width: 144
-        height: 39
-        color: "#00ff00"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_green_text
-            text: qsTr("Green")
+            id: id_lightblue_mousearea
             anchors.fill: parent
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }*/
-        MouseArea {
-            id: id_green_button
-            width: id_green_rectangle.width
-            height: id_green_rectangle.height
-            onClicked: {
-               // myclass.setColor("2")
-                myclass.sendCommand("VER \n")
-            }
-        }
-
-    }
-
-    Rectangle {
-        id: id_blue_rectangle
-        x: 48
-        y: 141
-        width: 144
-        height: 39
-        color: "#0000ff"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_blue_text
-            text: qsTr("Blue")
-            anchors.fill: parent
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }*/
-        MouseArea {
-            id: id_blue_button
-            width: parent.width
-            height: parent.height
-            enabled: true
             onClicked: {
                 myclass.setColor("4")
             }
         }
     }
-
-    Rectangle {
-        id: id_cyan_rectangle
-        x: 50
-        y: 347
-        width: 140
-        height: 39
-        color: "#00ffff"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_cyan_text
-            text: qsTr("Cyan")
-            anchors.fill: parent
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }*/
+    Image {
+        id: id_lightred_img
+        x: 300
+        y: 150
+        width: 100
+        height: 100
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-red.svg"
         MouseArea {
-            id: id_cyan_button
-            x: 0
-            y: 0
-            width: 145
-            height: 39
+            id: id_lightred_mousearea
+            anchors.fill: parent
+            onClicked: {
+                myclass.setColor("1")
+            }
+        }
+    }
+    Image {
+        id: id_lightgreen_img
+        x: 400
+        y: 150
+        width: 100
+        height: 100
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-green.svg"
+        MouseArea {
+            id: id_lightgreen_mousearea
+            anchors.fill: parent
+            onClicked: {
+                 //myclass.setColor("2")
+                 myclass.sendCommand("VER \n")
+            }
+        }
+    }
+    Image {
+        id: id_lightmagenta_img
+        x: 500
+        y: 150
+        width: 100
+        height: 100
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-magenta.svg"
+        MouseArea {
+            id: id_lightmagenta_mousearea
+            anchors.fill: parent
+            onClicked: {
+                myclass.setColor("5")
+            }
+        }
+    }
+    Image {
+        id: id_lightaqua_img
+        x: 600
+        y: 150
+        width: 100
+        height: 100
+        visible: true
+        fillMode: Image.PreserveAspectFit
+        source: "images/light-aqua.svg"
+        MouseArea {
+            id: id_lightaqua_mousearea
+            anchors.fill: parent
             onClicked: {
                 myclass.setColor("6")
             }
         }
     }
 
-    Rectangle {
-        id: id_violet_rectangle
-        x: 48
-        y: 290
-        width: 144
-        height: 39
-        color: "#880b8b"
-        border.width: 0
-        border.color: "#000000"
-        /*Text {
-            id: id_magenta_text
-            text: qsTr("Violet")
-            anchors.fill: parent
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 24
-        }*/
-        MouseArea {
-            id: id_violet_button
-            y: 0
-            width: 0
-            height: 37
-            scale: 1
-            onClicked: {
-                myclass.setColor("5")
-            }
-        }
-    }
+
 }
