@@ -56,7 +56,7 @@ void Daemon::readMusicDaemonPid()
    //ftok to generate unique key
    key_t key = ftok("/Daemons/MusicDaemon",65);
    if(key == -1) {
-         qDebug() << "ftok failed with errno = " << strerror(errno);
+         qDebug() << "Function ftok failed with errno = " << strerror(errno);
        }
 
    //shmget returns an identifier in shmid
