@@ -1,0 +1,37 @@
+/************My Script************/
+#!/bin/sh
+
+#install ddriver module
+insmod /etc/myfiles/DDrivers/led.ko
+
+#install camera driver module
+modprobe bcm2835-v4l2
+
+#create path to daemons
+mkdir /Daemons
+mkdir /Daemons/USBDaemon
+mkdir /Daemons/MusicDaemon
+mkdir /Daemons/MainProcess
+
+#start USBDaemon
+/etc/myfiles/Daemons/USBDaemon
+
+#start MusicDaemon
+/etc/myfiles/Daemons/MusicDaemon
+
+#start aplication
+#/etc/myfiles/CarDashboard --platform linuxfb &
+
+
+/************inittab************/
+# DashScript
+::sysinit:/etc/myfiles/DashScript.sh
+->>chmod +x myscript.sh
+
+/************Config.txt************/
+#rotates touch screen
+lcd_rotate=2
+
+#enable audio
+dtparam=audio=on
+

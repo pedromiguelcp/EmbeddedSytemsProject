@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainMenu.qml</file>
+        <file>AmbientLight.qml</file>
+        <file>OpenSans-Bold.ttf</file>
+        <file>images/Back.png</file>
+        <file>images/MusicNext.png</file>
+        <file>images/OnOff.png</file>
+        <file>images/MusicPause.png</file>
+        <file>images/MusicPlay.png</file>
+        <file>images/MusicStop.png</file>
+        <file>ChoiceMenu.qml</file>
+        <file>Music.qml</file>
+        <file>images/MenuOptions.png</file>
+        <file>images/MusicBack.png</file>
+        <file>images/Network.png</file>
+        <file>images/Camera.png</file>
+        <file>images/Settings.png</file>
+        <file>images/Music.png</file>
+        <file>images/AmbientLight.png</file>
+        <file>images/CarInfo.png</file>
+        <file>automotive.qml</file>
+        <file>Automotive.qml</file>
+        <file>Camera.qml</file>
+        <file>component/SampleButton.qml</file>
+        <file>images/Home_Video.png</file>
+        <file>images/Home_Setup.png</file>
+        <file>images/Home_Music.png</file>
+        <file>USBPopUp.qml</file>
+        <file>images/BackGround.png</file>
+        <file>images/Back.jpg</file>
+        <file>images/Options.png</file>
+        <file>Settings.qml</file>
+        <file>images/BrightPlus.png</file>
+        <file>images/BrightMinus.png</file>
+        <file>images/Freesample.svg</file>
+        <file>images/Settings.svg</file>
+        <file>Network.qml</file>
+    </qresource>
+</RCC>

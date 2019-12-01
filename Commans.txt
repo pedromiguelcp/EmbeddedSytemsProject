@@ -1,0 +1,22 @@
+~/buildroot/buildroot-2019.08/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -g main.c -o MusicDaemon -lasound -lao -lmpg123
+sudo rm MusicDaemon.elf
+gcc -o MusicDaemon.elf main.c -lasound -lao -lmpg123
+sudo ./MusicDaemon.elf
+sudo pkill --signal SIGUSR1 MusicDaemon.elf
+
+~/buildroot/buildroot-2019.08/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-g++ -g main.cpp devicewatcher.cpp -o USBDaemon -ludev
+sudo rm USBDaemon.elf
+g++ -o USBDaemon.elf main.cpp devicewatcher.cpp -ludev
+sudo ./USBDaemon.elf
+sudo pkill --signal SIGUSR2 USBDaemon.elf
+
+
+vcgencmd get_camera
+(supported=1 detected=1)
+
+modprobe bcm2835-v4l2
+v4l2-ctl --overlay=1
+
+amixer set Master 10%+
+
+amixer -M set PCM 40%+
