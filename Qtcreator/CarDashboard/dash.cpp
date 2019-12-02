@@ -31,6 +31,8 @@ Dash::Dash()
     adjustDashBright(244);
     controlMusicVolume(70);
 
+    system("v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600");
+
     USBSignal = 1;
 }
 
@@ -151,16 +153,16 @@ void Dash::resumeSong()
 
 void Dash::openCamera()
 {
-    /*qDebug() << "Open Camera";
-    system("/OpenCamera.sh");*/
+    qDebug() << "Open Camera";
+    system("v4l2-ctl --overlay=1");
     //NetworkInfo->printweather();
-    NetworkInfo->printnews();
+    //NetworkInfo->printnews();
 }
 
 void Dash::closeCamera()
 {
     qDebug() << "Close Camera";
-    system("/CloseCamera.sh");
+    system("v4l2-ctl --overlay=0");
 }
 
 void Dash::adjustDashBright(int command)
@@ -176,6 +178,11 @@ void Dash::adjustDashBright(int command)
 int Dash::getDashBright()
 {
     return this->bright;
+}
+
+QString Dash::getNews(int index)
+{
+    return NetworkInfo->getTitle(index);
 }
 
 int Dash::getMusicVolume()

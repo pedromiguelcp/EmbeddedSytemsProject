@@ -20,3 +20,5 @@ v4l2-ctl --overlay=1
 amixer set Master 10%+
 
 amixer -M set PCM 40%+
+
+v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600

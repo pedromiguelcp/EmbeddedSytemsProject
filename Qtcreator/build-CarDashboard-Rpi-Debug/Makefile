@@ -556,6 +556,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/images/settings.svg \
 		../CarDashboard/images/music-backward.svg \
 		../CarDashboard/images/music-file.svg \
+		../CarDashboard/images/sky-background.svg \
 		../CarDashboard/images/bright-plus.svg \
 		../CarDashboard/images/power-off.svg \
 		../CarDashboard/images/back.svg \

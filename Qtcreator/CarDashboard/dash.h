@@ -48,6 +48,9 @@ public:
     Q_INVOKABLE void adjustDashBright(int command);
     Q_INVOKABLE int getDashBright();
 
+     /*************************News**********************/
+    Q_INVOKABLE QString getNews(int index);
+
 
 private:
     DDriver *LedStrip;

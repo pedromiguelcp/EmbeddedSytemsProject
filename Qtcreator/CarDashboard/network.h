@@ -35,6 +35,8 @@ public:
     void requestWeather(); // Makes the http request to the API
     void requestNews(); // Makes the http request to the API
 
+    QString getTitle(int index) const;
+
 public slots:
     void refreshWeather(); // Parses the json response from the API
     void refreshNews(); // Parses the json response from the API
@@ -59,7 +61,7 @@ private:
     QString getIcon() const;
     QString getLocation() const;
 
-    QString getTitle(int index) const;
+
     QString getAuthor(int index) const;
     QString getContent(int index) const;
 };

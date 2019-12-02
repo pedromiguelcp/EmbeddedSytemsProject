@@ -38,66 +38,57 @@ Item {
         }
     }
 
-    Frame {
-        id: filesFrame
-        y: 100
-        width: 800
-        height: 285
-        leftPadding: 1
-        rightPadding: 1
+    //news ITEM
+    Rectangle{
+        x:0
+        y:76
+        width: 792
+        height: 404
+        //        anchors.top: timeDateBox.bottom
+        //        anchors.topMargin: 5
+        //        anchors.bottom: parent.bottom
+        //        anchors.left: parent.left
+        border.color: "black"
+        border.width: 1
 
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
-
-        ListView {
-            clip: true
-            visible: true
-            anchors.fill: parent
-            id:myListView
+        //titulo a dizer latest news
+        Text {
+            id: id_news
+            x: 10
             y: 0
-            width: 310
-            height: 228
+            text: qsTr("News:")
+            font.family: "Courier"
+            font.bold: true
+            lineHeight: 0.9
+            fontSizeMode: Text.Fit
+            font.pixelSize: 20
+            visible: window.bNewsVisibility
+        }
 
-            model: ListView {
-                id: listModel
+        Column {
+            x: 15
+            y: 30
+            width: 0
+            height: 27
+            visible: window.bNewsVisibility
+
+            spacing: 5
+            Repeater {
+                id: news_repeater
+                x: 0
+                model: [myclass.getNews(0),
+                    myclass.getNews(1),
+                    myclass.getNews(2),
+                    myclass.getNews(3),
+                    myclass.getNews(4)
+                ]
                 Text {
-                    id: name
-                    width: 86
-                    height: 69
-                    text: qsTr("text")
+                    x: -10
+                    font.pixelSize: 16
+                    text: modelData
                 }
-                /*folder: "file:" + myclass.getDeviceSongs()
-                nameFilters: ["*.mp3"]
-                showFiles: true
-                showDirs: false*/
-            }
 
-            delegate: ItemDelegate {
-                id: mydelegate
-                text: fileName
-                width: parent.width
-                property int indexOfThisDelegate: index
 
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        myListView.currentIndex = index
-                        myclass.selectSong(mydelegate.text)
-                        //  console.log(mydelegate.text)
-                    }
-                }
-            }
-
-            ScrollBar.vertical: ScrollBar {
-                parent: filesFrame
-                policy: ScrollBar.AlwaysOn
-                anchors.top: parent.top
-                anchors.topMargin: filesFrame.topPadding
-                anchors.right: parent.right
-                anchors.rightMargin: 1
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: filesFrame.bottomPadding
             }
         }
     }
