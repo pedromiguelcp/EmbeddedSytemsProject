@@ -19,21 +19,19 @@ Dash::Dash()
     signal(SIGUSR2, this->signalsHandler);
 
     MyDaemon = new Daemon ();
-    MyDaemon->initDaemons();
 
     MusicPlayer = new Music (MyDaemon->getmusicpid());
 
     LedStrip = new DDriver ();
-    LedStrip->setLedStripColor("0");
 
     STMUART = new UartSTM ();
 
     NetworkInfo = new Network ();
-    //NetworkInfo->requestWeather();
-    NetworkInfo->requestNews();
+
+    adjustDashBright(244);
+    controlMusicVolume(70);
 
     USBSignal = 1;
-    DashBright_prctg = 100;
 }
 
 void Dash::setColor(QString id_color)
@@ -95,7 +93,6 @@ void *Dash::USBMonitorThread(void *usbaux)
             Devicepath.clear();
             USBSignal = 1;
             //signal(SIGUSR2, signalsHandler);
-
         }
         //pthread_yield();
     }
@@ -166,23 +163,28 @@ void Dash::closeCamera()
     system("/CloseCamera.sh");
 }
 
-void Dash::adjustDashBright(QString command)
+void Dash::adjustDashBright(int command)
 {
-    if(command == "+" && DashBright_prctg != 100)
-    {
-        DashBright_prctg += 10;
-    }
-    else if (command == "-" && DashBright_prctg != 0)
-    {
-        DashBright_prctg -= 10;
-    }
-    else
-        return ;
+    this->bright = command;
+
     std::string adjust = "echo ";
-    adjust += std::to_string(DashBright_prctg * 255 / 100);
+    adjust += std::to_string(command);
     adjust += " > /sys/class/backlight/rpi_backlight/brightness";
     system(adjust.c_str());
 }
 
+int Dash::getDashBright()
+{
+    return this->bright;
+}
 
+int Dash::getMusicVolume()
+{
+    return MusicPlayer->getMusicVolume();
+}
+
+void Dash::controlMusicVolume(int volume)
+{
+    MusicPlayer->changeMusicVolume(volume);
+}
 

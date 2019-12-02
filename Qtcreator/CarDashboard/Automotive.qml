@@ -450,8 +450,10 @@ ApplicationWindow {
                     }
 
                     Slider {
-                        value: 0.35
+                        from:1
+                        value: 50
                         Layout.fillWidth: true
+                        to:100
                     }
 
                     // QTBUG-63269

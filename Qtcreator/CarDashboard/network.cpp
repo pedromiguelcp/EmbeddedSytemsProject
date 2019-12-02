@@ -4,6 +4,8 @@ Network::Network()
 {
     //connect(&networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshWeather()));
     connect(&networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshNews()));
+    //requestWeather();
+    requestNews();
 }
 
 

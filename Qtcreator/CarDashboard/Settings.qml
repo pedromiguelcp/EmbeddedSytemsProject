@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.4
 
 Item {
     width: 800
@@ -47,8 +48,19 @@ Item {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 28
     }
+    Slider {
+        x:90
+        y:180
+        from:1
+        value: myclass.getDashBright()
+        to:255
+        stepSize: 1.0
+        onMoved: {
+            myclass.adjustDashBright(value)
+        }
+    }
 
-    Image {
+/*    Image {
         id: id_decrease_Bright
         x: 105
         y: 190
@@ -82,6 +94,6 @@ Item {
                 myclass.adjustDashBright("+")
             }
         }
-    }
+    }*/
 
 }

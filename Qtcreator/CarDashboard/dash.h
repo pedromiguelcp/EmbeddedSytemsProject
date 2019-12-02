@@ -37,13 +37,16 @@ public:
     Q_INVOKABLE QString currentSong();
     Q_INVOKABLE void pauseSong();
     Q_INVOKABLE void resumeSong();
+    Q_INVOKABLE void controlMusicVolume(int volume);
+    Q_INVOKABLE int getMusicVolume();
 
     /*************************Camera**********************/
     Q_INVOKABLE void openCamera();
     Q_INVOKABLE void closeCamera();
 
     /*************************Touchscreen**********************/
-    Q_INVOKABLE void adjustDashBright(QString command);
+    Q_INVOKABLE void adjustDashBright(int command);
+    Q_INVOKABLE int getDashBright();
 
 
 private:
@@ -52,6 +55,8 @@ private:
     Daemon *MyDaemon;
     UartSTM *STMUART;
     Network *NetworkInfo;
+
+    int bright;
 
     static void *USBMonitorThread(void *);
     static void signalsHandler(int sig);
@@ -62,7 +67,6 @@ private:
     pthread_attr_t USBMonitor_attr;
     sched_param USBMonitor_param;
     pthread_mutex_t USBMonitor_mutex;
-    int DashBright_prctg;
 };
 
 #endif // DASH_H

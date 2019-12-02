@@ -72,3 +72,18 @@ void Music::resumeCurrentSong()
 {
     kill(this->musicDaemonPID, SIGCONT);
 }
+
+void Music::changeMusicVolume(int volume)
+{
+    this->musicVolume = volume;
+
+    std::string control = "amixer -M set PCM ";
+    control += std::to_string(volume);
+    control += "%";
+    system(control.c_str());
+}
+
+int Music::getMusicVolume()
+{
+    return this->musicVolume;
+}

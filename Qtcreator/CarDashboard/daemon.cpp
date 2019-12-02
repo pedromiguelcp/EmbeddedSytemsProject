@@ -9,7 +9,7 @@
 
 Daemon::Daemon(): USBDaemonPid(0), MusicDaemonPid(0), DashDaemonPid(0)
 {
-
+    initDaemons();
 }
 
 pid_t Daemon::getmusicpid()

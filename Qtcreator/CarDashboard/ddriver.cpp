@@ -4,6 +4,7 @@
 DDriver::DDriver()
 {
     this->ddriver.setFileName("/dev/LedStrips");
+    setLedStripColor("0");
 }
 
 void DDriver::setLedStripColor(QString colorNumber)

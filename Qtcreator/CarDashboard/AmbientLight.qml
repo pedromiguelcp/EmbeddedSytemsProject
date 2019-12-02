@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.3
 
 Item {
     width: 800
@@ -33,6 +34,14 @@ Item {
                 stack.pop()
             }
         }
+    }
+    SwitchDelegate {
+        text: qsTr("AC")
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+
     }
 
     Image {

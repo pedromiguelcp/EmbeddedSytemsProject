@@ -25,10 +25,15 @@ public:
 
     void resumeCurrentSong();
 
+    void changeMusicVolume(int volume);
+
+    int getMusicVolume();
+
 private:
     QDir usbpath;
     QString currentsong;
     pid_t musicDaemonPID;
+    int musicVolume;
 };
 
 #endif // MUSIC_H

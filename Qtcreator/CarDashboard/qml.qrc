@@ -33,5 +33,6 @@
         <file>images/menu-options.svg</file>
         <file>images/power-off.svg</file>
         <file>images/bright-plus.svg</file>
+        <file>images/sky-background.svg</file>
     </qresource>
 </RCC>

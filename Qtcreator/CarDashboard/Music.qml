@@ -112,7 +112,17 @@ Item {
             }
          }
     }
-
+    Slider {
+        x:590
+        y:410
+        from:1
+        value: myclass.getMusicVolume()
+        to:100
+        stepSize: 1.0
+        onMoved: {
+            myclass.controlMusicVolume(value)
+        }
+    }
 
     Frame {
         id: filesFrame

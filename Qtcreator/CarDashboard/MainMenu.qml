@@ -14,7 +14,7 @@ Item {
 
             Image
             {
-              source: "qrc:/images/BackGround.png"
+              source: "images/sky-background.svg"
             }
     //shut down image
     Image {
