@@ -1,2 +1,6 @@
 My new Synchronizanion initialized
+<<<<<<< HEAD
 Done
+=======
+Monday synchronization
+>>>>>>> master

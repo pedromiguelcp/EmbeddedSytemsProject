@@ -22,3 +22,12 @@ amixer set Master 10%+
 amixer -M set PCM 40%+
 
 v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600
+
+fuser /dev/video0
+modprobe brcmfmac
+rfkill unblock wifi
+wpa_supplicant -c /etc/wpa_supplicant.conf -i wlan0 -B
+scp ./msmtprc  root@10.42.0.179:/etc 
+wpa_passphrase MATE20 pedro | tee /etc/wpa_supplicant.conf
+echo "Subject: Security Warning \r\n\r\n Someone is at your doorstep!!" | msmtp --from=default -t me.pedropereira@gmail.com
+
