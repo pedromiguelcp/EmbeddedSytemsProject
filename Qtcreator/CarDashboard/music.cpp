@@ -11,6 +11,7 @@
 Music::Music(pid_t musicDaemonPID){
     usbpath.setPath("/media1/");
     this->musicDaemonPID = musicDaemonPID;
+    changeMusicVolume(70);
 }
 
 void Music::setNewstorageDevie(QString newDevice)

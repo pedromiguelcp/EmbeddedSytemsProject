@@ -46,11 +46,13 @@ public slots:
 signals:
     void readyweather(weather_t weatherValues); // Debug purposes
     void readynews(news_t newsValues[]); // Debug purposes
+    //void readynews(); // Debug purposes
 
 private:
     weather_t weather;
     news_t news[5];
-    QNetworkAccessManager networkManager;
+    QNetworkAccessManager news_networkManager;
+    QNetworkAccessManager weather_networkManager;
     QNetworkReply* currentReplyWeather;
     QNetworkReply* currentReplyNews;
 

@@ -25,7 +25,8 @@ void Daemon::initDaemons()
 
     this->writeDashPid();
 
-    kill(this->USBDaemonPid,SIGUSR2);
+    if(this->USBDaemonPid > 0)
+        kill(this->USBDaemonPid,SIGUSR2);
 }
 
 void Daemon::readUSBDaemonPid()

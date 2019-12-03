@@ -13,9 +13,6 @@ class Dash : public QObject
 {
     Q_OBJECT
 
-/*private slots:
-    void readSerialUART();*/
-
 public:
     Dash();
 
@@ -51,6 +48,12 @@ public:
      /*************************News**********************/
     Q_INVOKABLE QString getNews(int index);
 
+signals:
+    void askfornews();
+    void askforweather();
+    void askforbrightness();
+    void askfortemperature();
+    void timersignal();
 
 private:
     DDriver *LedStrip;
@@ -62,14 +65,24 @@ private:
     int bright;
 
     static void *USBMonitorThread(void *);
+    static void *NetworkInfoThread(void *);
+    static void *DashBrightThread(void *);
+    static void *TemperatueThread(void *);
+    static void *TimerThread(void *);
     static void signalsHandler(int sig);
+    static void doWork(int signo);
+
+
     QString getUSBDaemonData();
     void setNewDevice(QString Devicepath);
 
-    pthread_t USBMonitor_thread;
-    pthread_attr_t USBMonitor_attr;
-    sched_param USBMonitor_param;
-    pthread_mutex_t USBMonitor_mutex;
+    pthread_t USBMonitor_thread, NetworkInfo_thread, DashBright_thread, Temperatue_thread, Timer_thread;
+    pthread_attr_t USBMonitor_attr, NetworkInfo_attr, DashBright_attr, Temperatue_attr, Timer_attr;
+    sched_param USBMonitor_param, NetworkInfo_param, DashBright_param, Temperatue_param, Timer_param;
+    pthread_mutex_t USBMonitor_mutex, NetworkInfo_mutex, DashBright_mutex, Temperatue_mutex, Timer_mutex;
+
+    pthread_mutex_t condition_mutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_cond_t condition_cond = PTHREAD_COND_INITIALIZER;
 };
 
 #endif // DASH_H

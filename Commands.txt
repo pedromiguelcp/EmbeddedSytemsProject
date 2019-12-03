@@ -31,3 +31,5 @@ scp ./msmtprc  root@10.42.0.179:/etc
 wpa_passphrase MATE20 pedro | tee /etc/wpa_supplicant.conf
 echo "Subject: Security Warning \r\n\r\n Someone is at your doorstep!!" | msmtp --from=default -t me.pedropereira@gmail.com
 
+sudo arp-scan 192.168.1.0/24
+

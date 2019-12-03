@@ -13,6 +13,9 @@ public:
     Q_INVOKABLE  void sendCommandSTM(QString command);
     QSerialPort *serial;
 
+    void requestBrightness();
+    void requestTemperature();
+
 private slots:
     void readSerial();
 

@@ -50,12 +50,12 @@ UartSTM::UartSTM()
 
 void UartSTM::sendCommandSTM(QString command)
 {
+    qDebug() << "Command for STM: " << command;
     if (serial->isOpen())
         serial->close();
     serial->open(QIODevice::ReadWrite);
     serial->write(command.toUtf8());
 }
-
 
 void UartSTM::readSerial()
 {
@@ -75,3 +75,14 @@ void UartSTM::readSerial()
         serialBuffer.clear();
     }
 }
+
+void UartSTM::requestBrightness()
+{
+    sendCommandSTM("Bright");
+}
+
+void UartSTM::requestTemperature()
+{
+    sendCommandSTM("Temperatue");
+}
+

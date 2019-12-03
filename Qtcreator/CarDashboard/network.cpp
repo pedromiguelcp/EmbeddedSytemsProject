@@ -2,10 +2,8 @@
 
 Network::Network()
 {
-    //connect(&networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshWeather()));
-    connect(&networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshNews()));
-    //requestWeather();
-    requestNews();
+    connect(&weather_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshWeather()));
+    connect(&news_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshNews()));
 }
 
 
@@ -15,7 +13,7 @@ void Network::requestWeather()
     QUrl url("http://api.openweathermap.org/data/2.5/weather?id=2738752&APPID=f1d822f5687e5b77896e45a48ed02ef1");
     QNetworkRequest request;
     request.setUrl(url);
-    currentReplyWeather = networkManager.get(request);
+    currentReplyWeather = weather_networkManager.get(request);
 }
 
 void Network::requestNews()
@@ -23,7 +21,7 @@ void Network::requestNews()
     QUrl url("http://webhose.io/filterWebContent?token=ebb54250-6b79-4a85-ba03-5a5a9f9719a3&format=json&ts=1548848178768&sort=social.facebook.likes&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
     QNetworkRequest request;
     request.setUrl(url);
-    currentReplyNews = networkManager.get(request);
+    currentReplyNews = news_networkManager.get(request);
 }
 
 
@@ -61,7 +59,8 @@ void Network::refreshWeather()
     weather.location = rootObject["name"].toString();
     weather.icon = weatherArray[0].toObject()["icon"].toString();
 
-    emit readyweather(weather); // Debug purposes
+    //printweather();
+    //emit readyweather(weather); // Debug purposes
 }
 
 void Network::refreshNews()
@@ -96,8 +95,8 @@ void Network::refreshNews()
         news[i].content = newsArray[i].toObject()["text"].toString();
     }
 
-
-    emit readynews(news); // Debug purposes
+    //printnews();
+    //emit readynews(news); // Debug purposes
 }
 
 

@@ -44,25 +44,17 @@ Item {
         y:76
         width: 792
         height: 404
-        //        anchors.top: timeDateBox.bottom
-        //        anchors.topMargin: 5
-        //        anchors.bottom: parent.bottom
-        //        anchors.left: parent.left
         border.color: "black"
         border.width: 1
 
-        //titulo a dizer latest news
         Text {
             id: id_news
             x: 10
             y: 0
-            text: qsTr("News:")
-            font.family: "Courier"
-            font.bold: true
-            lineHeight: 0.9
-            fontSizeMode: Text.Fit
+            text: qsTr("News:\n\n")
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideLeft
             font.pixelSize: 20
-            visible: window.bNewsVisibility
         }
 
         Column {
@@ -70,8 +62,6 @@ Item {
             y: 30
             width: 0
             height: 27
-            visible: window.bNewsVisibility
-
             spacing: 5
             Repeater {
                 id: news_repeater
