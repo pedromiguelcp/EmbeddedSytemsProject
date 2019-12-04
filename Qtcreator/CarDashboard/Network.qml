@@ -77,8 +77,6 @@ Item {
                     font.pixelSize: 16
                     text: modelData
                 }
-
-
             }
         }
     }

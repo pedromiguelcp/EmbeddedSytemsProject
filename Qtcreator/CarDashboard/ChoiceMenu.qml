@@ -31,6 +31,7 @@ Item {
             anchors.fill: parent
             onClicked: {
                 stack.pop()
+                stack.push(main_menu)
             }
         }
     }

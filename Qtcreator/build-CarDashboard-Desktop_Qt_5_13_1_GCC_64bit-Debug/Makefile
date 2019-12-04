@@ -746,10 +746,12 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/main.qml \
 		../CarDashboard/images/camera.svg \
 		../CarDashboard/images/light-blue.svg \
+		../CarDashboard/images/music.svg \
 		../CarDashboard/images/music-play.svg \
 		../CarDashboard/images/menu-options.svg \
 		../CarDashboard/images/internet.svg \
 		../CarDashboard/images/light-magenta.svg \
+		../CarDashboard/images/weather.svg \
 		../CarDashboard/images/settings.svg \
 		../CarDashboard/images/music-backward.svg \
 		../CarDashboard/images/music-file.svg \
@@ -758,8 +760,10 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/images/power-off.svg \
 		../CarDashboard/images/back.svg \
 		../CarDashboard/images/music-forward.svg \
+		../CarDashboard/images/calendar.svg \
 		../CarDashboard/images/car.svg \
 		../CarDashboard/images/light-aqua.svg \
+		../CarDashboard/images/watch.svg \
 		../CarDashboard/images/bright-minus.svg \
 		../CarDashboard/images/light-off.svg \
 		../CarDashboard/images/light-red.svg \

@@ -60,40 +60,15 @@ Item {
         }
     }
 
-/*    Image {
-        id: id_decrease_Bright
-        x: 105
-        y: 190
-        width: 70
-        height: 70
-        visible: true
-        fillMode: Image.PreserveAspectFit
-        source: "images/bright-minus.svg"
-        MouseArea {
-            id: id_decrease_mousearea
-            anchors.fill: parent
-            onClicked: {
-                myclass.adjustDashBright("-")
-            }
-        }
-    }
+    Slider{
+            id:sl
+            x:342
+            y:180
+            from:1
+            to:255
+            stepSize: 1.0
 
-    Image {
-        id: id_inscrease_Bright
-        x: 215
-        y: 190
-        width: 70
-        height: 70
-        visible: true
-        fillMode: Image.PreserveAspectFit
-        source: "images/bright-plus.svg"
-        MouseArea {
-            id: id_inscrease_mousearea
-            anchors.fill: parent
-            onClicked: {
-                myclass.adjustDashBright("+")
-            }
+            value: myclass.val
         }
-    }*/
 
 }

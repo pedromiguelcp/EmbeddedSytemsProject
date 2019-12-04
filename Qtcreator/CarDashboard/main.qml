@@ -13,6 +13,40 @@ Window {
     FontLoader { id: webFont; source: "qrc:/OpenSans-Bold.ttf" }
 
 
+    title: "Car Dashboard"
+    property bool bNewsVisibility:      true
+    property bool bWeatherVisibility:   true
+    property bool bTimeVisibility:      true
+    property bool bTempVisibility:      true
+    property int  iCityID:              2742032 //valor por defeito da cidade
+
+
+    property var date:          new Date();
+    property int currentDay:    date.getDate()
+    property int currentMonth:  date.getMonth()
+    property int currentYear:   date.getFullYear()
+    property int week:          date.getDay()
+
+
+
+    Timer{
+        id:timer_for_clock
+        interval: 1000
+        running: true
+        repeat: true
+
+        onTriggered: {
+            window.date = new Date()
+            currentDay: window.date.getDate()
+            currentMonth: window.date.getMonth()
+            currentYear: window.date.getFullYear()
+            week: window.date.getDay()
+        }
+    }
+
+
+
+
     StackView {
         id: stack
         initialItem: main_menu

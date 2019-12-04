@@ -31,7 +31,7 @@ void Music::setnewSong(QString song)
 
     usleep(100);
 
-    this->currentsong = musicPath;
+    this->currentsong = song;
 
     qDebug() << this->currentsong;
 
@@ -46,7 +46,7 @@ void Music::setnewSong(QString song)
 
     //Write to the shared memory the process ID
 
-    strcpy(str, currentsong.toStdString().c_str());
+    strcpy(str, musicPath.toStdString().c_str());
 
     //detach from shared memory
     shmdt(str);
@@ -61,7 +61,7 @@ QString Music::getSongs()
 
 QString Music::getcurrentSong()
 {
-    return this->currentsong;
+    return this->currentsong.replace(".mp3","");
 }
 
 void Music::pauseCurrentSong()

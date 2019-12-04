@@ -14,6 +14,7 @@ void Network::requestWeather()
     QNetworkRequest request;
     request.setUrl(url);
     currentReplyWeather = weather_networkManager.get(request);
+    qDebug() << "Weather requested!";
 }
 
 void Network::requestNews()
@@ -22,6 +23,7 @@ void Network::requestNews()
     QNetworkRequest request;
     request.setUrl(url);
     currentReplyNews = news_networkManager.get(request);
+    qDebug() << "News requested!";
 }
 
 
@@ -51,13 +53,15 @@ void Network::refreshWeather()
     /* Parses the json and fills the weather variable */
     QJsonObject rootObject = loadDoc.object();
     QJsonObject mainObject = rootObject["main"].toObject();
+    QJsonObject locationObject = rootObject["sys"].toObject();
     QJsonArray weatherArray = rootObject["weather"].toArray();
 
     weather.temperature = static_cast<int> (mainObject["temp"].toDouble()) - 273;
     weather.max_temp = static_cast<int> (mainObject["temp_max"].toDouble()) - 273;
     weather.min_temp = static_cast<int> (mainObject["temp_min"].toDouble()) - 273;
     weather.location = rootObject["name"].toString();
-    weather.icon = weatherArray[0].toObject()["icon"].toString();
+    //weather.city = weatherArray[0].toObject()["icon"].toString();
+    weather.country = locationObject["country"].toString();
 
     //printweather();
     //emit readyweather(weather); // Debug purposes
@@ -122,7 +126,7 @@ void Network::printweather()
     qDebug() << "Min:" << getMinTemperature();
     qDebug() << "Max:" << getMaxTemperature();
     qDebug() << "Location:" << getLocation();
-    qDebug() << "Icon:" << getIcon() << "\n\n";
+    qDebug() << "Country:" << getCountry() << "\n\n";
 }
 
 void Network::printnews()
@@ -152,9 +156,9 @@ int Network::getMinTemperature() const
     return this->weather.min_temp;
 }
 
-QString Network::getIcon() const
+QString Network::getCountry() const
 {
-    return this->weather.icon;
+    return this->weather.country;
 }
 
 QString Network::getLocation() const

@@ -11,7 +11,7 @@
 struct weather_t {
     int max_temp;
     int min_temp;
-    QString icon;
+    QString country;
     QString location;
     int temperature;
 };
@@ -36,6 +36,9 @@ public:
     void requestNews(); // Makes the http request to the API
 
     QString getTitle(int index) const;
+    QString getLocation() const;
+    QString getCountry() const;
+    int getTemperature() const;
 
 public slots:
     void refreshWeather(); // Parses the json response from the API
@@ -56,13 +59,8 @@ private:
     QNetworkReply* currentReplyWeather;
     QNetworkReply* currentReplyNews;
 
-    /* Debug purposes */
-    int getTemperature() const;
     int getMaxTemperature() const;
     int getMinTemperature() const;
-    QString getIcon() const;
-    QString getLocation() const;
-
 
     QString getAuthor(int index) const;
     QString getContent(int index) const;

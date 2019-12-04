@@ -34,5 +34,9 @@
         <file>images/power-off.svg</file>
         <file>images/bright-plus.svg</file>
         <file>images/sky-background.svg</file>
+        <file>images/watch.svg</file>
+        <file>images/calendar.svg</file>
+        <file>images/weather.svg</file>
+        <file>images/music.svg</file>
     </qresource>
 </RCC>
