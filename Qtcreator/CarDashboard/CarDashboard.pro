@@ -20,8 +20,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         daemon.cpp \
+        daemonsinterface.cpp \
         dash.cpp \
         ddriver.cpp \
+        ledstripinterface.cpp \
         main.cpp \
         music.cpp \
         network.cpp \
@@ -40,8 +42,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     daemon.h \
+    daemonsinterface.h \
     dash.h \
     ddriver.h \
+    ledstripinterface.h \
     music.h \
     network.h \
     uartstm.h

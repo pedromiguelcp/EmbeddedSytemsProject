@@ -2,7 +2,7 @@
 #define DASH_H
 #include "ddriver.h"
 #include "uartstm.h"
-#include "daemon.h"
+#include "daemonsinterface.h"
 #include "music.h"
 #include "network.h"
 #include <QObject>
@@ -12,21 +12,26 @@
 #define TIMERSAMPLE 1//timer trigger in TIMERSAMPLE sec
 #define TEMPERATURESAMPLE 10//SAMPLE INTERVALS IN TEMPERATURESAMPLE x TIMERSAMPLE sec
 #define BRIGHTNESSSAMPLE 8
-#define NETWORKSAMPLE 15
-#define CARINFOSAMPLE 2
+#define NETWORKSAMPLE 90
+#define CARINFOSAMPLE 1
+
 
 class Dash : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int val READ val WRITE setVal NOTIFY valChanged)
+    Q_PROPERTY(int distancetoobjects READ distancetoobjects NOTIFY refresh_distancetoobjects)
+    Q_PROPERTY(int car_speed READ car_speed NOTIFY refresh_speed)
+    Q_PROPERTY(int car_rpm READ car_rpm NOTIFY refresh_rpm)
+    Q_PROPERTY(int car_enginetemp READ car_enginetemp NOTIFY refresh_enginetemp)
+    Q_PROPERTY(int car_temp READ car_temp NOTIFY refresh_cartemp)
+    Q_PROPERTY(int car_bright READ car_bright NOTIFY refresh_carbright)
 
 public:
     Dash();
 
     void SetPthreads();
     void JoinPthreads();
-
     void SetMutexes();
     void DestroyMutexes();
 
@@ -44,6 +49,8 @@ public:
     Q_INVOKABLE void resumeSong();
     Q_INVOKABLE void controlMusicVolume(int volume);
     Q_INVOKABLE int getMusicVolume();
+    Q_INVOKABLE void nextSong(){MusicPlayer->nextSong();}
+    Q_INVOKABLE void previousSong(){MusicPlayer->previousSong();}
 
     /*************************Camera**********************/
     Q_INVOKABLE void openCamera();
@@ -55,38 +62,37 @@ public:
 
      /*************************News**********************/
     Q_INVOKABLE QString getNews(int index);
-    Q_INVOKABLE QString getWeatherCity();
-    Q_INVOKABLE QString getWeatherCountry();
-    Q_INVOKABLE int getWeatherTemperature();
+    Q_INVOKABLE QString getWeather(int parameter);
 
-    int val() const;
-    void setVal(const int &v);
+    int distancetoobjects() const{ return STMUART->distancetoobjects();}
+    int car_speed() const{ return STMUART->speed();}
+    int car_rpm() const{ return STMUART->rpm();}
+    int car_enginetemp() const{ return STMUART->enginetemperature();}
+    int car_temp() const{ return STMUART->cartemperatue();}
+    int car_bright() const{ return STMUART->brightness();}
 
 signals:
-    void askfornews();
-    void askforweather();
+    void askfornetworkinfo();
     void askforbrightness();
     void askfortemperature();
-    void askforcarinfo();
     void timersignal();
-    void valChanged(int);
+    void refresh_distancetoobjects();
+    void refresh_speed();
+    void refresh_rpm();
+    void refresh_enginetemp();
+    void refresh_cartemp();
+    void refresh_carbright();
 
 private:
-
-
     DDriver *LedStrip;
     Music *MusicPlayer;
-    Daemon *MyDaemon;
+    DaemonsInterface *MyDaemon;
     UartSTM *STMUART;
     Network *NetworkInfo;
 
     int bright;
-    int temperature_count;
 
     static void *USBMonitorThread(void *);
-    static void *NetworkInfoThread(void *);
-    static void *DashBrightThread(void *);
-    static void *TemperatueThread(void *);
     static void *TimerThread(void *);
     static void *CarInfoThread(void *);
     static void signalsHandler(int sig);
@@ -95,15 +101,15 @@ private:
 
     QString getUSBDaemonData();
     void setNewDevice(QString Devicepath);
-    void initTimer();
+    void initProgram();
 
-    pthread_t USBMonitor_thread, NetworkInfo_thread, DashBright_thread, Temperatue_thread, Timer_thread, CarInfo_thread;
-    pthread_attr_t USBMonitor_attr, NetworkInfo_attr, DashBright_attr, Temperatue_attr, Timer_attr, CarInfo_attr;
-    sched_param USBMonitor_param, NetworkInfo_param, DashBright_param, Temperatue_param, Timer_param, CarInfo_param;
-    pthread_mutex_t USBMonitor_mutex, NetworkInfo_mutex, DashBright_mutex, Temperatue_mutex, Timer_mutex, CarInfo_mutex;
+    pthread_t USBMonitor_thread, Timer_thread, CarInfo_thread;
+    pthread_attr_t USBMonitor_attr, Timer_attr, CarInfo_attr;
+    sched_param USBMonitor_param, Timer_param, CarInfo_param;
+    pthread_mutex_t USBMonitor_mutex, Timer_mutex, CarInfo_mutex;
 
-    pthread_mutex_t temperature_condition_mutex = PTHREAD_MUTEX_INITIALIZER, bright_condition_mutex = PTHREAD_MUTEX_INITIALIZER, networkinfo_condition_mutex = PTHREAD_MUTEX_INITIALIZER, carinfo_condition_mutex = PTHREAD_MUTEX_INITIALIZER;
-    pthread_cond_t temperature_condition_cond = PTHREAD_COND_INITIALIZER, bright_condition_cond = PTHREAD_COND_INITIALIZER, networkinfo_condition_cond = PTHREAD_COND_INITIALIZER, carinfo_condition_cond = PTHREAD_COND_INITIALIZER;
+    pthread_mutex_t carinfo_condition_mutex = PTHREAD_MUTEX_INITIALIZER;
+    pthread_cond_t carinfo_condition_cond = PTHREAD_COND_INITIALIZER;
 };
 
 #endif // DASH_H

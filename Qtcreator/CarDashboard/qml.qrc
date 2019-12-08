@@ -6,11 +6,9 @@
         <file>OpenSans-Bold.ttf</file>
         <file>ChoiceMenu.qml</file>
         <file>Music.qml</file>
-        <file>automotive.qml</file>
         <file>Automotive.qml</file>
         <file>Camera.qml</file>
         <file>component/SampleButton.qml</file>
-        <file>USBPopUp.qml</file>
         <file>Settings.qml</file>
         <file>Network.qml</file>
         <file>images/music-file.svg</file>
@@ -38,5 +36,7 @@
         <file>images/calendar.svg</file>
         <file>images/weather.svg</file>
         <file>images/music.svg</file>
+        <file>CarInfo.qml</file>
+        <file>images/carinfo.svg</file>
     </qresource>
 </RCC>

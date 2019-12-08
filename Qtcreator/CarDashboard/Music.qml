@@ -2,9 +2,23 @@ import QtQuick 2.0
 import QtQuick.Controls 2.4
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Layouts 1.3
-
+import QtQuick.Window 2.0
 Item {
     width: 800
+    height: 500
+
+    Rectangle {
+        width: 800; height: 500
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "purple" }
+            GradientStop { position: 1.0; color: "blue" }
+        }
+    }
+    Component.onCompleted: {
+        x = Screen.width / 1 - width / 8
+        y = Screen.height / 1 - height / 8
+    }
+
 
     //Music Menu
     Text {
@@ -59,13 +73,9 @@ Item {
             source: "images/music-play.svg"
             MouseArea {
                 id: id_musicplay_mousearea
-                anchors.rightMargin: 70
-                anchors.bottomMargin: -190
-                anchors.leftMargin: -70
-                anchors.topMargin: 190
                 anchors.fill: parent
                 onClicked: {
-                    myclass.resumeSong()
+                    myclass.pauseSong()
                 }
             }
         }
@@ -80,13 +90,10 @@ Item {
             source: "images/music-forward.svg"
             MouseArea {
                 id: id_musicnext_mousearea
-                anchors.rightMargin: -150
-                anchors.bottomMargin: 0
-                anchors.leftMargin: 160
-                anchors.topMargin: 18
                 anchors.fill: parent
                 onClicked: {
-                    myclass.pauseSong()
+                    //myclass.selectSong(folderModel.get(2,"/media1"))
+                    myclass.nextSong()
                 }
             }
          }
@@ -101,17 +108,14 @@ Item {
             source: "images/music-backward.svg"
             MouseArea {
                 id: id_musicback_mousearea
-                anchors.rightMargin: -150
-                anchors.bottomMargin: 0
-                anchors.leftMargin: 160
-                anchors.topMargin: 18
                 anchors.fill: parent
                 onClicked: {
-                    myclass.pauseSong()
+                    myclass.previousSong()
                 }
             }
          }
     }
+
     Slider {
         x:590
         y:410

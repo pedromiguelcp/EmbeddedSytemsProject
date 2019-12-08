@@ -12,6 +12,7 @@ Music::Music(pid_t musicDaemonPID){
     usbpath.setPath("/media1/");
     this->musicDaemonPID = musicDaemonPID;
     changeMusicVolume(70);
+    musicindex=0;
 }
 
 void Music::setNewstorageDevie(QString newDevice)
@@ -52,10 +53,23 @@ void Music::setnewSong(QString song)
     shmdt(str);
 
     kill(this->musicDaemonPID, SIGUSR1);
+
+    musicindex = 0;
+    foreach(QString filename, musicslist) {
+        if(song == filename)
+            break;
+        else musicindex++;
+    }
+    qDebug() << "index:" << musicindex;
 }
 
 QString Music::getSongs()
 {
+    QDir directory("/media1");
+    musicslist.clear();
+    musicslist = directory.entryList(QStringList() << "*.mp3", QDir::Files);
+
+
     return usbpath.path();
 }
 
@@ -87,4 +101,22 @@ void Music::changeMusicVolume(int volume)
 int Music::getMusicVolume()
 {
     return this->musicVolume;
+}
+
+void Music::nextSong()
+{
+    if(musicindex == (musicslist.length() - 1))
+        musicindex = 0;
+    else musicindex ++;
+
+    setnewSong(musicslist.at(musicindex));
+}
+
+void Music::previousSong()
+{
+    if(musicindex == 0)
+        musicindex = 0;
+    else musicindex --;
+
+    setnewSong(musicslist.at(musicindex));
 }

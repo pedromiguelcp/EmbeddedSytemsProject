@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Dash_t {
-    QByteArrayData data[32];
-    char stringdata0[373];
+    QByteArrayData data[41];
+    char stringdata0[501];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,50 +33,62 @@ struct qt_meta_stringdata_Dash_t {
 static const qt_meta_stringdata_Dash_t qt_meta_stringdata_Dash = {
     {
 QT_MOC_LITERAL(0, 0, 4), // "Dash"
-QT_MOC_LITERAL(1, 5, 10), // "askfornews"
-QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 13), // "askforweather"
-QT_MOC_LITERAL(4, 31, 16), // "askforbrightness"
-QT_MOC_LITERAL(5, 48, 17), // "askfortemperature"
-QT_MOC_LITERAL(6, 66, 13), // "askforcarinfo"
-QT_MOC_LITERAL(7, 80, 11), // "timersignal"
-QT_MOC_LITERAL(8, 92, 10), // "valChanged"
-QT_MOC_LITERAL(9, 103, 11), // "sendCommand"
-QT_MOC_LITERAL(10, 115, 7), // "command"
-QT_MOC_LITERAL(11, 123, 8), // "setColor"
-QT_MOC_LITERAL(12, 132, 8), // "id_color"
-QT_MOC_LITERAL(13, 141, 14), // "getDeviceSongs"
-QT_MOC_LITERAL(14, 156, 10), // "selectSong"
-QT_MOC_LITERAL(15, 167, 4), // "song"
-QT_MOC_LITERAL(16, 172, 11), // "currentSong"
-QT_MOC_LITERAL(17, 184, 9), // "pauseSong"
-QT_MOC_LITERAL(18, 194, 10), // "resumeSong"
-QT_MOC_LITERAL(19, 205, 18), // "controlMusicVolume"
-QT_MOC_LITERAL(20, 224, 6), // "volume"
-QT_MOC_LITERAL(21, 231, 14), // "getMusicVolume"
-QT_MOC_LITERAL(22, 246, 10), // "openCamera"
-QT_MOC_LITERAL(23, 257, 11), // "closeCamera"
-QT_MOC_LITERAL(24, 269, 16), // "adjustDashBright"
-QT_MOC_LITERAL(25, 286, 13), // "getDashBright"
-QT_MOC_LITERAL(26, 300, 7), // "getNews"
-QT_MOC_LITERAL(27, 308, 5), // "index"
-QT_MOC_LITERAL(28, 314, 14), // "getWeatherCity"
-QT_MOC_LITERAL(29, 329, 17), // "getWeatherCountry"
-QT_MOC_LITERAL(30, 347, 21), // "getWeatherTemperature"
-QT_MOC_LITERAL(31, 369, 3) // "val"
+QT_MOC_LITERAL(1, 5, 17), // "askfornetworkinfo"
+QT_MOC_LITERAL(2, 23, 0), // ""
+QT_MOC_LITERAL(3, 24, 16), // "askforbrightness"
+QT_MOC_LITERAL(4, 41, 17), // "askfortemperature"
+QT_MOC_LITERAL(5, 59, 11), // "timersignal"
+QT_MOC_LITERAL(6, 71, 25), // "refresh_distancetoobjects"
+QT_MOC_LITERAL(7, 97, 13), // "refresh_speed"
+QT_MOC_LITERAL(8, 111, 11), // "refresh_rpm"
+QT_MOC_LITERAL(9, 123, 18), // "refresh_enginetemp"
+QT_MOC_LITERAL(10, 142, 15), // "refresh_cartemp"
+QT_MOC_LITERAL(11, 158, 17), // "refresh_carbright"
+QT_MOC_LITERAL(12, 176, 11), // "sendCommand"
+QT_MOC_LITERAL(13, 188, 7), // "command"
+QT_MOC_LITERAL(14, 196, 8), // "setColor"
+QT_MOC_LITERAL(15, 205, 8), // "id_color"
+QT_MOC_LITERAL(16, 214, 14), // "getDeviceSongs"
+QT_MOC_LITERAL(17, 229, 10), // "selectSong"
+QT_MOC_LITERAL(18, 240, 4), // "song"
+QT_MOC_LITERAL(19, 245, 11), // "currentSong"
+QT_MOC_LITERAL(20, 257, 9), // "pauseSong"
+QT_MOC_LITERAL(21, 267, 10), // "resumeSong"
+QT_MOC_LITERAL(22, 278, 18), // "controlMusicVolume"
+QT_MOC_LITERAL(23, 297, 6), // "volume"
+QT_MOC_LITERAL(24, 304, 14), // "getMusicVolume"
+QT_MOC_LITERAL(25, 319, 8), // "nextSong"
+QT_MOC_LITERAL(26, 328, 12), // "previousSong"
+QT_MOC_LITERAL(27, 341, 10), // "openCamera"
+QT_MOC_LITERAL(28, 352, 11), // "closeCamera"
+QT_MOC_LITERAL(29, 364, 16), // "adjustDashBright"
+QT_MOC_LITERAL(30, 381, 13), // "getDashBright"
+QT_MOC_LITERAL(31, 395, 7), // "getNews"
+QT_MOC_LITERAL(32, 403, 5), // "index"
+QT_MOC_LITERAL(33, 409, 10), // "getWeather"
+QT_MOC_LITERAL(34, 420, 9), // "parameter"
+QT_MOC_LITERAL(35, 430, 17), // "distancetoobjects"
+QT_MOC_LITERAL(36, 448, 9), // "car_speed"
+QT_MOC_LITERAL(37, 458, 7), // "car_rpm"
+QT_MOC_LITERAL(38, 466, 14), // "car_enginetemp"
+QT_MOC_LITERAL(39, 481, 8), // "car_temp"
+QT_MOC_LITERAL(40, 490, 10) // "car_bright"
 
     },
-    "Dash\0askfornews\0\0askforweather\0"
-    "askforbrightness\0askfortemperature\0"
-    "askforcarinfo\0timersignal\0valChanged\0"
+    "Dash\0askfornetworkinfo\0\0askforbrightness\0"
+    "askfortemperature\0timersignal\0"
+    "refresh_distancetoobjects\0refresh_speed\0"
+    "refresh_rpm\0refresh_enginetemp\0"
+    "refresh_cartemp\0refresh_carbright\0"
     "sendCommand\0command\0setColor\0id_color\0"
     "getDeviceSongs\0selectSong\0song\0"
     "currentSong\0pauseSong\0resumeSong\0"
     "controlMusicVolume\0volume\0getMusicVolume\0"
-    "openCamera\0closeCamera\0adjustDashBright\0"
-    "getDashBright\0getNews\0index\0getWeatherCity\0"
-    "getWeatherCountry\0getWeatherTemperature\0"
-    "val"
+    "nextSong\0previousSong\0openCamera\0"
+    "closeCamera\0adjustDashBright\0getDashBright\0"
+    "getNews\0index\0getWeather\0parameter\0"
+    "distancetoobjects\0car_speed\0car_rpm\0"
+    "car_enginetemp\0car_temp\0car_bright"
 };
 #undef QT_MOC_LITERAL
 
@@ -86,40 +98,43 @@ static const uint qt_meta_data_Dash[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      24,   14, // methods
-       1,  172, // properties
+      27,   14, // methods
+       6,  190, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  134,    2, 0x06 /* Public */,
-       3,    0,  135,    2, 0x06 /* Public */,
-       4,    0,  136,    2, 0x06 /* Public */,
-       5,    0,  137,    2, 0x06 /* Public */,
-       6,    0,  138,    2, 0x06 /* Public */,
-       7,    0,  139,    2, 0x06 /* Public */,
-       8,    1,  140,    2, 0x06 /* Public */,
+       1,    0,  149,    2, 0x06 /* Public */,
+       3,    0,  150,    2, 0x06 /* Public */,
+       4,    0,  151,    2, 0x06 /* Public */,
+       5,    0,  152,    2, 0x06 /* Public */,
+       6,    0,  153,    2, 0x06 /* Public */,
+       7,    0,  154,    2, 0x06 /* Public */,
+       8,    0,  155,    2, 0x06 /* Public */,
+       9,    0,  156,    2, 0x06 /* Public */,
+      10,    0,  157,    2, 0x06 /* Public */,
+      11,    0,  158,    2, 0x06 /* Public */,
 
  // methods: name, argc, parameters, tag, flags
-       9,    1,  143,    2, 0x02 /* Public */,
-      11,    1,  146,    2, 0x02 /* Public */,
-      13,    0,  149,    2, 0x02 /* Public */,
-      14,    1,  150,    2, 0x02 /* Public */,
-      16,    0,  153,    2, 0x02 /* Public */,
-      17,    0,  154,    2, 0x02 /* Public */,
-      18,    0,  155,    2, 0x02 /* Public */,
-      19,    1,  156,    2, 0x02 /* Public */,
-      21,    0,  159,    2, 0x02 /* Public */,
-      22,    0,  160,    2, 0x02 /* Public */,
-      23,    0,  161,    2, 0x02 /* Public */,
-      24,    1,  162,    2, 0x02 /* Public */,
-      25,    0,  165,    2, 0x02 /* Public */,
-      26,    1,  166,    2, 0x02 /* Public */,
-      28,    0,  169,    2, 0x02 /* Public */,
-      29,    0,  170,    2, 0x02 /* Public */,
-      30,    0,  171,    2, 0x02 /* Public */,
+      12,    1,  159,    2, 0x02 /* Public */,
+      14,    1,  162,    2, 0x02 /* Public */,
+      16,    0,  165,    2, 0x02 /* Public */,
+      17,    1,  166,    2, 0x02 /* Public */,
+      19,    0,  169,    2, 0x02 /* Public */,
+      20,    0,  170,    2, 0x02 /* Public */,
+      21,    0,  171,    2, 0x02 /* Public */,
+      22,    1,  172,    2, 0x02 /* Public */,
+      24,    0,  175,    2, 0x02 /* Public */,
+      25,    0,  176,    2, 0x02 /* Public */,
+      26,    0,  177,    2, 0x02 /* Public */,
+      27,    0,  178,    2, 0x02 /* Public */,
+      28,    0,  179,    2, 0x02 /* Public */,
+      29,    1,  180,    2, 0x02 /* Public */,
+      30,    0,  183,    2, 0x02 /* Public */,
+      31,    1,  184,    2, 0x02 /* Public */,
+      33,    1,  187,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -128,32 +143,45 @@ static const uint qt_meta_data_Dash[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString,   10,
-    QMetaType::Void, QMetaType::QString,   12,
-    QMetaType::QString,
+    QMetaType::Void, QMetaType::QString,   13,
     QMetaType::Void, QMetaType::QString,   15,
     QMetaType::QString,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   20,
-    QMetaType::Int,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   10,
-    QMetaType::Int,
-    QMetaType::QString, QMetaType::Int,   27,
+    QMetaType::Void, QMetaType::QString,   18,
     QMetaType::QString,
-    QMetaType::QString,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   23,
     QMetaType::Int,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Int,
+    QMetaType::QString, QMetaType::Int,   32,
+    QMetaType::QString, QMetaType::Int,   34,
 
  // properties: name, type, flags
-      31, QMetaType::Int, 0x00495103,
+      35, QMetaType::Int, 0x00495001,
+      36, QMetaType::Int, 0x00495001,
+      37, QMetaType::Int, 0x00495001,
+      38, QMetaType::Int, 0x00495001,
+      39, QMetaType::Int, 0x00495001,
+      40, QMetaType::Int, 0x00495001,
 
  // properties: notify_signal_id
+       4,
+       5,
        6,
+       7,
+       8,
+       9,
 
        0        // eod
 };
@@ -164,88 +192,110 @@ void Dash::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<Dash *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->askfornews(); break;
-        case 1: _t->askforweather(); break;
-        case 2: _t->askforbrightness(); break;
-        case 3: _t->askfortemperature(); break;
-        case 4: _t->askforcarinfo(); break;
-        case 5: _t->timersignal(); break;
-        case 6: _t->valChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 7: _t->sendCommand((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 8: _t->setColor((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 9: { QString _r = _t->getDeviceSongs();
+        case 0: _t->askfornetworkinfo(); break;
+        case 1: _t->askforbrightness(); break;
+        case 2: _t->askfortemperature(); break;
+        case 3: _t->timersignal(); break;
+        case 4: _t->refresh_distancetoobjects(); break;
+        case 5: _t->refresh_speed(); break;
+        case 6: _t->refresh_rpm(); break;
+        case 7: _t->refresh_enginetemp(); break;
+        case 8: _t->refresh_cartemp(); break;
+        case 9: _t->refresh_carbright(); break;
+        case 10: _t->sendCommand((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: _t->setColor((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 12: { QString _r = _t->getDeviceSongs();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 10: _t->selectSong((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 11: { QString _r = _t->currentSong();
+        case 13: _t->selectSong((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 14: { QString _r = _t->currentSong();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 12: _t->pauseSong(); break;
-        case 13: _t->resumeSong(); break;
-        case 14: _t->controlMusicVolume((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 15: { int _r = _t->getMusicVolume();
+        case 15: _t->pauseSong(); break;
+        case 16: _t->resumeSong(); break;
+        case 17: _t->controlMusicVolume((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 18: { int _r = _t->getMusicVolume();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 16: _t->openCamera(); break;
-        case 17: _t->closeCamera(); break;
-        case 18: _t->adjustDashBright((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: { int _r = _t->getDashBright();
+        case 19: _t->nextSong(); break;
+        case 20: _t->previousSong(); break;
+        case 21: _t->openCamera(); break;
+        case 22: _t->closeCamera(); break;
+        case 23: _t->adjustDashBright((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: { int _r = _t->getDashBright();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 20: { QString _r = _t->getNews((*reinterpret_cast< int(*)>(_a[1])));
+        case 25: { QString _r = _t->getNews((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 21: { QString _r = _t->getWeatherCity();
+        case 26: { QString _r = _t->getWeather((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 22: { QString _r = _t->getWeatherCountry();
-            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 23: { int _r = _t->getWeatherTemperature();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askfornews)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askfornetworkinfo)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askforweather)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askforbrightness)) {
                 *result = 1;
                 return;
             }
         }
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askforbrightness)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askfortemperature)) {
                 *result = 2;
                 return;
             }
         }
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askfortemperature)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::timersignal)) {
                 *result = 3;
                 return;
             }
         }
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::askforcarinfo)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_distancetoobjects)) {
                 *result = 4;
                 return;
             }
         }
         {
             using _t = void (Dash::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::timersignal)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_speed)) {
                 *result = 5;
                 return;
             }
         }
         {
-            using _t = void (Dash::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::valChanged)) {
+            using _t = void (Dash::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_rpm)) {
                 *result = 6;
+                return;
+            }
+        }
+        {
+            using _t = void (Dash::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_enginetemp)) {
+                *result = 7;
+                return;
+            }
+        }
+        {
+            using _t = void (Dash::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_cartemp)) {
+                *result = 8;
+                return;
+            }
+        }
+        {
+            using _t = void (Dash::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Dash::refresh_carbright)) {
+                *result = 9;
                 return;
             }
         }
@@ -256,17 +306,15 @@ void Dash::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         Q_UNUSED(_t)
         void *_v = _a[0];
         switch (_id) {
-        case 0: *reinterpret_cast< int*>(_v) = _t->val(); break;
+        case 0: *reinterpret_cast< int*>(_v) = _t->distancetoobjects(); break;
+        case 1: *reinterpret_cast< int*>(_v) = _t->car_speed(); break;
+        case 2: *reinterpret_cast< int*>(_v) = _t->car_rpm(); break;
+        case 3: *reinterpret_cast< int*>(_v) = _t->car_enginetemp(); break;
+        case 4: *reinterpret_cast< int*>(_v) = _t->car_temp(); break;
+        case 5: *reinterpret_cast< int*>(_v) = _t->car_bright(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
-        auto *_t = static_cast<Dash *>(_o);
-        Q_UNUSED(_t)
-        void *_v = _a[0];
-        switch (_id) {
-        case 0: _t->setVal(*reinterpret_cast< int*>(_v)); break;
-        default: break;
-        }
     } else if (_c == QMetaObject::ResetProperty) {
     }
 #endif // QT_NO_PROPERTIES
@@ -301,75 +349,92 @@ int Dash::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 24)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 27;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 24)
+        if (_id < 27)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 24;
+        _id -= 27;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 1;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 1;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 1;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 1;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 1;
+        _id -= 6;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
 }
 
 // SIGNAL 0
-void Dash::askfornews()
+void Dash::askfornetworkinfo()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
-void Dash::askforweather()
+void Dash::askforbrightness()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
-void Dash::askforbrightness()
+void Dash::askfortemperature()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 
 // SIGNAL 3
-void Dash::askfortemperature()
+void Dash::timersignal()
 {
     QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 
 // SIGNAL 4
-void Dash::askforcarinfo()
+void Dash::refresh_distancetoobjects()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 
 // SIGNAL 5
-void Dash::timersignal()
+void Dash::refresh_speed()
 {
     QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 
 // SIGNAL 6
-void Dash::valChanged(int _t1)
+void Dash::refresh_rpm()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
+}
+
+// SIGNAL 7
+void Dash::refresh_enginetemp()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
+}
+
+// SIGNAL 8
+void Dash::refresh_cartemp()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
+}
+
+// SIGNAL 9
+void Dash::refresh_carbright()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

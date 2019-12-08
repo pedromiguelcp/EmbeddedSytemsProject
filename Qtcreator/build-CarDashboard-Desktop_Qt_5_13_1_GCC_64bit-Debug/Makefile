@@ -53,8 +53,10 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../CarDashboard/daemon.cpp \
+		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
 		../CarDashboard/ddriver.cpp \
+		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
 		../CarDashboard/music.cpp \
 		../CarDashboard/network.cpp \
@@ -63,8 +65,10 @@ SOURCES       = ../CarDashboard/daemon.cpp \
 		moc_network.cpp \
 		moc_uartstm.cpp
 OBJECTS       = daemon.o \
+		daemonsinterface.o \
 		dash.o \
 		ddriver.o \
+		ledstripinterface.o \
 		main.o \
 		music.o \
 		network.o \
@@ -269,13 +273,17 @@ DIST          = /home/pedro/Qt/5.13.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/pedro/Qt/5.13.1/gcc_64/mkspecs/features/yacc.prf \
 		/home/pedro/Qt/5.13.1/gcc_64/mkspecs/features/lex.prf \
 		../CarDashboard/CarDashboard.pro ../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
+		../CarDashboard/ledstripinterface.h \
 		../CarDashboard/music.h \
 		../CarDashboard/network.h \
 		../CarDashboard/uartstm.h ../CarDashboard/daemon.cpp \
+		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
 		../CarDashboard/ddriver.cpp \
+		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
 		../CarDashboard/music.cpp \
 		../CarDashboard/network.cpp \
@@ -702,8 +710,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CarDashboard/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/pedro/Qt/5.13.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.h ../CarDashboard/dash.h ../CarDashboard/ddriver.h ../CarDashboard/music.h ../CarDashboard/network.h ../CarDashboard/uartstm.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.cpp ../CarDashboard/dash.cpp ../CarDashboard/ddriver.cpp ../CarDashboard/main.cpp ../CarDashboard/music.cpp ../CarDashboard/network.cpp ../CarDashboard/uartstm.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/daemon.h ../CarDashboard/daemonsinterface.h ../CarDashboard/dash.h ../CarDashboard/ddriver.h ../CarDashboard/ledstripinterface.h ../CarDashboard/music.h ../CarDashboard/network.h ../CarDashboard/uartstm.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/daemon.cpp ../CarDashboard/daemonsinterface.cpp ../CarDashboard/dash.cpp ../CarDashboard/ddriver.cpp ../CarDashboard/ledstripinterface.cpp ../CarDashboard/main.cpp ../CarDashboard/music.cpp ../CarDashboard/network.cpp ../CarDashboard/uartstm.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -735,14 +743,13 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/MainMenu.qml \
 		../CarDashboard/Music.qml \
 		../CarDashboard/Network.qml \
+		../CarDashboard/CarInfo.qml \
 		../CarDashboard/ChoiceMenu.qml \
 		../CarDashboard/Camera.qml \
 		../CarDashboard/Settings.qml \
 		../CarDashboard/Automotive.qml \
-		../CarDashboard/USBPopUp.qml \
 		../CarDashboard/OpenSans-Bold.ttf \
 		../CarDashboard/AmbientLight.qml \
-		../CarDashboard/automotive.qml \
 		../CarDashboard/main.qml \
 		../CarDashboard/images/camera.svg \
 		../CarDashboard/images/light-blue.svg \
@@ -758,6 +765,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/images/sky-background.svg \
 		../CarDashboard/images/bright-plus.svg \
 		../CarDashboard/images/power-off.svg \
+		../CarDashboard/images/carinfo.svg \
 		../CarDashboard/images/back.svg \
 		../CarDashboard/images/music-forward.svg \
 		../CarDashboard/images/calendar.svg \
@@ -857,7 +865,7 @@ moc_dash.cpp: ../CarDashboard/dash.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialport.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QByteArray \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QVector \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QStringList \
@@ -1481,6 +1489,74 @@ daemon.o: ../CarDashboard/daemon.cpp ../CarDashboard/daemon.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemon.o ../CarDashboard/daemon.cpp
 
+daemonsinterface.o: ../CarDashboard/daemonsinterface.cpp ../CarDashboard/daemonsinterface.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QString \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstring.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qchar.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qglobal.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qconfig.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qtcore-config.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsysinfo.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qlogging.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qflags.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qatomic.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qmutex.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qnumeric.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qversiontagging.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qbytearray.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qrefcount.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qnamespace.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qarraydata.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringliteral.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringview.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QDebug \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qdebug.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qalgorithms.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qhash.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qiterator.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qlist.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qpair.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qvector.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qpoint.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringlist.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qregexp.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qmap.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qtextstream.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qiodevice.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qobject.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qcoreevent.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qmetatype.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qobject_impl.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qlocale.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qvariant.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qshareddata.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qset.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemonsinterface.o ../CarDashboard/daemonsinterface.cpp
+
 dash.o: ../CarDashboard/dash.cpp ../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QObject \
@@ -1557,7 +1633,7 @@ dash.o: ../CarDashboard/dash.cpp ../CarDashboard/dash.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialport.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QByteArray \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QVector \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QStringList \
@@ -1830,6 +1906,9 @@ ddriver.o: ../CarDashboard/ddriver.cpp ../CarDashboard/ddriver.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ddriver.o ../CarDashboard/ddriver.cpp
+
+ledstripinterface.o: ../CarDashboard/ledstripinterface.cpp ../CarDashboard/ledstripinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ledstripinterface.o ../CarDashboard/ledstripinterface.cpp
 
 main.o: ../CarDashboard/main.cpp /home/pedro/Qt/5.13.1/gcc_64/include/QtGui/QGuiApplication \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtGui/qguiapplication.h \
@@ -2140,7 +2219,7 @@ main.o: ../CarDashboard/main.cpp /home/pedro/Qt/5.13.1/gcc_64/include/QtGui/QGui
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/QSerialPort \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialport.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtSerialPort/qserialportglobal.h \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		/home/pedro/Qt/5.13.1/gcc_64/include/QtCore/QDir \
 		../CarDashboard/network.h \

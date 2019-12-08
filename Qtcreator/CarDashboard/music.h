@@ -29,11 +29,17 @@ public:
 
     int getMusicVolume();
 
+    void nextSong();
+
+    void previousSong();
+
 private:
     QDir usbpath;
+    QStringList musicslist;
     QString currentsong;
     pid_t musicDaemonPID;
     int musicVolume;
+    int musicindex;
 };
 
 #endif // MUSIC_H

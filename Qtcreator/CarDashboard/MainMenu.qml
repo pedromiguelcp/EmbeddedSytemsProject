@@ -44,11 +44,11 @@ Item {
         id:infobox
         x:200
         y:0
-        color: "white"
+        color: "transparent"
         width: 400
         height: 80
         border.width: 1
-        border.color: "blue"
+        border.color: "transparent"
 
         Image {
             id: id_watch_img
@@ -65,6 +65,7 @@ Item {
             id: id_time_text
             x: 37
             y: 2
+            color: "white"
             text: qsTr(date.getHours() + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes())
             renderType: Text.QtRendering
             horizontalAlignment: Text.AlignLeft
@@ -88,6 +89,7 @@ Item {
             id: id_date_text
             x: 37
             y: 40
+            color: "white"
             text: qsTr(currentDay + "/" + (currentMonth + 1) + "/" + currentYear)
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 25
@@ -109,7 +111,9 @@ Item {
             id: id_city_text
             x: 227
             y: 2
-            text: qsTr((myclass.getWeatherCity() === "") ? "Searching..." : (myclass.getWeatherTemperature() + "ºC " + myclass.getWeatherCity() + ", " + myclass.getWeatherCountry()))
+            color: "white"
+            //text: qsTr((myclass.getWeatherCity() === "") ? "Searching..." : (myclass.getWeatherTemperature() + "ºC " + myclass.getWeatherCity() + ", " + myclass.getWeatherCountry()))
+            text: qsTr((myclass.getWeather(1) === "") ? "Searching..." : (myclass.getWeather(3) + "ºC " + myclass.getWeather(2) + ", " + myclass.getWeather(1)))
             font.pixelSize: 18
             visible: true
         }
@@ -129,6 +133,7 @@ Item {
             id: id_music_text
             x: 227
             y: 40
+            color: "white"
             text: qsTr((myclass.currentSong() === "") ? "No music selected" : (myclass.currentSong()))
             font.pixelSize: 18
             visible: true

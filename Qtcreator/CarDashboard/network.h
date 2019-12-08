@@ -24,6 +24,7 @@ struct news_t{
     QString url;
     QString content;
 };
+#define SIZE_OF_ARRAY (5)
 
 class Network : public QObject
 {
@@ -32,8 +33,10 @@ public:
     Network();
     weather_t getWeather() const; // Returns the weather struct
     news_t *getNews(); // Returns the news struct
+
     void requestWeather(); // Makes the http request to the API
     void requestNews(); // Makes the http request to the API
+    void requestNetworkinfo();
 
     QString getTitle(int index) const;
     QString getLocation() const;

@@ -92,6 +92,11 @@ Window {
         Network{}
     }
 
+    Component{
+        id: carinfo
+        CarInfo{}
+    }
+
     InputPanel {
         id: inputPanel
         z: 89

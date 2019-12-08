@@ -1,8 +1,22 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.4
-
+import QtQuick.Window 2.0
 Item {
     width: 800
+    height: 500
+
+    Rectangle {
+        width: 800; height: 500
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "purple" }
+            GradientStop { position: 1.0; color: "blue" }
+        }
+    }
+    Component.onCompleted: {
+        x = Screen.width / 1 - width / 8
+        y = Screen.height / 1 - height / 8
+    }
+
 
     //Settings Menu
     Text {
@@ -59,16 +73,5 @@ Item {
             myclass.adjustDashBright(value)
         }
     }
-
-    Slider{
-            id:sl
-            x:342
-            y:180
-            from:1
-            to:255
-            stepSize: 1.0
-
-            value: myclass.val
-        }
 
 }

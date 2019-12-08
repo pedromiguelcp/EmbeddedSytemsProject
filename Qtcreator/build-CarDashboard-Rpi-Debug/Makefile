@@ -53,8 +53,10 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../CarDashboard/daemon.cpp \
+		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
 		../CarDashboard/ddriver.cpp \
+		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
 		../CarDashboard/music.cpp \
 		../CarDashboard/network.cpp \
@@ -63,8 +65,10 @@ SOURCES       = ../CarDashboard/daemon.cpp \
 		moc_network.cpp \
 		moc_uartstm.cpp
 OBJECTS       = daemon.o \
+		daemonsinterface.o \
 		dash.o \
 		ddriver.o \
+		ledstripinterface.o \
 		main.o \
 		music.o \
 		network.o \
@@ -198,13 +202,17 @@ DIST          = /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/feat
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/yacc.prf \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/lex.prf \
 		../CarDashboard/CarDashboard.pro ../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
+		../CarDashboard/ledstripinterface.h \
 		../CarDashboard/music.h \
 		../CarDashboard/network.h \
 		../CarDashboard/uartstm.h ../CarDashboard/daemon.cpp \
+		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
 		../CarDashboard/ddriver.cpp \
+		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
 		../CarDashboard/music.cpp \
 		../CarDashboard/network.cpp \
@@ -505,8 +513,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CarDashboard/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.h ../CarDashboard/dash.h ../CarDashboard/ddriver.h ../CarDashboard/music.h ../CarDashboard/network.h ../CarDashboard/uartstm.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.cpp ../CarDashboard/dash.cpp ../CarDashboard/ddriver.cpp ../CarDashboard/main.cpp ../CarDashboard/music.cpp ../CarDashboard/network.cpp ../CarDashboard/uartstm.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/daemon.h ../CarDashboard/daemonsinterface.h ../CarDashboard/dash.h ../CarDashboard/ddriver.h ../CarDashboard/ledstripinterface.h ../CarDashboard/music.h ../CarDashboard/network.h ../CarDashboard/uartstm.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/daemon.cpp ../CarDashboard/daemonsinterface.cpp ../CarDashboard/dash.cpp ../CarDashboard/ddriver.cpp ../CarDashboard/ledstripinterface.cpp ../CarDashboard/main.cpp ../CarDashboard/music.cpp ../CarDashboard/network.cpp ../CarDashboard/uartstm.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -538,14 +546,13 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/MainMenu.qml \
 		../CarDashboard/Music.qml \
 		../CarDashboard/Network.qml \
+		../CarDashboard/CarInfo.qml \
 		../CarDashboard/ChoiceMenu.qml \
 		../CarDashboard/Camera.qml \
 		../CarDashboard/Settings.qml \
 		../CarDashboard/Automotive.qml \
-		../CarDashboard/USBPopUp.qml \
 		../CarDashboard/OpenSans-Bold.ttf \
 		../CarDashboard/AmbientLight.qml \
-		../CarDashboard/automotive.qml \
 		../CarDashboard/main.qml \
 		../CarDashboard/images/camera.svg \
 		../CarDashboard/images/light-blue.svg \
@@ -561,6 +568,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/images/sky-background.svg \
 		../CarDashboard/images/bright-plus.svg \
 		../CarDashboard/images/power-off.svg \
+		../CarDashboard/images/carinfo.svg \
 		../CarDashboard/images/back.svg \
 		../CarDashboard/images/music-forward.svg \
 		../CarDashboard/images/calendar.svg \
@@ -587,7 +595,7 @@ compiler_moc_header_clean:
 moc_dash.cpp: ../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
 		../CarDashboard/uartstm.h \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		../CarDashboard/network.h \
 		moc_predefs.h \
@@ -621,10 +629,13 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 daemon.o: ../CarDashboard/daemon.cpp ../CarDashboard/daemon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemon.o ../CarDashboard/daemon.cpp
 
+daemonsinterface.o: ../CarDashboard/daemonsinterface.cpp ../CarDashboard/daemonsinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemonsinterface.o ../CarDashboard/daemonsinterface.cpp
+
 dash.o: ../CarDashboard/dash.cpp ../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
 		../CarDashboard/uartstm.h \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		../CarDashboard/network.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dash.o ../CarDashboard/dash.cpp
@@ -632,10 +643,13 @@ dash.o: ../CarDashboard/dash.cpp ../CarDashboard/dash.h \
 ddriver.o: ../CarDashboard/ddriver.cpp ../CarDashboard/ddriver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ddriver.o ../CarDashboard/ddriver.cpp
 
+ledstripinterface.o: ../CarDashboard/ledstripinterface.cpp ../CarDashboard/ledstripinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ledstripinterface.o ../CarDashboard/ledstripinterface.cpp
+
 main.o: ../CarDashboard/main.cpp ../CarDashboard/dash.h \
 		../CarDashboard/ddriver.h \
 		../CarDashboard/uartstm.h \
-		../CarDashboard/daemon.h \
+		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/music.h \
 		../CarDashboard/network.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CarDashboard/main.cpp

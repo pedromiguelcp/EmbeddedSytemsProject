@@ -23,7 +23,7 @@ Dash::Dash()
     signal(SIGUSR2, this->signalsHandler);
     signal(SIGALRM, this->doWork);
 
-    MyDaemon = new Daemon ();
+    MyDaemon = new DaemonsInterface ();
 
     MusicPlayer = new Music (MyDaemon->getmusicpid());
 
@@ -33,11 +33,18 @@ Dash::Dash()
 
     NetworkInfo = new Network ();
 
-    connect(this, &Dash::askfornews, NetworkInfo, &Network::requestNews);
-    connect(this, &Dash::askforweather, NetworkInfo, &Network::requestWeather);
+    connect(this, &Dash::askfornetworkinfo, NetworkInfo, &Network::requestNetworkinfo);
     connect(this, &Dash::askforbrightness, STMUART, &UartSTM::requestBrightness);
     connect(this, &Dash::askfortemperature, STMUART, &UartSTM::requestTemperature);
 
+    initProgram();
+}
+
+
+
+/*******************************program timer**********************************/
+void Dash::initProgram()
+{
     adjustDashBright(244);
 
     system("v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600");
@@ -45,14 +52,6 @@ Dash::Dash()
     USBSignal = 1;
     TimerSignal = 1;
 
-    initTimer();
-}
-
-
-
-/*******************************program timer**********************************/
-void Dash::initTimer()
-{
     struct itimerval itv;
 
     itv.it_interval.tv_sec = TIMERSAMPLE; //tv_sec -> time in seconds;tv_usec -> time in useconds; total time in useconds = tv_usec + tv_sec*1000000
@@ -108,24 +107,6 @@ void Dash::SetPthreads()
     pthread_attr_init(&USBMonitor_attr);
     pthread_create(&USBMonitor_thread, &USBMonitor_attr, USBMonitorThread, this);
 
-    NetworkInfo_param.sched_priority = 1;
-    pthread_attr_setdetachstate(&NetworkInfo_attr, PTHREAD_CREATE_JOINABLE);
-    pthread_attr_setschedparam(&NetworkInfo_attr,&NetworkInfo_param);
-    pthread_attr_init(&NetworkInfo_attr);
-    pthread_create(&NetworkInfo_thread, &NetworkInfo_attr, NetworkInfoThread, this);
-
-    DashBright_param.sched_priority = 3;
-    pthread_attr_setdetachstate(&DashBright_attr, PTHREAD_CREATE_JOINABLE);
-    pthread_attr_setschedparam(&DashBright_attr,&DashBright_param);
-    pthread_attr_init(&DashBright_attr);
-    pthread_create(&DashBright_thread, &DashBright_attr, DashBrightThread, this);
-
-    Temperatue_param.sched_priority = 2;
-    pthread_attr_setdetachstate(&Temperatue_attr, PTHREAD_CREATE_JOINABLE);
-    pthread_attr_setschedparam(&Temperatue_attr,&Temperatue_param);
-    pthread_attr_init(&Temperatue_attr);
-    pthread_create(&Temperatue_thread, &Temperatue_attr, TemperatueThread, this);
-
     Timer_param.sched_priority = 4;
     pthread_attr_setdetachstate(&Timer_attr, PTHREAD_CREATE_JOINABLE);
     pthread_attr_setschedparam(&Timer_attr,&Timer_param);
@@ -142,10 +123,8 @@ void Dash::SetPthreads()
 void Dash::JoinPthreads()
 {
     pthread_join(USBMonitor_thread, nullptr);
-    pthread_join(NetworkInfo_thread, nullptr);
-    pthread_join(DashBright_thread, nullptr);
-    pthread_join(Temperatue_thread, nullptr);
     pthread_join(CarInfo_thread, nullptr);
+    pthread_join(Timer_thread, nullptr);
 }
 
 void Dash::SetMutexes()
@@ -185,51 +164,6 @@ void *Dash::USBMonitorThread(void *myDash)
 
 }
 
-void *Dash::NetworkInfoThread(void *myDash)
-{
-    Dash * newsMonitor = static_cast<Dash *>(myDash);
-
-    while(1)
-    {
-        pthread_mutex_lock(&newsMonitor->networkinfo_condition_mutex);
-        pthread_cond_wait(&newsMonitor->networkinfo_condition_cond, &newsMonitor->networkinfo_condition_mutex);
-        pthread_mutex_unlock(&newsMonitor->networkinfo_condition_mutex);
-
-        emit newsMonitor->askfornews();
-        emit newsMonitor->askforweather();
-    }
-}
-
-void *Dash::DashBrightThread(void *myDash)
-{
-    Dash * dashbrightMonitor = static_cast<Dash *>(myDash);
-
-    while(1)
-    {
-        pthread_mutex_lock(&dashbrightMonitor->bright_condition_mutex);
-        pthread_cond_wait(&dashbrightMonitor->bright_condition_cond, &dashbrightMonitor->bright_condition_mutex);
-        pthread_mutex_unlock(&dashbrightMonitor->bright_condition_mutex);
-
-        emit dashbrightMonitor->askforbrightness();
-    }
-}
-
-void *Dash::TemperatueThread(void *myDash)
-{
-    Dash * newsMonitor = static_cast<Dash *>(myDash);
-
-    while(1)
-    {
-        pthread_mutex_lock(&newsMonitor->temperature_condition_mutex);
-        pthread_cond_wait(&newsMonitor->temperature_condition_cond, &newsMonitor->temperature_condition_mutex);
-        pthread_mutex_unlock(&newsMonitor->temperature_condition_mutex);
-
-        emit newsMonitor->askfortemperature();
-        //emit newsMonitor->askfortemperature();
-        //sleep(15);
-    }
-}
-
 void *Dash::TimerThread(void *myDash)
 {
     Dash * timerMonitor = static_cast<Dash *>(myDash);
@@ -239,33 +173,28 @@ void *Dash::TimerThread(void *myDash)
     {
         if(!TimerSignal)
         {
-            if(temperaturecount == TEMPERATURESAMPLE)
-            {
-                pthread_mutex_lock(&timerMonitor->temperature_condition_mutex);
-                pthread_cond_signal(&timerMonitor->temperature_condition_cond);
-                pthread_mutex_unlock(&timerMonitor->temperature_condition_mutex);
-                temperaturecount = 0;
-            }
-            if(brightcount == BRIGHTNESSSAMPLE)
-            {
-                pthread_mutex_lock(&timerMonitor->bright_condition_mutex);
-                pthread_cond_signal(&timerMonitor->bright_condition_cond);
-                pthread_mutex_unlock(&timerMonitor->bright_condition_mutex);
-                brightcount = 0;
-            }
-            if(networkcount == NETWORKSAMPLE)
-            {
-                pthread_mutex_lock(&timerMonitor->networkinfo_condition_mutex);
-                pthread_cond_signal(&timerMonitor->networkinfo_condition_cond);
-                pthread_mutex_unlock(&timerMonitor->networkinfo_condition_mutex);
-                networkcount = 0;
-            }
             if(carinfocount == CARINFOSAMPLE)
             {
                 pthread_mutex_lock(&timerMonitor->carinfo_condition_mutex);
                 pthread_cond_signal(&timerMonitor->carinfo_condition_cond);
                 pthread_mutex_unlock(&timerMonitor->carinfo_condition_mutex);
+
                 carinfocount = 0;
+            }
+            if(temperaturecount == TEMPERATURESAMPLE)
+            {
+                emit timerMonitor->askfortemperature();
+                temperaturecount = 0;
+            }
+            if(brightcount == BRIGHTNESSSAMPLE)
+            {
+                emit timerMonitor->askforbrightness();
+                brightcount = 0;
+            }
+            if(networkcount == NETWORKSAMPLE)
+            {
+                emit timerMonitor->askfornetworkinfo();
+                networkcount = 0;
             }
 
             temperaturecount ++;
@@ -287,8 +216,14 @@ void *Dash::CarInfoThread(void *myDash)
         pthread_cond_wait(&carinfoMonitor->carinfo_condition_cond, &carinfoMonitor->carinfo_condition_mutex);
         pthread_mutex_unlock(&carinfoMonitor->carinfo_condition_mutex);
 
-        //emit carinfoMonitor->askforcarinfo();
-        carinfoMonitor->setVal(1);
+        //carinfoMonitor->setVal(1);
+        /*carinfoMonitor->STMUART->UpdateCarInfo();//so para ver updates
+        emit carinfoMonitor->refresh_distancetoobjects();
+        emit carinfoMonitor->refresh_speed();
+        emit carinfoMonitor->refresh_rpm();
+        emit carinfoMonitor->refresh_enginetemp();
+        emit carinfoMonitor->refresh_cartemp();
+        emit carinfoMonitor->refresh_carbright();*/
     }
 }
 
@@ -384,36 +319,26 @@ QString Dash::getNews(int index)
     return NetworkInfo->getTitle(index);
 }
 
-QString Dash::getWeatherCity()
+QString Dash::getWeather(int parameter)
 {
-    return NetworkInfo->getLocation();
-}
-
-QString Dash::getWeatherCountry()
-{
-    return NetworkInfo->getCountry();
-}
-
-int Dash::getWeatherTemperature()
-{
-    return NetworkInfo->getTemperature();
+    if(parameter == 1)
+        return NetworkInfo->getCountry();
+    else if(parameter == 2)
+        return NetworkInfo->getLocation();
+    else return QString::number(NetworkInfo->getTemperature());
 }
 
 
 
 /*****************************car info********************************/
-int Dash::val() const
+/*void Dash::setVal(const int &v)
 {
-    return STMUART->val();
-}
-
-void Dash::setVal(const int &v)
-{
-    /*esta funçao apenas tem de dar emit, quando recebo pela porta serie os dados
-     * do carro dou update nas propriedades da classe CarInfo, depois quando der
-     * emit aqui (periodicamente) a funçao val será chamada para ir buscar os
-     * dados á classe CarInfo e dar refresh no qml*/
+    //esta funçao apenas tem de dar emit, quando recebo pela porta serie os dados
+     // do carro dou update nas propriedades da classe CarInfo, depois quando der
+     // emit aqui (periodicamente) a funçao val será chamada para ir buscar os
+     // dados á classe CarInfo e dar refresh no qml
     STMUART->UpdateCarInfo();
     emit valChanged(v);
-}
+}*/
+
 

@@ -2,9 +2,22 @@ import QtQuick 2.0
 import QtQuick.Controls 2.4
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Layouts 1.3
-
+import QtQuick.Window 2.0
 Item {
     width: 800
+    height: 500
+
+    Rectangle {
+        width: 800; height: 500
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "purple" }
+            GradientStop { position: 1.0; color: "blue" }
+        }
+    }
+    Component.onCompleted: {
+        x = Screen.width / 1 - width / 8
+        y = Screen.height / 1 - height / 8
+    }
 
     //Network Menu
     Text {

@@ -20,17 +20,17 @@ static void WriteOnMyLog(const char *message);
 void sig_handler(int sig){
 
     if(sig == SIGSTOP){
-        waitingSignal = 0;
+        waitingSignal = 2;//pause
     }
     else if(sig == SIGCONT){
+        waitingSignal = 1;//resume
     }
-    //Come;ar uma musica
+    
     else if(sig == SIGUSR1){
         waitingSignal = 0;
     }
 }
 
-//Note - i can use signals like interrupts to stop or start the music and change music
 
 int main(int argc, char *argv[])
 {
@@ -92,6 +92,7 @@ int main(int argc, char *argv[])
             ao_play(MusicDaemon.dev, MusicDaemon.buffer, (char *)MusicDaemon.done);
             if(waitingSignal == 0)
                 break;
+            while(waitingSignal == 2);
         }
         WriteOnMyLog("Music end!\n");
     }

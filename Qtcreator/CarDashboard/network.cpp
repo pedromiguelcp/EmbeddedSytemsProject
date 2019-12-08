@@ -1,9 +1,13 @@
 #include "network.h"
 
+
+
 Network::Network()
 {
     connect(&weather_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshWeather()));
     connect(&news_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshNews()));
+    requestWeather();
+    requestNews();
 }
 
 
@@ -24,6 +28,13 @@ void Network::requestNews()
     request.setUrl(url);
     currentReplyNews = news_networkManager.get(request);
     qDebug() << "News requested!";
+}
+
+void Network::requestNetworkinfo()
+{
+    requestWeather();
+
+    requestNews();
 }
 
 
@@ -111,11 +122,14 @@ weather_t Network::getWeather() const
     return this->weather;
 }
 
-// Returns the news struct array
 news_t *Network::getNews()
 {
     return this->news;
 }
+
+
+
+
 
 
 /* ================================ TEST FUNCTIONS ================================== */

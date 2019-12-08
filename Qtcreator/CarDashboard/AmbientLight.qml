@@ -1,9 +1,21 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
-
+import QtQuick.Window 2.0
 Item {
     width: 800
+    height: 500
 
+    Rectangle {
+        width: 800; height: 500
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "purple" }
+            GradientStop { position: 1.0; color: "blue" }
+        }
+    }
+    Component.onCompleted: {
+        x = Screen.width / 1 - width / 8
+        y = Screen.height / 1 - height / 8
+    }
     //Ambient Light Menu
     Text {
         id: id_ambientlightmenu_text
@@ -34,14 +46,6 @@ Item {
                 stack.pop()
             }
         }
-    }
-    SwitchDelegate {
-        text: qsTr("AC")
-        leftPadding: 0
-        rightPadding: 0
-        topPadding: 0
-        bottomPadding: 0
-
     }
 
     Image {
