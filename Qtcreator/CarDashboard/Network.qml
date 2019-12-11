@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.0
+
 Item {
     width: 800
     height: 500
@@ -54,20 +55,20 @@ Item {
     //news ITEM
     Rectangle{
         x:0
-        y:76
+        y:96
         width: 792
         height: 404
-        border.color: "black"
-        border.width: 1
+        color: "transparent"
 
         Text {
             id: id_news
-            x: 10
+            x: 20
             y: 0
             text: qsTr("News:\n\n")
+            color: "white"
             horizontalAlignment: Text.AlignHCenter
             elide: Text.ElideLeft
-            font.pixelSize: 20
+            font.pixelSize: 25
         }
 
         Column {

@@ -19,15 +19,18 @@ static void WriteOnMyLog(const char *message);
 
 void sig_handler(int sig){
 
-    if(sig == SIGSTOP){
+    if(sig == SIGUSR2){
         waitingSignal = 2;//pause
+	WriteOnMyLog("Signal SIGUSR2 received!\n");
     }
     else if(sig == SIGCONT){
         waitingSignal = 1;//resume
+	WriteOnMyLog("Signal CONT received!\n");
     }
     
     else if(sig == SIGUSR1){
         waitingSignal = 0;
+	WriteOnMyLog("Signal USR1 received!\n");
     }
 }
 
@@ -41,7 +44,7 @@ int main(int argc, char *argv[])
     int volatile musicOver = 0;
     int volatile format = 0;
 
-    signal(SIGSTOP, sig_handler);
+    signal(SIGUSR2, sig_handler);
     signal(SIGCONT, sig_handler);
     signal(SIGUSR1, sig_handler);
 

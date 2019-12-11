@@ -1,18 +1,17 @@
-#include "network.h"
+#include "networkinterface.h"
 
-
-
-Network::Network()
+NetworkInterface::NetworkInterface()
 {
     connect(&weather_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshWeather()));
     connect(&news_networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(refreshNews()));
-    requestWeather();
-    requestNews();
+    //requestNews();
+    //requestWeather();
+
 }
 
 
 // Makes the http request to the API
-void Network::requestWeather()
+void NetworkInterface::requestWeather()
 {
     QUrl url("http://api.openweathermap.org/data/2.5/weather?id=2738752&APPID=f1d822f5687e5b77896e45a48ed02ef1");
     QNetworkRequest request;
@@ -21,16 +20,17 @@ void Network::requestWeather()
     qDebug() << "Weather requested!";
 }
 
-void Network::requestNews()
+void NetworkInterface::requestNews()
 {
-    QUrl url("http://webhose.io/filterWebContent?token=ebb54250-6b79-4a85-ba03-5a5a9f9719a3&format=json&ts=1548848178768&sort=social.facebook.likes&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
+    QUrl url("http://webhose.io/filterWebContent?token=cdf0ac25-0d32-4ac2-8e7f-9dba8adb09cd&format=json&ts=1548848178768&sort=relevancy&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
+    //QUrl url("http://webhose.io/filterWebContent?token=ebb54250-6b79-4a85-ba03-5a5a9f9719a3&format=json&ts=1548848178768&sort=social.facebook.likes&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
     QNetworkRequest request;
     request.setUrl(url);
     currentReplyNews = news_networkManager.get(request);
     qDebug() << "News requested!";
 }
 
-void Network::requestNetworkinfo()
+void NetworkInterface::requestNetworkinfo()
 {
     requestWeather();
 
@@ -40,7 +40,7 @@ void Network::requestNetworkinfo()
 
 
 // Parses the json response from the API
-void Network::refreshWeather()
+void NetworkInterface::refreshWeather()
 {
     QByteArray response;
 
@@ -78,7 +78,7 @@ void Network::refreshWeather()
     //emit readyweather(weather); // Debug purposes
 }
 
-void Network::refreshNews()
+void NetworkInterface::refreshNews()
 {
     QByteArray response;
 
@@ -117,12 +117,12 @@ void Network::refreshNews()
 
 
 // Returns the weather struct
-weather_t Network::getWeather() const
+weather_t NetworkInterface::getWeather() const
 {
     return this->weather;
 }
 
-news_t *Network::getNews()
+news_t *NetworkInterface::getNews()
 {
     return this->news;
 }
@@ -134,7 +134,7 @@ news_t *Network::getNews()
 
 /* ================================ TEST FUNCTIONS ================================== */
 
-void Network::printweather()
+void NetworkInterface::printweather()
 {
     qDebug() << "Temperature:" << getTemperature();
     qDebug() << "Min:" << getMinTemperature();
@@ -143,7 +143,7 @@ void Network::printweather()
     qDebug() << "Country:" << getCountry() << "\n\n";
 }
 
-void Network::printnews()
+void NetworkInterface::printnews()
 {
     for(int i=0; i < 5; i++)
     {
@@ -155,44 +155,44 @@ void Network::printnews()
 
 
 
-int Network::getTemperature() const
+int NetworkInterface::getTemperature() const
 {
     return this->weather.temperature;
 }
 
-int Network::getMaxTemperature() const
+int NetworkInterface::getMaxTemperature() const
 {
     return this->weather.max_temp;
 }
 
-int Network::getMinTemperature() const
+int NetworkInterface::getMinTemperature() const
 {
     return this->weather.min_temp;
 }
 
-QString Network::getCountry() const
+QString NetworkInterface::getCountry() const
 {
     return this->weather.country;
 }
 
-QString Network::getLocation() const
+QString NetworkInterface::getLocation() const
 {
     return this->weather.location;
 }
 
 
 
-QString Network::getTitle(int index) const
+QString NetworkInterface::getTitle(int index) const
 {
     return this->news[index].title;
 }
 
-QString Network::getAuthor(int index) const
+QString NetworkInterface::getAuthor(int index) const
 {
     return this->news[index].author;
 }
 
-QString Network::getContent(int index) const
+QString NetworkInterface::getContent(int index) const
 {
     return this->news[index].content;
 }

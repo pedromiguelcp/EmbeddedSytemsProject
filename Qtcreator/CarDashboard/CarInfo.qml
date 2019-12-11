@@ -62,12 +62,21 @@ Item {
 
     Frame {
         id: frame
+        topPadding: 10
+        visible: true
+        opacity: 1
+        scale: 1
+        anchors.bottomMargin: 0
         anchors.topMargin: 75
         anchors.fill: parent
+        background: color("black")
+
 
         RowLayout {
             id: mainRowLayout
+            scale: 1
             anchors.fill: parent
+
 
             ColumnLayout {
                     id: carinfosRowLayout
@@ -150,10 +159,9 @@ Item {
 
             ColumnLayout {
                 Image {
-                    height: 1100
-                    source: "images/carinfo.svg"
-                    fillMode: Image.PreserveAspectFit
 
+                    source: "images/carinfo.svg"
+Layout.bottomMargin: 100
                 }
             }
 

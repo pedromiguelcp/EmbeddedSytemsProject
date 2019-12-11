@@ -1,5 +1,5 @@
-#ifndef NETWORK_H
-#define NETWORK_H
+#ifndef NETWORKINTERFACE_H
+#define NETWORKINTERFACE_H
 #include <QtNetwork>
 #include <QObject>
 #include <QtDebug>
@@ -26,11 +26,11 @@ struct news_t{
 };
 #define SIZE_OF_ARRAY (5)
 
-class Network : public QObject
+class NetworkInterface : public QObject
 {
     Q_OBJECT
 public:
-    Network();
+    NetworkInterface();
     weather_t getWeather() const; // Returns the weather struct
     news_t *getNews(); // Returns the news struct
 
@@ -69,4 +69,4 @@ private:
     QString getContent(int index) const;
 };
 
-#endif // NETWORK_H
+#endif // NETWORKINTERFACE_H

@@ -97,6 +97,11 @@ Window {
         CarInfo{}
     }
 
+    Component{
+        id: map
+        Map{}
+    }
+
     InputPanel {
         id: inputPanel
         z: 89

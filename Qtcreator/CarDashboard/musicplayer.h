@@ -1,5 +1,5 @@
-#ifndef MUSIC_H
-#define MUSIC_H
+#ifndef MUSICPLAYER_H
+#define MUSICPLAYER_H
 #include <QObject>
 #include <QVector>
 #include <QString>
@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class Music
+class MusicPlayer
 {
 public:
-    Music(pid_t musicDaemonPID);
+    MusicPlayer(pid_t musicDaemonPID);
 
     Q_INVOKABLE void setnewSong(QString song);
 
@@ -42,4 +42,4 @@ private:
     int musicindex;
 };
 
-#endif // MUSIC_H
+#endif // MUSICPLAYER_H

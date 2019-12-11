@@ -161,6 +161,7 @@ Item {
             onClicked: {
                 stack.pop()
                 stack.push(choice_menu)
+                //stack.push(map)
             }
         }
     }

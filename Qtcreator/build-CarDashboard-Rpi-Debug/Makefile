@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /home/pedro/buildroot/buildroot-2019.05/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc
 CXX           = /home/pedro/buildroot/buildroot-2019.05/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICKCONTROLS2_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICKCONTROLS2_LIB -DQT_LOCATION_LIB -DQT_POSITIONINGQUICK_LIB -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_SERIALPORT_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../CarDashboard -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/interface/vmcs_host/linux -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/interface/vcos/pthreads -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++
+INCPATH       = -I../CarDashboard -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtLocation -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioningQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioning -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/interface/vmcs_host/linux -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/interface/vcos/pthreads -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++
 QMAKE         = /home/pedro/buildroot/buildroot-2019.05/output/host/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = CarDashboard1.0.0
 DISTDIR = /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/.tmp/CarDashboard1.0.0
 LINK          = /home/pedro/buildroot/buildroot-2019.05/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-g++
 LFLAGS        = --sysroot=/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -Wl,-rpath-link,/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib
-LIBS          = $(SUBLIBS) -lQt5QuickControls2 -lQt5Quick -lQt5Gui -lQt5Qml -lQt5Network -lQt5Sql -lQt5SerialPort -lQt5Core -latomic -lrt -ldl /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libGLESv2.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libbcm_host.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libvcos.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libvchiq_arm.so -lpthread  -lpthread -ldl -lrt 
+LIBS          = $(SUBLIBS) -lQt5QuickControls2 -lQt5Location -lQt5PositioningQuick -lQt5Quick -lQt5Gui -lQt5Qml -lQt5Network -lQt5Sql -lQt5SerialPort -lQt5Positioning -lQt5Core -latomic -lrt -ldl /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libGLESv2.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libbcm_host.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libvcos.so /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libvchiq_arm.so -lpthread  -lpthread -ldl -lrt 
 AR            = /home/pedro/buildroot/buildroot-2019.05/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,31 +52,27 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../CarDashboard/daemon.cpp \
+SOURCES       = ../CarDashboard/carinterface.cpp \
 		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
-		../CarDashboard/ddriver.cpp \
 		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
-		../CarDashboard/music.cpp \
-		../CarDashboard/network.cpp \
-		../CarDashboard/uartstm.cpp qrc_qml.cpp \
+		../CarDashboard/musicplayer.cpp \
+		../CarDashboard/networkinterface.cpp qrc_qml.cpp \
+		moc_carinterface.cpp \
 		moc_dash.cpp \
-		moc_network.cpp \
-		moc_uartstm.cpp
-OBJECTS       = daemon.o \
+		moc_networkinterface.cpp
+OBJECTS       = carinterface.o \
 		daemonsinterface.o \
 		dash.o \
-		ddriver.o \
 		ledstripinterface.o \
 		main.o \
-		music.o \
-		network.o \
-		uartstm.o \
+		musicplayer.o \
+		networkinterface.o \
 		qrc_qml.o \
+		moc_carinterface.o \
 		moc_dash.o \
-		moc_network.o \
-		moc_uartstm.o
+		moc_networkinterface.o
 DIST          = /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/spec_pre.prf \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/common/unix.conf \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/common/linux.conf \
@@ -201,22 +197,18 @@ DIST          = /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/feat
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/exceptions.prf \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/yacc.prf \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/lex.prf \
-		../CarDashboard/CarDashboard.pro ../CarDashboard/daemon.h \
+		../CarDashboard/CarDashboard.pro ../CarDashboard/carinterface.h \
 		../CarDashboard/daemonsinterface.h \
 		../CarDashboard/dash.h \
-		../CarDashboard/ddriver.h \
 		../CarDashboard/ledstripinterface.h \
-		../CarDashboard/music.h \
-		../CarDashboard/network.h \
-		../CarDashboard/uartstm.h ../CarDashboard/daemon.cpp \
+		../CarDashboard/musicplayer.h \
+		../CarDashboard/networkinterface.h ../CarDashboard/carinterface.cpp \
 		../CarDashboard/daemonsinterface.cpp \
 		../CarDashboard/dash.cpp \
-		../CarDashboard/ddriver.cpp \
 		../CarDashboard/ledstripinterface.cpp \
 		../CarDashboard/main.cpp \
-		../CarDashboard/music.cpp \
-		../CarDashboard/network.cpp \
-		../CarDashboard/uartstm.cpp
+		../CarDashboard/musicplayer.cpp \
+		../CarDashboard/networkinterface.cpp
 QMAKE_TARGET  = CarDashboard
 DESTDIR       = 
 TARGET        = CarDashboard
@@ -355,12 +347,15 @@ Makefile: ../CarDashboard/CarDashboard.pro /home/pedro/buildroot/buildroot-2019.
 		../CarDashboard/CarDashboard.pro \
 		../CarDashboard/qml.qrc \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5QuickControls2.prl \
+		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Location.prl \
+		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5PositioningQuick.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Quick.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Gui.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Qml.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Network.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Sql.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5SerialPort.prl \
+		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Positioning.prl \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../CarDashboard/CarDashboard.pro -spec devices/linux-buildroot-g++ CONFIG+=debug CONFIG+=qml_debug
 /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/spec_pre.prf:
@@ -490,12 +485,15 @@ Makefile: ../CarDashboard/CarDashboard.pro /home/pedro/buildroot/buildroot-2019.
 ../CarDashboard/CarDashboard.pro:
 ../CarDashboard/qml.qrc:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5QuickControls2.prl:
+/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Location.prl:
+/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5PositioningQuick.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Quick.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Gui.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Qml.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Network.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Sql.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5SerialPort.prl:
+/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Positioning.prl:
 /home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../CarDashboard/CarDashboard.pro -spec devices/linux-buildroot-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -513,8 +511,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CarDashboard/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.h ../CarDashboard/daemonsinterface.h ../CarDashboard/dash.h ../CarDashboard/ddriver.h ../CarDashboard/ledstripinterface.h ../CarDashboard/music.h ../CarDashboard/network.h ../CarDashboard/uartstm.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CarDashboard/daemon.cpp ../CarDashboard/daemonsinterface.cpp ../CarDashboard/dash.cpp ../CarDashboard/ddriver.cpp ../CarDashboard/ledstripinterface.cpp ../CarDashboard/main.cpp ../CarDashboard/music.cpp ../CarDashboard/network.cpp ../CarDashboard/uartstm.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/carinterface.h ../CarDashboard/daemonsinterface.h ../CarDashboard/dash.h ../CarDashboard/ledstripinterface.h ../CarDashboard/musicplayer.h ../CarDashboard/networkinterface.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CarDashboard/carinterface.cpp ../CarDashboard/daemonsinterface.cpp ../CarDashboard/dash.cpp ../CarDashboard/ledstripinterface.cpp ../CarDashboard/main.cpp ../CarDashboard/musicplayer.cpp ../CarDashboard/networkinterface.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -545,6 +543,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/bin/rcc \
 		../CarDashboard/MainMenu.qml \
 		../CarDashboard/Music.qml \
+		../CarDashboard/Map.qml \
 		../CarDashboard/Network.qml \
 		../CarDashboard/CarInfo.qml \
 		../CarDashboard/ChoiceMenu.qml \
@@ -589,28 +588,28 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/data/dummy.cpp
 	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-g++ -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_dash.cpp moc_network.cpp moc_uartstm.cpp
+compiler_moc_header_make_all: moc_carinterface.cpp moc_dash.cpp moc_networkinterface.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dash.cpp moc_network.cpp moc_uartstm.cpp
+	-$(DEL_FILE) moc_carinterface.cpp moc_dash.cpp moc_networkinterface.cpp
+moc_carinterface.cpp: ../CarDashboard/carinterface.h \
+		moc_predefs.h \
+		/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc
+	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtLocation -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioningQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioning -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/carinterface.h -o moc_carinterface.cpp
+
 moc_dash.cpp: ../CarDashboard/dash.h \
-		../CarDashboard/ddriver.h \
-		../CarDashboard/uartstm.h \
+		../CarDashboard/ledstripinterface.h \
+		../CarDashboard/carinterface.h \
 		../CarDashboard/daemonsinterface.h \
-		../CarDashboard/music.h \
-		../CarDashboard/network.h \
+		../CarDashboard/musicplayer.h \
+		../CarDashboard/networkinterface.h \
 		moc_predefs.h \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc
-	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/dash.h -o moc_dash.cpp
+	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtLocation -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioningQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioning -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/dash.h -o moc_dash.cpp
 
-moc_network.cpp: ../CarDashboard/network.h \
+moc_networkinterface.cpp: ../CarDashboard/networkinterface.h \
 		moc_predefs.h \
 		/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc
-	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/network.h -o moc_network.cpp
-
-moc_uartstm.cpp: ../CarDashboard/uartstm.h \
-		moc_predefs.h \
-		/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc
-	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/uartstm.h -o moc_uartstm.cpp
+	/home/pedro/buildroot/buildroot-2019.05/output/host/bin/moc $(DEFINES) --include /home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/build-CarDashboard-Rpi-Debug/moc_predefs.h -I/home/pedro/buildroot/buildroot-2019.05/output/host/mkspecs/devices/linux-buildroot-g++ -I/home/pedro/Documents/Embebidos/Project/ProjectImplementation/GitRepo/Qtcreator/CarDashboard -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuickControls2 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtLocation -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioningQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQuick -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtGui -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtQml -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtNetwork -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSql -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtSerialPort -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtPositioning -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/qt5/QtCore -I. -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0 -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/arm-buildroot-linux-uclibcgnueabihf -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include/c++/7.4.0/backward -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/7.4.0/include-fixed -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/include -I/home/pedro/buildroot/buildroot-2019.05/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include ../CarDashboard/networkinterface.h -o moc_networkinterface.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -626,54 +625,48 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-daemon.o: ../CarDashboard/daemon.cpp ../CarDashboard/daemon.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemon.o ../CarDashboard/daemon.cpp
+carinterface.o: ../CarDashboard/carinterface.cpp ../CarDashboard/carinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o carinterface.o ../CarDashboard/carinterface.cpp
 
 daemonsinterface.o: ../CarDashboard/daemonsinterface.cpp ../CarDashboard/daemonsinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o daemonsinterface.o ../CarDashboard/daemonsinterface.cpp
 
 dash.o: ../CarDashboard/dash.cpp ../CarDashboard/dash.h \
-		../CarDashboard/ddriver.h \
-		../CarDashboard/uartstm.h \
+		../CarDashboard/ledstripinterface.h \
+		../CarDashboard/carinterface.h \
 		../CarDashboard/daemonsinterface.h \
-		../CarDashboard/music.h \
-		../CarDashboard/network.h
+		../CarDashboard/musicplayer.h \
+		../CarDashboard/networkinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dash.o ../CarDashboard/dash.cpp
-
-ddriver.o: ../CarDashboard/ddriver.cpp ../CarDashboard/ddriver.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ddriver.o ../CarDashboard/ddriver.cpp
 
 ledstripinterface.o: ../CarDashboard/ledstripinterface.cpp ../CarDashboard/ledstripinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ledstripinterface.o ../CarDashboard/ledstripinterface.cpp
 
 main.o: ../CarDashboard/main.cpp ../CarDashboard/dash.h \
-		../CarDashboard/ddriver.h \
-		../CarDashboard/uartstm.h \
+		../CarDashboard/ledstripinterface.h \
+		../CarDashboard/carinterface.h \
 		../CarDashboard/daemonsinterface.h \
-		../CarDashboard/music.h \
-		../CarDashboard/network.h
+		../CarDashboard/musicplayer.h \
+		../CarDashboard/networkinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CarDashboard/main.cpp
 
-music.o: ../CarDashboard/music.cpp ../CarDashboard/music.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o music.o ../CarDashboard/music.cpp
+musicplayer.o: ../CarDashboard/musicplayer.cpp ../CarDashboard/musicplayer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o musicplayer.o ../CarDashboard/musicplayer.cpp
 
-network.o: ../CarDashboard/network.cpp ../CarDashboard/network.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o network.o ../CarDashboard/network.cpp
-
-uartstm.o: ../CarDashboard/uartstm.cpp ../CarDashboard/uartstm.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uartstm.o ../CarDashboard/uartstm.cpp
+networkinterface.o: ../CarDashboard/networkinterface.cpp ../CarDashboard/networkinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o networkinterface.o ../CarDashboard/networkinterface.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
 
+moc_carinterface.o: moc_carinterface.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_carinterface.o moc_carinterface.cpp
+
 moc_dash.o: moc_dash.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dash.o moc_dash.cpp
 
-moc_network.o: moc_network.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_network.o moc_network.cpp
-
-moc_uartstm.o: moc_uartstm.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_uartstm.o moc_uartstm.cpp
+moc_networkinterface.o: moc_networkinterface.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_networkinterface.o moc_networkinterface.cpp
 
 ####### Install
 

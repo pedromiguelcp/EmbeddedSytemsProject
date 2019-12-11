@@ -38,5 +38,7 @@
         <file>images/music.svg</file>
         <file>CarInfo.qml</file>
         <file>images/carinfo.svg</file>
+        <file>Map.qml</file>
+        <file>images/music-volume.svg</file>
     </qresource>
 </RCC>

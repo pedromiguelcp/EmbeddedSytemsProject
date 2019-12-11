@@ -9,7 +9,6 @@
 #include <string.h>
 #include <QtAlgorithms>
 #include <iostream>
-#include <string>
 #include <unistd.h>
 #include <sys/time.h>
 
@@ -25,19 +24,22 @@ Dash::Dash()
 
     MyDaemon = new DaemonsInterface ();
 
-    MusicPlayer = new Music (MyDaemon->getmusicpid());
+    MyMusicPlayer = new MusicPlayer (MyDaemon->getmusicpid());
 
-    LedStrip = new DDriver ();
+    LedStrip = new LedStripInterface ();
 
-    STMUART = new UartSTM ();
+    STMUART = new CarInterface ();
 
-    NetworkInfo = new Network ();
+    NetworkInfo = new NetworkInterface ();
 
-    connect(this, &Dash::askfornetworkinfo, NetworkInfo, &Network::requestNetworkinfo);
-    connect(this, &Dash::askforbrightness, STMUART, &UartSTM::requestBrightness);
-    connect(this, &Dash::askfortemperature, STMUART, &UartSTM::requestTemperature);
+    connect(this, &Dash::askfornetworkinfo, NetworkInfo, &NetworkInterface::requestNetworkinfo);
+    connect(this, &Dash::askforbrightness, STMUART, &CarInterface::requestBrightness);
+    connect(this, &Dash::askfortemperature, STMUART, &CarInterface::requestTemperature);
 
     initProgram();
+    /*STMUART->processCarInfo("v96r2692e0\r");
+    STMUART->processCarInfo("b70\r");
+    STMUART->processCarInfo("t20\r");*/
 }
 
 
@@ -217,13 +219,13 @@ void *Dash::CarInfoThread(void *myDash)
         pthread_mutex_unlock(&carinfoMonitor->carinfo_condition_mutex);
 
         //carinfoMonitor->setVal(1);
-        /*carinfoMonitor->STMUART->UpdateCarInfo();//so para ver updates
+        //carinfoMonitor->STMUART->UpdateCarInfo();//so para ver updates
         emit carinfoMonitor->refresh_distancetoobjects();
         emit carinfoMonitor->refresh_speed();
         emit carinfoMonitor->refresh_rpm();
         emit carinfoMonitor->refresh_enginetemp();
         emit carinfoMonitor->refresh_cartemp();
-        emit carinfoMonitor->refresh_carbright();*/
+        emit carinfoMonitor->refresh_carbright();
     }
 }
 
@@ -240,42 +242,42 @@ QString Dash::getUSBDaemonData()
 /*****************************music player********************************/
 void Dash::setNewDevice(QString Devicepath)
 {
-    MusicPlayer->setNewstorageDevie(Devicepath);
+    MyMusicPlayer->setNewstorageDevie(Devicepath);
 }
 
 void Dash::selectSong(QString song)
 {
-    MusicPlayer->setnewSong(song);
+    MyMusicPlayer->setnewSong(song);
 }
 
 QString Dash::getDeviceSongs()
 {
-    return MusicPlayer->getSongs();
+    return MyMusicPlayer->getSongs();
 }
 
 QString Dash::currentSong()
 {
-    return MusicPlayer->getcurrentSong();
+    return MyMusicPlayer->getcurrentSong();
 }
 
 void Dash::pauseSong()
 {
-    MusicPlayer->pauseCurrentSong();
+    MyMusicPlayer->pauseCurrentSong();
 }
 
 void Dash::resumeSong()
 {
-    MusicPlayer->resumeCurrentSong();
+    MyMusicPlayer->resumeCurrentSong();
 }
 
 int Dash::getMusicVolume()
 {
-    return MusicPlayer->getMusicVolume();
+    return MyMusicPlayer->getMusicVolume();
 }
 
 void Dash::controlMusicVolume(int volume)
 {
-    MusicPlayer->changeMusicVolume(volume);
+    MyMusicPlayer->changeMusicVolume(volume);
 }
 
 

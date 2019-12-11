@@ -1,10 +1,10 @@
 #ifndef DASH_H
 #define DASH_H
-#include "ddriver.h"
-#include "uartstm.h"
+#include "ledstripinterface.h"
+#include "carinterface.h"
 #include "daemonsinterface.h"
-#include "music.h"
-#include "network.h"
+#include "musicplayer.h"
+#include "networkinterface.h"
 #include <QObject>
 #include <QSerialPort>
 #include <QByteArray>
@@ -49,8 +49,8 @@ public:
     Q_INVOKABLE void resumeSong();
     Q_INVOKABLE void controlMusicVolume(int volume);
     Q_INVOKABLE int getMusicVolume();
-    Q_INVOKABLE void nextSong(){MusicPlayer->nextSong();}
-    Q_INVOKABLE void previousSong(){MusicPlayer->previousSong();}
+    Q_INVOKABLE void nextSong(){MyMusicPlayer->nextSong();}
+    Q_INVOKABLE void previousSong(){MyMusicPlayer->previousSong();}
 
     /*************************Camera**********************/
     Q_INVOKABLE void openCamera();
@@ -84,11 +84,11 @@ signals:
     void refresh_carbright();
 
 private:
-    DDriver *LedStrip;
-    Music *MusicPlayer;
+    LedStripInterface *LedStrip;
+    MusicPlayer *MyMusicPlayer;
     DaemonsInterface *MyDaemon;
-    UartSTM *STMUART;
-    Network *NetworkInfo;
+    CarInterface *STMUART;
+    NetworkInterface *NetworkInfo;
 
     int bright;
 

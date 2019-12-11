@@ -1,4 +1,4 @@
-#include "uartstm.h"
+#include "carinterface.h"
 #include <signal.h>
 #include <string.h>
 #include <QSerialPortInfo>
@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QString>
 
-UartSTM::UartSTM()
+CarInterface::CarInterface()
 {
     foreach(const QSerialPortInfo &serialPortInfo, QSerialPortInfo::availablePorts()){
             //check if the serialport has both a product identifier and a vendor identifier
@@ -47,8 +47,7 @@ UartSTM::UartSTM()
     QObject::connect(serial, SIGNAL(readyRead()), this, SLOT(readSerial()));
 }
 
-
-void UartSTM::sendCommandSTM(QString command)
+void CarInterface::sendCommandSTM(QString command)
 {
     qDebug() << "Command for STM: " << command;
     if (serial->isOpen())
@@ -57,33 +56,66 @@ void UartSTM::sendCommandSTM(QString command)
     serial->write(command.toUtf8());
 }
 
-void UartSTM::readSerial()
+void CarInterface::readSerial()
 {
     /*
      * readyRead() doesn't guarantee that the entire message will be received all at once.
      * The message can arrive split into parts.  Need to buffer the serial data and then parse for the temperature value.
-     *
+     * 1(v96r2692e0\r)
+     * s(para)
+     * 3(b70\r)
+     * 4(t20\r)
      */
     serialData = serial->readAll();
     serialBuffer = serialBuffer + QString::fromStdString(serialData.toStdString());
     serialData.clear();
     int sizebuff = serialBuffer.size();
+
     if(serialBuffer[sizebuff - 1] == "\r")
     {
-        serialBuffer[serialBuffer.length() -1] = '\0';
-        qDebug() << QString(serialBuffer);
+        //serialBuffer[serialBuffer.length() -1] = '\0';
+
+        processCarInfo(serialBuffer);
         serialBuffer.clear();
     }
 }
 
-void UartSTM::requestBrightness()
+void CarInterface::requestBrightness()
 {
-    sendCommandSTM("Bright");
+    sendCommandSTM("1");
 }
 
-void UartSTM::requestTemperature()
+void CarInterface::requestTemperature()
 {
-    sendCommandSTM("Temperatue");
+    sendCommandSTM("4");
 }
 
+void CarInterface::processCarInfo(QString carinfo)
+{
+    qDebug() << "Information to be parsed: " << carinfo;
+    carinfo.chop(1);
+    if(carinfo[0] == "v")
+    {
+        int rpmindex = carinfo.indexOf("r");
+        int enginetempindex = carinfo.indexOf("e");
+
+        carinformations.speed = carinfo.mid(1, (rpmindex - 1)).toInt();
+        carinformations.rpm = carinfo.mid(rpmindex + 1, (enginetempindex - rpmindex - 1)).toInt();
+        carinformations.enginetemperature = carinfo.mid(enginetempindex + 1).toInt();
+
+        /*qDebug() << "New speed: " << carinformations.speed;
+        qDebug() << "New rpm: " << carinformations.rpm;
+        qDebug() << "New enginetemperature: " << carinformations.enginetemperature;*/
+    }
+    else if(carinfo[0] == "b")
+    {
+        carinformations.brightness = carinfo.mid(1).toInt();
+        //qDebug() << "New bright: " << carinformations.brightness;
+    }
+    else if(carinfo[0] == "t")
+    {
+        carinformations.cartemperatue = carinfo.mid(1).toInt();
+        //qDebug() << "New car temperature: " << carinformations.cartemperatue;
+    }
+}
 

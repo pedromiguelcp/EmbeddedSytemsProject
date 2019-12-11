@@ -12,7 +12,6 @@ DaemonsInterface::DaemonsInterface(): USBDaemonPid(0), MusicDaemonPid(0), DashDa
     initDaemons();
 }
 
-
 pid_t DaemonsInterface::getmusicpid()
 {
     return this->MusicDaemonPid;

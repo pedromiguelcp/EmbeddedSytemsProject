@@ -1,4 +1,4 @@
-QT += qml core quick quickcontrols2 sql serialport
+QT += qml core quick quickcontrols2 sql serialport location
 
 CONFIG += c++11
 
@@ -19,15 +19,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        daemon.cpp \
+        carinterface.cpp \
         daemonsinterface.cpp \
         dash.cpp \
-        ddriver.cpp \
         ledstripinterface.cpp \
         main.cpp \
-        music.cpp \
-        network.cpp \
-        uartstm.cpp
+        musicplayer.cpp \
+        networkinterface.cpp
 
 RESOURCES += qml.qrc
 #LIBS += -lcurl -lcjson -lpthread
@@ -41,14 +39,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    daemon.h \
+    carinterface.h \
     daemonsinterface.h \
     dash.h \
-    ddriver.h \
     ledstripinterface.h \
-    music.h \
-    network.h \
-    uartstm.h
+    musicplayer.h \
+    networkinterface.h
 
 
 CONFIG += disable-desktop qtvirtualkeyboard.pro

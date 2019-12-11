@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import Qt.labs.folderlistmodel 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.0
+
 Item {
     width: 800
     height: 500
@@ -59,16 +60,14 @@ Item {
         y: 385
         width: 800
         height: 95
-        color: "#ffffff"
-        border.color: "white"
-        border.width: 1
+        color: "transparent"
 
         Image {
             id: id_playmusic_image
             x: 356
             y: 7
             width: 89
-            height: 81
+            height: 70
             //fillMode: Image.PreserveAspectFit
             source: "images/music-play.svg"
             MouseArea {
@@ -114,19 +113,31 @@ Item {
                 }
             }
          }
+
+        Slider {
+            x:586
+            y:37
+            from:1
+            value: myclass.getMusicVolume()
+            to:100
+            stepSize: 1.0
+            onMoved: {
+                myclass.controlMusicVolume(value)
+            }
+        }
+
+        Image {
+            id: id_musicvolume_image
+            x:669
+            y:0
+            width: 35
+            height: 35
+            source: "images/music-volume.svg"
+         }
+
     }
 
-    Slider {
-        x:590
-        y:410
-        from:1
-        value: myclass.getMusicVolume()
-        to:100
-        stepSize: 1.0
-        onMoved: {
-            myclass.controlMusicVolume(value)
-        }
-    }
+
 
     Frame {
         id: filesFrame
@@ -138,6 +149,8 @@ Item {
 
         Layout.fillWidth: true
         Layout.fillHeight: true
+        background: color("blue")
+
 
 
         ListView {

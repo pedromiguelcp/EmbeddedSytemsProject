@@ -1,4 +1,4 @@
-#include "music.h"
+#include "musicplayer.h"
 #include <QDebug>
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -8,19 +8,19 @@
 #include <string.h>
 #include <unistd.h>
 
-Music::Music(pid_t musicDaemonPID){
+MusicPlayer::MusicPlayer(pid_t musicDaemonPID){
     usbpath.setPath("/media1/");
     this->musicDaemonPID = musicDaemonPID;
     changeMusicVolume(70);
     musicindex=0;
 }
 
-void Music::setNewstorageDevie(QString newDevice)
+void MusicPlayer::setNewstorageDevie(QString newDevice)
 {
     usbpath.setPath(newDevice);
 }
 
-void Music::setnewSong(QString song)
+void MusicPlayer::setnewSong(QString song)
 {
     QString musicPath(usbpath.path());
 
@@ -63,7 +63,7 @@ void Music::setnewSong(QString song)
     qDebug() << "index:" << musicindex;
 }
 
-QString Music::getSongs()
+QString MusicPlayer::getSongs()
 {
     QDir directory("/media1");
     musicslist.clear();
@@ -73,22 +73,22 @@ QString Music::getSongs()
     return usbpath.path();
 }
 
-QString Music::getcurrentSong()
+QString MusicPlayer::getcurrentSong()
 {
     return this->currentsong.replace(".mp3","");
 }
 
-void Music::pauseCurrentSong()
+void MusicPlayer::pauseCurrentSong()
 {
-    kill(this->musicDaemonPID, SIGSTOP);
+    kill(this->musicDaemonPID, SIGUSR2);
 }
 
-void Music::resumeCurrentSong()
+void MusicPlayer::resumeCurrentSong()
 {
     kill(this->musicDaemonPID, SIGCONT);
 }
 
-void Music::changeMusicVolume(int volume)
+void MusicPlayer::changeMusicVolume(int volume)
 {
     this->musicVolume = volume;
 
@@ -98,12 +98,12 @@ void Music::changeMusicVolume(int volume)
     system(control.c_str());
 }
 
-int Music::getMusicVolume()
+int MusicPlayer::getMusicVolume()
 {
     return this->musicVolume;
 }
 
-void Music::nextSong()
+void MusicPlayer::nextSong()
 {
     if(musicindex == (musicslist.length() - 1))
         musicindex = 0;
@@ -112,7 +112,7 @@ void Music::nextSong()
     setnewSong(musicslist.at(musicindex));
 }
 
-void Music::previousSong()
+void MusicPlayer::previousSong()
 {
     if(musicindex == 0)
         musicindex = 0;

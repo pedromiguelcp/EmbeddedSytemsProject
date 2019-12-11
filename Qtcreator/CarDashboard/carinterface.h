@@ -1,5 +1,5 @@
-#ifndef UARTSTM_H
-#define UARTSTM_H
+#ifndef CARINTERFACE_H
+#define CARINTERFACE_H
 #include <QObject>
 #include <QtDebug>
 #include <QSerialPort>
@@ -14,12 +14,12 @@ struct carstatus_t{
     int brightness;
 };
 
-class UartSTM : public QObject
-{
-    Q_OBJECT   
 
+class CarInterface : public QObject
+{
+    Q_OBJECT
 public:
-    UartSTM();
+    CarInterface();
     Q_INVOKABLE  void sendCommandSTM(QString command);
     QSerialPort *serial;
 
@@ -56,6 +56,8 @@ public:
         carinformations.brightness += 5;
     }
 
+    void processCarInfo(QString carinfo);
+
 /*************************************************************/
 
 private slots:
@@ -71,6 +73,7 @@ private:
     QByteArray serialData;
     QString serialBuffer;
     QString parsed_data;
+
 };
 
-#endif // UARTSTM_H
+#endif // CARINTERFACE_H
