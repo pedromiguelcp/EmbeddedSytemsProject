@@ -575,6 +575,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/images/light-aqua.svg \
 		../CarDashboard/images/watch.svg \
 		../CarDashboard/images/bright-minus.svg \
+		../CarDashboard/images/music-volume.svg \
 		../CarDashboard/images/light-off.svg \
 		../CarDashboard/images/light-red.svg \
 		../CarDashboard/images/light-green.svg \

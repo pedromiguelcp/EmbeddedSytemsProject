@@ -70,6 +70,7 @@ public:
     int car_enginetemp() const{ return STMUART->enginetemperature();}
     int car_temp() const{ return STMUART->cartemperatue();}
     int car_bright() const{ return STMUART->brightness();}
+    Q_INVOKABLE QString getCarProblems() const {return "High engine temperature\nLow tire pressure";}
 
 signals:
     void askfornetworkinfo();

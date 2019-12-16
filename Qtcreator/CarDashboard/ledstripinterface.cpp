@@ -5,7 +5,7 @@
 LedStripInterface::LedStripInterface()
 {
     this->ddriver.setFileName("/dev/LedStrips");
-    setLedStripColor("0");
+    setLedStripColor("7");
 }
 
 void LedStripInterface::setLedStripColor(QString colorNumber)

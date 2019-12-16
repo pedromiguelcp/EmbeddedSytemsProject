@@ -109,7 +109,11 @@ void CarInterface::processCarInfo(QString carinfo)
     }
     else if(carinfo[0] == "b")
     {
-        carinformations.brightness = carinfo.mid(1).toInt();
+        int carbright = carinfo.mid(1).toInt();
+        if(carbright <= 50)
+            carinformations.brightness = 128;
+        else carinformations.brightness = (carbright * 244 / 100);
+
         //qDebug() << "New bright: " << carinformations.brightness;
     }
     else if(carinfo[0] == "t")

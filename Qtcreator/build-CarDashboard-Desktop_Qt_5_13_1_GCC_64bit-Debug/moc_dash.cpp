@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Dash_t {
-    QByteArrayData data[41];
-    char stringdata0[501];
+    QByteArrayData data[42];
+    char stringdata0[516];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -67,12 +67,13 @@ QT_MOC_LITERAL(31, 395, 7), // "getNews"
 QT_MOC_LITERAL(32, 403, 5), // "index"
 QT_MOC_LITERAL(33, 409, 10), // "getWeather"
 QT_MOC_LITERAL(34, 420, 9), // "parameter"
-QT_MOC_LITERAL(35, 430, 17), // "distancetoobjects"
-QT_MOC_LITERAL(36, 448, 9), // "car_speed"
-QT_MOC_LITERAL(37, 458, 7), // "car_rpm"
-QT_MOC_LITERAL(38, 466, 14), // "car_enginetemp"
-QT_MOC_LITERAL(39, 481, 8), // "car_temp"
-QT_MOC_LITERAL(40, 490, 10) // "car_bright"
+QT_MOC_LITERAL(35, 430, 14), // "getCarProblems"
+QT_MOC_LITERAL(36, 445, 17), // "distancetoobjects"
+QT_MOC_LITERAL(37, 463, 9), // "car_speed"
+QT_MOC_LITERAL(38, 473, 7), // "car_rpm"
+QT_MOC_LITERAL(39, 481, 14), // "car_enginetemp"
+QT_MOC_LITERAL(40, 496, 8), // "car_temp"
+QT_MOC_LITERAL(41, 505, 10) // "car_bright"
 
     },
     "Dash\0askfornetworkinfo\0\0askforbrightness\0"
@@ -87,8 +88,9 @@ QT_MOC_LITERAL(40, 490, 10) // "car_bright"
     "nextSong\0previousSong\0openCamera\0"
     "closeCamera\0adjustDashBright\0getDashBright\0"
     "getNews\0index\0getWeather\0parameter\0"
-    "distancetoobjects\0car_speed\0car_rpm\0"
-    "car_enginetemp\0car_temp\0car_bright"
+    "getCarProblems\0distancetoobjects\0"
+    "car_speed\0car_rpm\0car_enginetemp\0"
+    "car_temp\0car_bright"
 };
 #undef QT_MOC_LITERAL
 
@@ -98,43 +100,44 @@ static const uint qt_meta_data_Dash[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
-       6,  190, // properties
+      28,   14, // methods
+       6,  196, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
       10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  149,    2, 0x06 /* Public */,
-       3,    0,  150,    2, 0x06 /* Public */,
-       4,    0,  151,    2, 0x06 /* Public */,
-       5,    0,  152,    2, 0x06 /* Public */,
-       6,    0,  153,    2, 0x06 /* Public */,
-       7,    0,  154,    2, 0x06 /* Public */,
-       8,    0,  155,    2, 0x06 /* Public */,
-       9,    0,  156,    2, 0x06 /* Public */,
-      10,    0,  157,    2, 0x06 /* Public */,
-      11,    0,  158,    2, 0x06 /* Public */,
+       1,    0,  154,    2, 0x06 /* Public */,
+       3,    0,  155,    2, 0x06 /* Public */,
+       4,    0,  156,    2, 0x06 /* Public */,
+       5,    0,  157,    2, 0x06 /* Public */,
+       6,    0,  158,    2, 0x06 /* Public */,
+       7,    0,  159,    2, 0x06 /* Public */,
+       8,    0,  160,    2, 0x06 /* Public */,
+       9,    0,  161,    2, 0x06 /* Public */,
+      10,    0,  162,    2, 0x06 /* Public */,
+      11,    0,  163,    2, 0x06 /* Public */,
 
  // methods: name, argc, parameters, tag, flags
-      12,    1,  159,    2, 0x02 /* Public */,
-      14,    1,  162,    2, 0x02 /* Public */,
-      16,    0,  165,    2, 0x02 /* Public */,
-      17,    1,  166,    2, 0x02 /* Public */,
-      19,    0,  169,    2, 0x02 /* Public */,
-      20,    0,  170,    2, 0x02 /* Public */,
-      21,    0,  171,    2, 0x02 /* Public */,
-      22,    1,  172,    2, 0x02 /* Public */,
-      24,    0,  175,    2, 0x02 /* Public */,
-      25,    0,  176,    2, 0x02 /* Public */,
-      26,    0,  177,    2, 0x02 /* Public */,
-      27,    0,  178,    2, 0x02 /* Public */,
-      28,    0,  179,    2, 0x02 /* Public */,
-      29,    1,  180,    2, 0x02 /* Public */,
-      30,    0,  183,    2, 0x02 /* Public */,
-      31,    1,  184,    2, 0x02 /* Public */,
-      33,    1,  187,    2, 0x02 /* Public */,
+      12,    1,  164,    2, 0x02 /* Public */,
+      14,    1,  167,    2, 0x02 /* Public */,
+      16,    0,  170,    2, 0x02 /* Public */,
+      17,    1,  171,    2, 0x02 /* Public */,
+      19,    0,  174,    2, 0x02 /* Public */,
+      20,    0,  175,    2, 0x02 /* Public */,
+      21,    0,  176,    2, 0x02 /* Public */,
+      22,    1,  177,    2, 0x02 /* Public */,
+      24,    0,  180,    2, 0x02 /* Public */,
+      25,    0,  181,    2, 0x02 /* Public */,
+      26,    0,  182,    2, 0x02 /* Public */,
+      27,    0,  183,    2, 0x02 /* Public */,
+      28,    0,  184,    2, 0x02 /* Public */,
+      29,    1,  185,    2, 0x02 /* Public */,
+      30,    0,  188,    2, 0x02 /* Public */,
+      31,    1,  189,    2, 0x02 /* Public */,
+      33,    1,  192,    2, 0x02 /* Public */,
+      35,    0,  195,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -166,14 +169,15 @@ static const uint qt_meta_data_Dash[] = {
     QMetaType::Int,
     QMetaType::QString, QMetaType::Int,   32,
     QMetaType::QString, QMetaType::Int,   34,
+    QMetaType::QString,
 
  // properties: name, type, flags
-      35, QMetaType::Int, 0x00495001,
       36, QMetaType::Int, 0x00495001,
       37, QMetaType::Int, 0x00495001,
       38, QMetaType::Int, 0x00495001,
       39, QMetaType::Int, 0x00495001,
       40, QMetaType::Int, 0x00495001,
+      41, QMetaType::Int, 0x00495001,
 
  // properties: notify_signal_id
        4,
@@ -224,6 +228,8 @@ void Dash::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 25: { QString _r = _t->getNews((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         case 26: { QString _r = _t->getWeather((*reinterpret_cast< int(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 27: { QString _r = _t->getCarProblems();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -349,13 +355,13 @@ int Dash::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 28)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 28;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 27)
+        if (_id < 28)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 27;
+        _id -= 28;
     }
 #ifndef QT_NO_PROPERTIES
     else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty

@@ -61,7 +61,7 @@ Item {
             id: id_lightoff_mousearea
             anchors.fill: parent
             onClicked: {
-                myclass.setColor("0")
+                myclass.setColor("7")
             }
         }
     }
@@ -78,7 +78,7 @@ Item {
             id: id_lightblue_mousearea
             anchors.fill: parent
             onClicked: {
-                myclass.setColor("4")
+                myclass.setColor("5")
             }
         }
     }
@@ -95,7 +95,7 @@ Item {
             id: id_lightred_mousearea
             anchors.fill: parent
             onClicked: {
-                myclass.setColor("1")
+                myclass.setColor("6")
             }
         }
     }
@@ -112,8 +112,8 @@ Item {
             id: id_lightgreen_mousearea
             anchors.fill: parent
             onClicked: {
-                 //myclass.setColor("2")
-                 myclass.sendCommand("VER \n")
+                 myclass.setColor("2")
+                 //myclass.sendCommand("VER \n")
             }
         }
     }
@@ -130,7 +130,7 @@ Item {
             id: id_lightmagenta_mousearea
             anchors.fill: parent
             onClicked: {
-                myclass.setColor("5")
+                myclass.setColor("4")
             }
         }
     }
@@ -147,7 +147,7 @@ Item {
             id: id_lightaqua_mousearea
             anchors.fill: parent
             onClicked: {
-                myclass.setColor("6")
+                myclass.setColor("1")
             }
         }
     }

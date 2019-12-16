@@ -81,6 +81,9 @@ Item {
             ColumnLayout {
                     id: carinfosRowLayout
                     y: 0
+                    height: 400
+                    Layout.rightMargin: 0
+                    Layout.maximumWidth: 350
 
                     Label {
                         text: qsTr("Car informations")
@@ -88,7 +91,7 @@ Item {
                         leftPadding: 60
                         rightPadding: 0
                         topPadding: 50
-                        bottomPadding: 0
+
 
                         Layout.fillWidth: true
 
@@ -133,7 +136,6 @@ Item {
                         implicitHeight: swpowerValueLabel.implicitHeight
                         Layout.fillWidth: true
                         Layout.topMargin: 16
-                        Layout.bottomMargin: 360
 
                         Label {
                             text: qsTr("Engine temperature")
@@ -149,46 +151,20 @@ Item {
                             anchors.right: parent.right
                         }
                     }
-            }
 
-            Rectangle {
-                color: colorMain
-                implicitWidth: 1
-                Layout.fillHeight: true
-            }
 
-            ColumnLayout {
-                Image {
-
-                    source: "images/carinfo.svg"
-Layout.bottomMargin: 100
-                }
-            }
-
-            Rectangle {
-                color: colorMain
-                implicitWidth: 1
-                Layout.fillHeight: true
-            }
-
-            ColumnLayout {
-
-                    id: externalcarinfosRowLayout
-                    y: 0
 
                     Label {
                         text: qsTr("External car informations")
                         color: "red"
-                        leftPadding: 30
+                        leftPadding: 40
                         rightPadding: 0
                         topPadding: 50
-                        bottomPadding: 0
 
                         Layout.fillWidth: true
 
                     }
 
-                    // QTBUG-63269
                     Item {
                         Layout.fillWidth: true
                         Layout.topMargin: 16
@@ -206,11 +182,9 @@ Layout.bottomMargin: 100
                         }
                     }
 
-                    // QTBUG-63269
                     Item {
                         Layout.fillWidth: true
                         Layout.topMargin: 16
-                        Layout.bottomMargin: 400
 
                         Label {
                             text: qsTr("Brightness")
@@ -224,6 +198,82 @@ Layout.bottomMargin: 100
                             anchors.right: parent.right
                         }
                     }
+
+                    Label {
+                        color: "red"
+                        leftPadding: 60
+                        rightPadding: 0
+                        topPadding: 50
+                        bottomPadding: 500
+
+                        Layout.fillWidth: true
+
+                    }
+            }
+
+            Rectangle {
+                height: 400
+                color: colorMain
+                implicitWidth: 1
+                Layout.fillHeight: true
+            }
+
+            ColumnLayout {
+                y: 0
+                height: 400
+                Image {
+
+                    source: "images/carinfo.svg"
+Layout.bottomMargin: 430
+                }
+            }
+
+            Rectangle {
+                height: 400
+                color: colorMain
+                implicitWidth: 1
+                Layout.fillHeight: true
+            }
+
+            ColumnLayout {
+
+                    id: externalcarinfosRowLayout
+                    y: -100
+                    height: 400
+                    Layout.rightMargin: 25
+
+                    Label {
+                        text: qsTr("Car problems detected")
+                        color: "red"
+                        leftPadding: 30
+                        rightPadding: 0
+                        topPadding: 50
+                        bottomPadding: 0
+
+                        Layout.fillWidth: true
+
+                    }
+                    Column {
+                        height: 100
+                        width: 230
+                        Layout.leftMargin: 30
+                        Layout.fillWidth: true
+                        Layout.bottomMargin: 750
+                        Repeater {
+                            id: news_repeater
+                            x: 0
+                            model: [myclass.getCarProblems()
+                            ]
+                            Text {
+                                x: -10
+                                font.pixelSize: 16
+                                text: modelData
+                                color: "White"
+                            }
+                        }
+                    }
+
+
             }
 
         }

@@ -59,48 +59,6 @@ ssize_t led_device_write(struct file *pfile, const char __user *pbuff, size_t le
 	SetGPIOOutputValue(pdev, GreenLed, colour & 0x02);
 	SetGPIOOutputValue(pdev, BlueLed, colour & 0x04);
 
-
-	/*if (pbuff[0]=='P'){
-		SetGPIOOutputValue(pdev, RedLed, 0);
-		SetGPIOOutputValue(pdev, GreenLed, 0);
-		SetGPIOOutputValue(pdev, BlueLed, 0);
-	}
-	else if (pbuff[0]=='R'){
-		SetGPIOOutputValue(pdev, RedLed, 1);
-		SetGPIOOutputValue(pdev, GreenLed, 0);
-		SetGPIOOutputValue(pdev, BlueLed, 0);
-	}
-	else if (pbuff[0]=='G'){
-		SetGPIOOutputValue(pdev, RedLed, 0);
-		SetGPIOOutputValue(pdev, GreenLed, 1);
-		SetGPIOOutputValue(pdev, BlueLed, 0);
-	}
-	else if (pbuff[0]=='B'){
-		SetGPIOOutputValue(pdev, RedLed, 0);
-		SetGPIOOutputValue(pdev, GreenLed, 0);
-		SetGPIOOutputValue(pdev, BlueLed, 1);
-	}
-	else if (pbuff[0]=='Y'){
-		SetGPIOOutputValue(pdev, RedLed, 1);
-		SetGPIOOutputValue(pdev, GreenLed, 1);
-		SetGPIOOutputValue(pdev, BlueLed, 0);
-	}
-	else if (pbuff[0]=='M'){
-		SetGPIOOutputValue(pdev, RedLed, 1);
-		SetGPIOOutputValue(pdev, GreenLed, 0);
-		SetGPIOOutputValue(pdev, BlueLed, 1);
-	}
-	else if (pbuff[0]=='C'){
-		SetGPIOOutputValue(pdev, RedLed, 0);
-		SetGPIOOutputValue(pdev, GreenLed, 1);
-		SetGPIOOutputValue(pdev, BlueLed, 1);
-	}
-	else{
-		SetGPIOOutputValue(pdev, RedLed, 1);
-		SetGPIOOutputValue(pdev, GreenLed, 1);
-		SetGPIOOutputValue(pdev, BlueLed, 1);
-	}*/
-
 	return len;
 }
 

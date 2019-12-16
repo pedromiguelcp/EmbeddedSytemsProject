@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.4
 import QtQuick.Window 2.0
+
 Item {
     width: 800
     height: 500
@@ -62,16 +63,16 @@ Item {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 28
     }
+
     Slider {
         x:90
         y:180
         from:1
-        value: myclass.getDashBright()
+       // value: myclass.car_bright
         to:255
         stepSize: 1.0
         onMoved: {
             myclass.adjustDashBright(value)
         }
     }
-
 }

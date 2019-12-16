@@ -16,7 +16,6 @@ static volatile char USBSignal;
 static volatile char TimerSignal;
 
 
-
 Dash::Dash()
 {
     signal(SIGUSR2, this->signalsHandler);
@@ -37,7 +36,8 @@ Dash::Dash()
     connect(this, &Dash::askfortemperature, STMUART, &CarInterface::requestTemperature);
 
     initProgram();
-    /*STMUART->processCarInfo("v96r2692e0\r");
+
+    /*STMUART->processCarInfo("v96r2692e123\r");
     STMUART->processCarInfo("b70\r");
     STMUART->processCarInfo("t20\r");*/
 }
@@ -61,6 +61,11 @@ void Dash::initProgram()
     itv.it_value.tv_sec = TIMERSAMPLE;
     itv.it_value.tv_usec = 0; //it_value -> period between now and the first interrupt, if 0 it is disabled
     setitimer(ITIMER_REAL, &itv, nullptr); //ITIMER_REAL,ITIMER_VIRTUAL ITIMER_PROF -> types of interval timers available per process
+
+    STMUART->UpdateCarInfo();
+    //STMUART->sendCommandSTM("Start collect car information");
+    /*meter a regular o brilho
+      meter a dar display dos erros*/
 }
 
 
@@ -103,7 +108,7 @@ void Dash::sendCommand(QString command)
 /****************************pthreads and mutexes***************************/
 void Dash::SetPthreads()
 {
-    USBMonitor_param.sched_priority = 4;
+    USBMonitor_param.sched_priority = 2;
     pthread_attr_setdetachstate(&USBMonitor_attr, PTHREAD_CREATE_JOINABLE);
     pthread_attr_setschedparam(&USBMonitor_attr,&USBMonitor_param);
     pthread_attr_init(&USBMonitor_attr);
@@ -115,7 +120,7 @@ void Dash::SetPthreads()
     pthread_attr_init(&Timer_attr);
     pthread_create(&Timer_thread, &Timer_attr, TimerThread, this);
 
-    CarInfo_param.sched_priority = 4;
+    CarInfo_param.sched_priority = 5;
     pthread_attr_setdetachstate(&CarInfo_attr, PTHREAD_CREATE_JOINABLE);
     pthread_attr_setschedparam(&CarInfo_attr,&CarInfo_param);
     pthread_attr_init(&CarInfo_attr);
@@ -190,6 +195,7 @@ void *Dash::TimerThread(void *myDash)
             }
             if(brightcount == BRIGHTNESSSAMPLE)
             {
+                timerMonitor->STMUART->UpdateCarInfo();
                 emit timerMonitor->askforbrightness();
                 brightcount = 0;
             }
