@@ -45,6 +45,13 @@ CarInterface::CarInterface()
         qDebug() << QString("Device is open!");
 
     QObject::connect(serial, SIGNAL(readyRead()), this, SLOT(readSerial()));
+
+    carinformations.speed = 0;
+    carinformations.rpm = 0;
+    carinformations.enginetemperature = 0;
+    carinformations.cartemperatue = 0;
+    carinformations.distancetoobjects = 0;
+    carinformations.brightness = 0;
 }
 
 void CarInterface::sendCommandSTM(QString command)
@@ -93,7 +100,9 @@ void CarInterface::requestTemperature()
 void CarInterface::processCarInfo(QString carinfo)
 {
     qDebug() << "Information to be parsed: " << carinfo;
-    carinfo.chop(1);
+
+    // carinfo = v96r2692e0\r
+    carinfo.chop(1);//limpa o /r --> v96r2692e0
     if(carinfo[0] == "v")
     {
         int rpmindex = carinfo.indexOf("r");
@@ -112,9 +121,9 @@ void CarInterface::processCarInfo(QString carinfo)
         int carbright = carinfo.mid(1).toInt();
         if(carbright <= 50)
             carinformations.brightness = 128;
-        else carinformations.brightness = (carbright * 244 / 100);
+        else carinformations.brightness = (carbright * 255 / 100);
 
-        //qDebug() << "New bright: " << carinformations.brightness;
+        setnewbright(carinformations.brightness);
     }
     else if(carinfo[0] == "t")
     {
@@ -123,3 +132,10 @@ void CarInterface::processCarInfo(QString carinfo)
     }
 }
 
+void CarInterface::setnewbright(int bright) {
+    this->carinformations.brightness = bright;
+    std::string adjust = "echo ";
+    adjust += std::to_string(bright);
+    adjust += " > /sys/class/backlight/rpi_backlight/brightness";
+    system(adjust.c_str());
+}

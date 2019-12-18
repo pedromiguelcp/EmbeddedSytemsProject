@@ -47,7 +47,7 @@ Dash::Dash()
 /*******************************program timer**********************************/
 void Dash::initProgram()
 {
-    adjustDashBright(244);
+    adjustDashBright(255);
 
     system("v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600");
 
@@ -192,6 +192,7 @@ void *Dash::TimerThread(void *myDash)
             {
                 emit timerMonitor->askfortemperature();
                 temperaturecount = 0;
+                timerMonitor->STMUART->processCarInfo("b50\r\r");
             }
             if(brightcount == BRIGHTNESSSAMPLE)
             {
@@ -306,17 +307,7 @@ void Dash::closeCamera()
 /********************************bright**********************************/
 void Dash::adjustDashBright(int command)
 {
-    this->bright = command;
-
-    std::string adjust = "echo ";
-    adjust += std::to_string(command);
-    adjust += " > /sys/class/backlight/rpi_backlight/brightness";
-    system(adjust.c_str());
-}
-
-int Dash::getDashBright()
-{
-    return this->bright;
+    STMUART->setnewbright(command);
 }
 
 
@@ -336,17 +327,11 @@ QString Dash::getWeather(int parameter)
     else return QString::number(NetworkInfo->getTemperature());
 }
 
-
-
-/*****************************car info********************************/
-/*void Dash::setVal(const int &v)
+void Dash::newNetworkConfig(QString SSID, QString PSW)
 {
-    //esta funçao apenas tem de dar emit, quando recebo pela porta serie os dados
-     // do carro dou update nas propriedades da classe CarInfo, depois quando der
-     // emit aqui (periodicamente) a funçao val será chamada para ir buscar os
-     // dados á classe CarInfo e dar refresh no qml
-    STMUART->UpdateCarInfo();
-    emit valChanged(v);
-}*/
+    std::string newconnection = "wpa_passphrase " + SSID.toStdString() + " " + PSW.toStdString() + " > /etc/wpa_supplicant.conf";
 
+    system(newconnection.c_str());
+    system("/etc/init.d/S40network restart");
+}
 

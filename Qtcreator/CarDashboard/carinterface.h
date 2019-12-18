@@ -28,6 +28,8 @@ public:
 
  /*************************************************************/
 
+    void setnewbright(int bright);
+
     int speed() const {
         return carinformations.speed;
     }
@@ -48,12 +50,7 @@ public:
     }
 
     void UpdateCarInfo() {
-        carinformations.speed = 53;
-        carinformations.rpm = 1250;
-        carinformations.cartemperatue = 24;
-        carinformations.enginetemperature = 45;
-        carinformations.distancetoobjects += 5;
-        carinformations.brightness = 66;
+
     }
 
     void processCarInfo(QString carinfo);

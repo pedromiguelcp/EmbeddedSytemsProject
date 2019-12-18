@@ -58,11 +58,11 @@ public:
 
     /*************************Touchscreen**********************/
     Q_INVOKABLE void adjustDashBright(int command);
-    Q_INVOKABLE int getDashBright();
 
      /*************************News**********************/
     Q_INVOKABLE QString getNews(int index);
     Q_INVOKABLE QString getWeather(int parameter);
+    Q_INVOKABLE void newNetworkConfig(QString SSID, QString PSW);
 
     int distancetoobjects() const{ return STMUART->distancetoobjects();}
     int car_speed() const{ return STMUART->speed();}

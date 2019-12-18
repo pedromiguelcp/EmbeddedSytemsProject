@@ -32,4 +32,8 @@ wpa_passphrase MATE20 pedro | tee /etc/wpa_supplicant.conf
 echo "Subject: Security Warning \r\n\r\n Someone is at your doorstep!!" | msmtp --from=default -t me.pedropereira@gmail.com
 
 sudo arp-scan 192.168.1.0/24
+/etc/init.d/S40network restart
+wpa_passphrase Mate20L 12345678 > /etc/wpa_supplicant.conf
+
+nano /etc/motion/motion.conf  -> movie_output off
 

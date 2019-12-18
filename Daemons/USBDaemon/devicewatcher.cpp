@@ -24,10 +24,6 @@ DeviceWatcher::DeviceWatcher()
     }
     this->NUM_OF_EVENTS = 5;
 
-    //this->folders.push_back("fpen");
-    //this->folders.push_back("spen");
-    //this->folders.push_back("tpen");
-    //this->folders.push_back("ftpen");
     this->MountingFolder = "/media1/";
     this->currentmountedFolder = 0;
 }

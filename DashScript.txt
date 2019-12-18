@@ -26,7 +26,7 @@ mkdir /Daemons/MainProcess
 /************inittab************/
 # DashScript
 ::sysinit:/etc/myfiles/DashScript.sh
-->>chmod +x myscript.sh
+->>chmod +x DashScript.sh
 
 /************Config.txt************/
 #rotates touch screen

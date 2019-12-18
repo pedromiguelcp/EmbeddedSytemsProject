@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Dash_t {
-    QByteArrayData data[42];
-    char stringdata0[516];
+    QByteArrayData data[44];
+    char stringdata0[528];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -62,18 +62,20 @@ QT_MOC_LITERAL(26, 328, 12), // "previousSong"
 QT_MOC_LITERAL(27, 341, 10), // "openCamera"
 QT_MOC_LITERAL(28, 352, 11), // "closeCamera"
 QT_MOC_LITERAL(29, 364, 16), // "adjustDashBright"
-QT_MOC_LITERAL(30, 381, 13), // "getDashBright"
-QT_MOC_LITERAL(31, 395, 7), // "getNews"
-QT_MOC_LITERAL(32, 403, 5), // "index"
-QT_MOC_LITERAL(33, 409, 10), // "getWeather"
-QT_MOC_LITERAL(34, 420, 9), // "parameter"
-QT_MOC_LITERAL(35, 430, 14), // "getCarProblems"
-QT_MOC_LITERAL(36, 445, 17), // "distancetoobjects"
-QT_MOC_LITERAL(37, 463, 9), // "car_speed"
-QT_MOC_LITERAL(38, 473, 7), // "car_rpm"
-QT_MOC_LITERAL(39, 481, 14), // "car_enginetemp"
-QT_MOC_LITERAL(40, 496, 8), // "car_temp"
-QT_MOC_LITERAL(41, 505, 10) // "car_bright"
+QT_MOC_LITERAL(30, 381, 7), // "getNews"
+QT_MOC_LITERAL(31, 389, 5), // "index"
+QT_MOC_LITERAL(32, 395, 10), // "getWeather"
+QT_MOC_LITERAL(33, 406, 9), // "parameter"
+QT_MOC_LITERAL(34, 416, 16), // "newNetworkConfig"
+QT_MOC_LITERAL(35, 433, 4), // "SSID"
+QT_MOC_LITERAL(36, 438, 3), // "PSW"
+QT_MOC_LITERAL(37, 442, 14), // "getCarProblems"
+QT_MOC_LITERAL(38, 457, 17), // "distancetoobjects"
+QT_MOC_LITERAL(39, 475, 9), // "car_speed"
+QT_MOC_LITERAL(40, 485, 7), // "car_rpm"
+QT_MOC_LITERAL(41, 493, 14), // "car_enginetemp"
+QT_MOC_LITERAL(42, 508, 8), // "car_temp"
+QT_MOC_LITERAL(43, 517, 10) // "car_bright"
 
     },
     "Dash\0askfornetworkinfo\0\0askforbrightness\0"
@@ -86,9 +88,9 @@ QT_MOC_LITERAL(41, 505, 10) // "car_bright"
     "currentSong\0pauseSong\0resumeSong\0"
     "controlMusicVolume\0volume\0getMusicVolume\0"
     "nextSong\0previousSong\0openCamera\0"
-    "closeCamera\0adjustDashBright\0getDashBright\0"
-    "getNews\0index\0getWeather\0parameter\0"
-    "getCarProblems\0distancetoobjects\0"
+    "closeCamera\0adjustDashBright\0getNews\0"
+    "index\0getWeather\0parameter\0newNetworkConfig\0"
+    "SSID\0PSW\0getCarProblems\0distancetoobjects\0"
     "car_speed\0car_rpm\0car_enginetemp\0"
     "car_temp\0car_bright"
 };
@@ -101,7 +103,7 @@ static const uint qt_meta_data_Dash[] = {
        0,       // classname
        0,    0, // classinfo
       28,   14, // methods
-       6,  196, // properties
+       6,  200, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -134,10 +136,10 @@ static const uint qt_meta_data_Dash[] = {
       27,    0,  183,    2, 0x02 /* Public */,
       28,    0,  184,    2, 0x02 /* Public */,
       29,    1,  185,    2, 0x02 /* Public */,
-      30,    0,  188,    2, 0x02 /* Public */,
-      31,    1,  189,    2, 0x02 /* Public */,
-      33,    1,  192,    2, 0x02 /* Public */,
-      35,    0,  195,    2, 0x02 /* Public */,
+      30,    1,  188,    2, 0x02 /* Public */,
+      32,    1,  191,    2, 0x02 /* Public */,
+      34,    2,  194,    2, 0x02 /* Public */,
+      37,    0,  199,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -166,18 +168,18 @@ static const uint qt_meta_data_Dash[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Int,
-    QMetaType::QString, QMetaType::Int,   32,
-    QMetaType::QString, QMetaType::Int,   34,
+    QMetaType::QString, QMetaType::Int,   31,
+    QMetaType::QString, QMetaType::Int,   33,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   35,   36,
     QMetaType::QString,
 
  // properties: name, type, flags
-      36, QMetaType::Int, 0x00495001,
-      37, QMetaType::Int, 0x00495001,
       38, QMetaType::Int, 0x00495001,
       39, QMetaType::Int, 0x00495001,
       40, QMetaType::Int, 0x00495001,
       41, QMetaType::Int, 0x00495001,
+      42, QMetaType::Int, 0x00495001,
+      43, QMetaType::Int, 0x00495001,
 
  // properties: notify_signal_id
        4,
@@ -223,12 +225,11 @@ void Dash::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 21: _t->openCamera(); break;
         case 22: _t->closeCamera(); break;
         case 23: _t->adjustDashBright((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 24: { int _r = _t->getDashBright();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 25: { QString _r = _t->getNews((*reinterpret_cast< int(*)>(_a[1])));
+        case 24: { QString _r = _t->getNews((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
-        case 26: { QString _r = _t->getWeather((*reinterpret_cast< int(*)>(_a[1])));
+        case 25: { QString _r = _t->getWeather((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 26: _t->newNetworkConfig((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 27: { QString _r = _t->getCarProblems();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
