@@ -97,55 +97,54 @@ Item {
                     Item {
                         Layout.fillWidth: true
                         Layout.topMargin: 16
-
-                        Label {
-                            text: qsTr("Speed")
-                            color: "white"
-                            anchors.left: parent.left
-
-                        }
+Image {
+    width: 30
+    height: 30
+    visible: true
+    source: "images/speedometer.svg"
+    }
 
                         Text  {
-                            text: myclass.car_speed + qsTr("km/h")
+                            x: 80
+                            text: myclass.car_speed + qsTr(" km/h")
                             color: "white"
-                            anchors.right: parent.right
+                            font.pointSize: 24
                         }
                     }
 
                     Item {
                         Layout.fillWidth: true
-                        Layout.topMargin: 16
-
-                        Label {
-                            text: qsTr("RPM")
+                        Layout.topMargin: 31
+                        Image {
+                            width: 30
+                            height: 30
+                            visible: true
+                            source: "images/RPMs.svg"
+                            }
+                        Text  {
+                            x: 80
+                            text: myclass.car_rpm + qsTr(" rpm")
                             color: "white"
-                            anchors.left: parent.left
-                        }
-
-                        Label  {
-                            text: myclass.car_rpm + qsTr("rpm")
-                            color: "white"
-                            anchors.right: parent.right
+                            font.pointSize: 24
                         }
                     }
 
                     Item {
                         implicitHeight: swpowerValueLabel.implicitHeight
                         Layout.fillWidth: true
-                        Layout.topMargin: 16
-
-                        Label {
-                            text: qsTr("Engine temperature")
-                            color: "white"
-                            anchors.baseline: swpowerValueLabel.bottom
-                            anchors.left: parent.left
-                        }
-
-                        Label  {
+                        Layout.topMargin: 34
+                        Image {
+                            width: 30
+                            height: 30
+                            visible: true
+                            source: "images/engine.svg"
+                            }
+                        Text  {
+                            x: 80
                             id: swpowerValueLabel
-                            text: myclass.car_enginetemp + qsTr("ºC")
+                            text: myclass.car_enginetemp + qsTr(" ºC")
                             color: "white"
-                            anchors.right: parent.right
+                            font.pointSize: 24
                         }
                     }
 
@@ -164,35 +163,35 @@ Item {
 
                     Item {
                         Layout.fillWidth: true
-                        Layout.topMargin: 16
-
-                        Label {
-                            text: qsTr("Temperature")
+                        Layout.topMargin: 4
+                        Image {
+                            width: 30
+                            height: 30
+                            visible: true
+                            source: "images/temperature.svg"
+                            }
+                        Text  {
+                            x: 80
+                            text: myclass.car_temp + qsTr(" ºC")
                             color: "white"
-                            anchors.left: parent.left
-                        }
-
-                        Label  {
-                            text: myclass.car_temp + qsTr("ºC")
-                            color: "white"
-                            anchors.right: parent.right
+                            font.pointSize: 24
                         }
                     }
 
                     Item {
                         Layout.fillWidth: true
-                        Layout.topMargin: 16
-
-                        Label {
-                            text: qsTr("Brightness")
+                        Layout.topMargin: 30
+                        Image {
+                            width: 30
+                            height: 30
+                            visible: true
+                            source: "images/brightness.svg"
+                            }
+                        Text  {
+                            x: 80
+                            text: myclass.car_bright + qsTr(" %")
                             color: "white"
-                            anchors.left: parent.left
-                        }
-
-                        Label  {
-                            text: myclass.car_bright + qsTr("%")
-                            color: "white"
-                            anchors.right: parent.right
+                            font.pointSize: 24
                         }
                     }
 

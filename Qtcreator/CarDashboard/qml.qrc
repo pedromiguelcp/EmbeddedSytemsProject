@@ -40,5 +40,10 @@
         <file>images/carinfo.svg</file>
         <file>Map.qml</file>
         <file>images/music-volume.svg</file>
+        <file>images/engine.svg</file>
+        <file>images/RPMs.svg</file>
+        <file>images/speedometer.svg</file>
+        <file>images/brightness.svg</file>
+        <file>images/temperature.svg</file>
     </qresource>
 </RCC>
