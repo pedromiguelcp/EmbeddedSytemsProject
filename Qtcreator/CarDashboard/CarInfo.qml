@@ -91,10 +91,7 @@ Item {
                         leftPadding: 60
                         rightPadding: 0
                         topPadding: 50
-
-
                         Layout.fillWidth: true
-
                     }
 
                     Item {
@@ -222,9 +219,8 @@ Item {
                 y: 0
                 height: 400
                 Image {
-
                     source: "images/carinfo.svg"
-Layout.bottomMargin: 430
+                    Layout.bottomMargin: 430
                 }
             }
 

@@ -181,7 +181,6 @@ Item {
                     onClicked: {
                         myListView.currentIndex = index
                         myclass.selectSong(mydelegate.text)
-                        //  console.log(mydelegate.text)
                     }
                 }
             }

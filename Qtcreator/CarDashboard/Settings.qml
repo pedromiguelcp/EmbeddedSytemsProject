@@ -77,6 +77,15 @@ Item {
         }
     }
 
+    Switch {
+        x:90
+        y:180
+        text: qsTr("Automatic")
+        font.bold: false
+        checked: myclass.brightstate()
+        onCheckedChanged: myclass.brightmode(checked)
+        }
+
     Text {
         id: id_settingsmenu_text11
         x: 465
@@ -95,24 +104,23 @@ Item {
         x:470
         y:140
         width: 150
-        height: 50
+        height: 30
         placeholderText: qsTr("SSID")
     }
 
     TextField {
         id: nwPSW
         x:470
-        y:180
+        y:176
         width: 150
-        height: 50
+        height: 30
         placeholderText: qsTr("Password")
     }
     Button {
-        x:635
-        y:200
-        width: 100
-        height: 30
-
+        x:646
+        y:186
+        width: 85
+        height: 20
             text: "Connect"
             onClicked: myclass.newNetworkConfig(nwSSID.text, nwPSW.text)
     }

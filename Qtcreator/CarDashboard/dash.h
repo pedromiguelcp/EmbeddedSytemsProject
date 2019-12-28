@@ -49,8 +49,8 @@ public:
     Q_INVOKABLE void resumeSong();
     Q_INVOKABLE void controlMusicVolume(int volume);
     Q_INVOKABLE int getMusicVolume();
-    Q_INVOKABLE void nextSong(){MyMusicPlayer->nextSong();}
-    Q_INVOKABLE void previousSong(){MyMusicPlayer->previousSong();}
+    Q_INVOKABLE void nextSong();
+    Q_INVOKABLE void previousSong();
 
     /*************************Camera**********************/
     Q_INVOKABLE void openCamera();
@@ -58,19 +58,23 @@ public:
 
     /*************************Touchscreen**********************/
     Q_INVOKABLE void adjustDashBright(int command);
+    Q_INVOKABLE void brightmode(bool autom);
+    Q_INVOKABLE bool brightstate();
 
-     /*************************News**********************/
+
+    /*************************News**********************/
     Q_INVOKABLE QString getNews(int index);
     Q_INVOKABLE QString getWeather(int parameter);
     Q_INVOKABLE void newNetworkConfig(QString SSID, QString PSW);
 
-    int distancetoobjects() const{ return STMUART->distancetoobjects();}
-    int car_speed() const{ return STMUART->speed();}
-    int car_rpm() const{ return STMUART->rpm();}
-    int car_enginetemp() const{ return STMUART->enginetemperature();}
-    int car_temp() const{ return STMUART->cartemperatue();}
-    int car_bright() const{ return STMUART->brightness();}
-    Q_INVOKABLE QString getCarProblems() const {return "High engine temperature\nLow tire pressure";}
+    int distancetoobjects() const;
+    int car_speed() const;
+    int car_rpm() const;
+    int car_enginetemp() const;
+    int car_temp() const;
+    int car_bright() const;
+    Q_INVOKABLE QString getCarProblems() const;
+
 
 signals:
     void askfornetworkinfo();
@@ -86,12 +90,10 @@ signals:
 
 private:
     LedStripInterface *LedStrip;
-    MusicPlayer *MyMusicPlayer;
     DaemonsInterface *MyDaemon;
     CarInterface *STMUART;
     NetworkInterface *NetworkInfo;
-
-    int bright;
+    MusicPlayer *MyMusicPlayer;
 
     static void *USBMonitorThread(void *);
     static void *TimerThread(void *);

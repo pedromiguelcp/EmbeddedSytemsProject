@@ -37,7 +37,7 @@ Dash::Dash()
 
     initProgram();
 
-    /*STMUART->processCarInfo("v96r2692e123\r");
+    /*STMUART->processCarInfo("v96r2692e84d30fP0118\r");
     STMUART->processCarInfo("b70\r");
     STMUART->processCarInfo("t20\r");*/
 }
@@ -282,6 +282,16 @@ int Dash::getMusicVolume()
     return MyMusicPlayer->getMusicVolume();
 }
 
+void Dash::nextSong()
+{
+    MyMusicPlayer->nextSong();
+}
+
+void Dash::previousSong()
+{
+    MyMusicPlayer->previousSong();
+}
+
 void Dash::controlMusicVolume(int volume)
 {
     MyMusicPlayer->changeMusicVolume(volume);
@@ -310,6 +320,16 @@ void Dash::adjustDashBright(int command)
     STMUART->setnewbright(command);
 }
 
+void Dash::brightmode(bool autom)
+{
+    STMUART->brightmode(autom);
+}
+
+bool Dash::brightstate()
+{
+    return STMUART->brightstate();
+}
+
 
 
 /*****************************network info********************************/
@@ -334,4 +354,43 @@ void Dash::newNetworkConfig(QString SSID, QString PSW)
     system(newconnection.c_str());
     system("/etc/init.d/S40network restart");
 }
+
+
+
+/*****************************car info********************************/
+int Dash::distancetoobjects() const
+{
+    return STMUART->distancetoobjects();
+}
+
+int Dash::car_speed() const
+{
+    return STMUART->speed();
+}
+
+int Dash::car_rpm() const
+{
+    return STMUART->rpm();
+}
+
+int Dash::car_enginetemp() const
+{
+    return STMUART->enginetemperature();
+}
+
+int Dash::car_temp() const
+{
+    return STMUART->cartemperatue();
+}
+
+int Dash::car_bright() const
+{
+    return STMUART->brightness();
+}
+
+QString Dash::getCarProblems() const
+{
+    return "High engine temperature\nLow tire pressure";
+}
+
 

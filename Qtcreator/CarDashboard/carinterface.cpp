@@ -101,22 +101,25 @@ void CarInterface::processCarInfo(QString carinfo)
 {
     qDebug() << "Information to be parsed: " << carinfo;
 
-    // carinfo = v96r2692e0\r
+    // carinfo = v96r2692e0d30fP0118\r
     carinfo.chop(1);//limpa o /r --> v96r2692e0
     if(carinfo[0] == "v")
     {
+        carinfo.chop(6);
         int rpmindex = carinfo.indexOf("r");
         int enginetempindex = carinfo.indexOf("e");
+        int distanceindex = carinfo.indexOf("d");
 
         carinformations.speed = carinfo.mid(1, (rpmindex - 1)).toInt();
         carinformations.rpm = carinfo.mid(rpmindex + 1, (enginetempindex - rpmindex - 1)).toInt();
-        carinformations.enginetemperature = carinfo.mid(enginetempindex + 1).toInt();
+        carinformations.enginetemperature = carinfo.mid(enginetempindex + 1, (distanceindex - enginetempindex - 1)).toInt();
+        carinformations.distancetoobjects = carinfo.mid(distanceindex + 1).toInt();
 
         /*qDebug() << "New speed: " << carinformations.speed;
         qDebug() << "New rpm: " << carinformations.rpm;
         qDebug() << "New enginetemperature: " << carinformations.enginetemperature;*/
     }
-    else if(carinfo[0] == "b")
+    else if((carinfo[0] == "b") & this->brihgtmode)
     {
         int carbright = carinfo.mid(1).toInt();
         if(carbright <= 50)

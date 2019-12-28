@@ -55,14 +55,15 @@ public:
 
     void processCarInfo(QString carinfo);
 
-/*************************************************************/
+    void brightmode(bool newmode){brihgtmode = newmode;}
+    bool brightstate(){return brihgtmode;}
 
 private slots:
     void readSerial();
 
 private:
     carstatus_t carinformations;
-    int m_val=0;
+    bool brihgtmode;
 
     static const quint16 STM_product_id = 14155;// 8963
     static const quint16 STM_vendor_id = 1155;// 1659
