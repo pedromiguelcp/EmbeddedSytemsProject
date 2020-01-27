@@ -89,31 +89,32 @@ void CarInterface::readSerial()
 
 void CarInterface::requestBrightness()
 {
-    sendCommandSTM("1");
+    sendCommandSTM("3");
 }
 
 void CarInterface::requestTemperature()
 {
     sendCommandSTM("4");
+    //sendCommandSTM("1");
 }
 
 void CarInterface::processCarInfo(QString carinfo)
 {
     qDebug() << "Information to be parsed: " << carinfo;
 
-    // carinfo = v96r2692e0d30fP0118\r
+    // carinfo = v96r2692e23d30fP0118\r
     carinfo.chop(1);//limpa o /r --> v96r2692e0
     if(carinfo[0] == "v")
     {
-        carinfo.chop(6);
+        carinfo.chop(1);
         int rpmindex = carinfo.indexOf("r");
         int enginetempindex = carinfo.indexOf("e");
-        int distanceindex = carinfo.indexOf("d");
+        int distanceindex = carinfo.indexOf("f");
 
         carinformations.speed = carinfo.mid(1, (rpmindex - 1)).toInt();
         carinformations.rpm = carinfo.mid(rpmindex + 1, (enginetempindex - rpmindex - 1)).toInt();
         carinformations.enginetemperature = carinfo.mid(enginetempindex + 1, (distanceindex - enginetempindex - 1)).toInt();
-        carinformations.distancetoobjects = carinfo.mid(distanceindex + 1).toInt();
+       // carinformations.distancetoobjects = carinfo.mid(distanceindex + 1).toInt();
 
         /*qDebug() << "New speed: " << carinformations.speed;
         qDebug() << "New rpm: " << carinformations.rpm;
@@ -123,8 +124,8 @@ void CarInterface::processCarInfo(QString carinfo)
     {
         int carbright = carinfo.mid(1).toInt();
         if(carbright <= 50)
-            carinformations.brightness = 128;
-        else carinformations.brightness = (carbright * 255 / 100);
+            carinformations.brightness = 50;
+        else carinformations.brightness = carbright;
 
         setnewbright(carinformations.brightness);
     }
@@ -138,7 +139,7 @@ void CarInterface::processCarInfo(QString carinfo)
 void CarInterface::setnewbright(int bright) {
     this->carinformations.brightness = bright;
     std::string adjust = "echo ";
-    adjust += std::to_string(bright);
+    adjust += std::to_string((bright * 255 / 100));
     adjust += " > /sys/class/backlight/rpi_backlight/brightness";
     system(adjust.c_str());
 }

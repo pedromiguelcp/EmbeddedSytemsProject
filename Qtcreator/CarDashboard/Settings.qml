@@ -68,9 +68,9 @@ Item {
     Slider {
         x:90
         y:140
-        from:1
+        from:0
         value: myclass.car_bright
-        to:255
+        to:100
         stepSize: 1.0
         onMoved: {
             myclass.adjustDashBright(value)
@@ -117,9 +117,9 @@ Item {
         placeholderText: qsTr("Password")
     }
     Button {
-        x:646
+        x:636
         y:186
-        width: 85
+        width: 95
         height: 20
             text: "Connect"
             onClicked: myclass.newNetworkConfig(nwSSID.text, nwPSW.text)

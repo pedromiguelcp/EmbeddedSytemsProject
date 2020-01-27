@@ -10,7 +10,7 @@ Window {
 
     Plugin {
         id: mapPlugin
-        name: "osm" // "mapboxgl", "esri", ...
+        name: "esri"//"osm", "mapboxgl",
         /*PluginParameter { name: "osm.useragent"; value: "My great Qt OSM application" }
             PluginParameter { name: "osm.mapping.host"; value: "http://osm.tile.server.address/" }
             PluginParameter { name: "osm.mapping.copyright"; value: "All mine" }
@@ -21,7 +21,7 @@ Window {
     Map {
         anchors.fill: parent
         plugin: mapPlugin
-        center: QtPositioning.coordinate(39.3998718, -8.2244539) // Portugal
+        //center: QtPositioning.coordinate(39.3998718, -8.2244539) // Portugal
         zoomLevel: 14
     }
 }

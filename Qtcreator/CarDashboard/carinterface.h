@@ -49,9 +49,6 @@ public:
         return carinformations.brightness;
     }
 
-    void UpdateCarInfo() {
-
-    }
 
     void processCarInfo(QString carinfo);
 

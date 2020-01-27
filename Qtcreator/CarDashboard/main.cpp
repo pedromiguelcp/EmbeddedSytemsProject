@@ -9,6 +9,7 @@
 
 using namespace std;
 
+
 int main(int argc, char *argv[])
 {
     Dash myClass;
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Dash>("MyClassLib", 1, 0, "MyClass");
 
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    //QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
 

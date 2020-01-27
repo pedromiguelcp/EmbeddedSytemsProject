@@ -68,7 +68,7 @@ QString MusicPlayer::getSongs()
     QDir directory("/media1");
     musicslist.clear();
     musicslist = directory.entryList(QStringList() << "*.mp3", QDir::Files);
-
+    qDebug() << usbpath.path();
 
     return usbpath.path();
 }

@@ -86,11 +86,15 @@ Item {
                     myclass.getNews(3),
                     myclass.getNews(4)
                 ]
-                Text {
-                    x: -10
-                    font.pixelSize: 16
-                    text: modelData
+                Rectangle{
+                    color: "white"
+                    Text {
+                        x: -10
+                        font.pixelSize: 16
+                        text: modelData
+                    }
                 }
+
             }
         }
     }

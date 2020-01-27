@@ -101,6 +101,7 @@ QString DaemonsInterface::readUSBDaemonData()
 {
     //cleans the flag
     //WaitingSignal = 1;
+    this->USBDaemonData = "";
 
     //ftok to generate unique key
     key_t key = ftok("usb",65);

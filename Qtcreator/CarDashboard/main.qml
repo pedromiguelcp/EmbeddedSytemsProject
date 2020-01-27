@@ -101,6 +101,10 @@ Window {
         id: map
         Map{}
     }
+    Component{
+        id: news
+        News{}
+    }
 
     InputPanel {
         id: inputPanel

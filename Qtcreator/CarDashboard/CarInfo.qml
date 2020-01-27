@@ -97,12 +97,13 @@ Item {
                     Item {
                         Layout.fillWidth: true
                         Layout.topMargin: 16
-Image {
-    width: 30
-    height: 30
-    visible: true
-    source: "images/speedometer.svg"
-    }
+
+                    Image {
+                        width: 30
+                        height: 30
+                        visible: true
+                        source: "images/speedometer.svg"
+                        }
 
                         Text  {
                             x: 80
@@ -153,8 +154,8 @@ Image {
                     Label {
                         text: qsTr("External car informations")
                         color: "red"
-                        leftPadding: 40
-                        rightPadding: 0
+                        leftPadding: 30
+                        rightPadding: 30
                         topPadding: 50
 
                         Layout.fillWidth: true
@@ -219,7 +220,7 @@ Image {
                 height: 400
                 Image {
                     source: "images/carinfo.svg"
-                    Layout.bottomMargin: 430
+                    Layout.bottomMargin: 500
                 }
             }
 
@@ -257,8 +258,7 @@ Image {
                         Repeater {
                             id: news_repeater
                             x: 0
-                            model: [myclass.getCarProblems()
-                            ]
+                            model: [myclass.getCarProblems()]
                             Text {
                                 x: -10
                                 font.pixelSize: 16

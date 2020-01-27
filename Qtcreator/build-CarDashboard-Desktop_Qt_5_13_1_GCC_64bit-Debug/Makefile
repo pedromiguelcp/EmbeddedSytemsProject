@@ -742,6 +742,7 @@ qrc_qml.cpp: ../CarDashboard/qml.qrc \
 		../CarDashboard/Settings.qml \
 		../CarDashboard/Automotive.qml \
 		../CarDashboard/OpenSans-Bold.ttf \
+		../CarDashboard/News.qml \
 		../CarDashboard/AmbientLight.qml \
 		../CarDashboard/main.qml \
 		../CarDashboard/images/camera.svg \

@@ -150,7 +150,7 @@ Item {
                 color: "white"
             }
             onTouchReleased: {
-                stack.push(network)
+                stack.push(news)
             }
         }
 

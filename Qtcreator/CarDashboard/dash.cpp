@@ -47,7 +47,7 @@ Dash::Dash()
 /*******************************program timer**********************************/
 void Dash::initProgram()
 {
-    adjustDashBright(255);
+    adjustDashBright(100);
 
     system("v4l2-ctl --set-fmt-overlay=top=0,left=50,width=690,height=600");
 
@@ -62,10 +62,7 @@ void Dash::initProgram()
     itv.it_value.tv_usec = 0; //it_value -> period between now and the first interrupt, if 0 it is disabled
     setitimer(ITIMER_REAL, &itv, nullptr); //ITIMER_REAL,ITIMER_VIRTUAL ITIMER_PROF -> types of interval timers available per process
 
-    STMUART->UpdateCarInfo();
-    //STMUART->sendCommandSTM("Start collect car information");
-    /*meter a regular o brilho
-      meter a dar display dos erros*/
+    STMUART->processCarInfo("t26\r");
 }
 
 
@@ -182,9 +179,16 @@ void *Dash::TimerThread(void *myDash)
         {
             if(carinfocount == CARINFOSAMPLE)
             {
-                pthread_mutex_lock(&timerMonitor->carinfo_condition_mutex);
+               /* pthread_mutex_lock(&timerMonitor->carinfo_condition_mutex);
                 pthread_cond_signal(&timerMonitor->carinfo_condition_cond);
-                pthread_mutex_unlock(&timerMonitor->carinfo_condition_mutex);
+                pthread_mutex_unlock(&timerMonitor->carinfo_condition_mutex);*/
+
+                emit timerMonitor->refresh_distancetoobjects();
+                emit timerMonitor->refresh_speed();
+                emit timerMonitor->refresh_rpm();
+                emit timerMonitor->refresh_enginetemp();
+                emit timerMonitor->refresh_cartemp();
+                emit timerMonitor->refresh_carbright();
 
                 carinfocount = 0;
             }
@@ -192,11 +196,13 @@ void *Dash::TimerThread(void *myDash)
             {
                 emit timerMonitor->askfortemperature();
                 temperaturecount = 0;
-                timerMonitor->STMUART->processCarInfo("b50\r\r");
+                //timerMonitor->STMUART->processCarInfo("b50\r");
+                //timerMonitor->STMUART->processCarInfo("t50\r");
+                //timerMonitor->STMUART->processCarInfo("v96r2692e23d30fP0118\r\r");
             }
             if(brightcount == BRIGHTNESSSAMPLE)
             {
-                timerMonitor->STMUART->UpdateCarInfo();
+                //timerMonitor->STMUART->UpdateCarInfo();
                 emit timerMonitor->askforbrightness();
                 brightcount = 0;
             }
@@ -224,6 +230,8 @@ void *Dash::CarInfoThread(void *myDash)
         pthread_mutex_lock(&carinfoMonitor->carinfo_condition_mutex);
         pthread_cond_wait(&carinfoMonitor->carinfo_condition_cond, &carinfoMonitor->carinfo_condition_mutex);
         pthread_mutex_unlock(&carinfoMonitor->carinfo_condition_mutex);
+
+
 
         //carinfoMonitor->setVal(1);
         //carinfoMonitor->STMUART->UpdateCarInfo();//so para ver updates

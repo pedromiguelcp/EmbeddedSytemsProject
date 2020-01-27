@@ -45,5 +45,6 @@
         <file>images/speedometer.svg</file>
         <file>images/brightness.svg</file>
         <file>images/temperature.svg</file>
+        <file>News.qml</file>
     </qresource>
 </RCC>

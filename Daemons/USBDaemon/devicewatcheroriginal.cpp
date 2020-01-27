@@ -129,6 +129,7 @@ void DeviceWatcher::DeamonizeMyProcess(){
 
 }
 
+
 void DeviceWatcher::ShowPluggedInDevices(){
 
     enumerate = udev_enumerate_new(udev);
@@ -168,21 +169,27 @@ int DeviceWatcher::WatchNewPluggedDevices(){
     string aux;
         /// Begin active polling for USB input and output
 
+        //Create a udev monitor object
         mon = udev_monitor_new_from_netlink(udev, "udev");
+        //adds a filter matching the device against a subsystem
         udev_monitor_filter_add_match_subsystem_devtype(mon, "usb", "usb_device");
         udev_monitor_filter_add_match_subsystem_devtype(mon, "block", NULL);
+        //Binds the udev_monitor socket to the event source
         udev_monitor_enable_receiving(mon);
 
-        /// Setup epoll
+        //creates an epoll instance and returns a file descriptor referring to the new epoll instance
         fd_ep = epoll_create1(0);
         if (fd_ep < 0) {
                 fprintf(stderr, "error creating epoll\n");
                 return 1;
         }
 
+        //Retrieve the socket file descriptor associated with the monitor
         fd_udev = udev_monitor_get_fd(mon);
         ep_udev.events = EPOLLIN;
         ep_udev.data.fd = fd_udev;
+
+        //system call used to add entries in the interest list of the epoll instance
         if (epoll_ctl(fd_ep, EPOLL_CTL_ADD, fd_udev, &ep_udev) < 0) {
                 fprintf(stderr, "fail to add fd to epoll\n");
                 return 2;
@@ -194,6 +201,7 @@ int DeviceWatcher::WatchNewPluggedDevices(){
                 struct epoll_event ev[this->NUM_OF_EVENTS];
                 int i = 0;
 
+                //system call waits for events on the epoll instance
                 fdcount = epoll_wait(fd_ep, ev, this->NUM_OF_EVENTS, -1);
                 if (fdcount < 0) {
                         if (errno != EINTR)
@@ -204,30 +212,25 @@ int DeviceWatcher::WatchNewPluggedDevices(){
                 for (i = 0; i < fdcount; i++) {
                         if (ev[i].data.fd == fd_udev && ev[i].events & EPOLLIN) {
 
-                                dev = udev_monitor_receive_device(mon);
-                                if (dev == NULL)
-                                        continue;
+                            //Receive data from the udev monitor socket, allocate a new udev device, fill in the received data, and return the device 
+                            dev = udev_monitor_receive_device(mon);
+                            if (dev == NULL)
+                                    continue;
 
+                            //Read the action if the device was received through a monitor
                             this->action = udev_device_get_action(dev);
+                            //Retrieve the device node file name belonging to the udev device
                             this->devicenode = udev_device_get_devnode(dev);
+                            //Retrieve the subsystem string of the udev device
                             this->devicesubsystem = udev_device_get_subsystem(dev);
+                            //Retrieve the devtype string of the udev device
                             this->partition = udev_device_get_devtype(dev);
 
 
-                                    if(!partition.compare("partition")){
-                                       aux = this->MountingFolder ; //+ this->folders[this->currentmountedFolder];
-                                       this->dir = opendir(aux.c_str());
-                                       //if(!dir){
-                                            //    mkdir(aux.c_str(),777);
-                                        //}
-                                        //mkdir("/home/test/", 777);//create a folder
-                                        mount(this->devicenode.c_str(), "media", "vfat", MS_NOATIME, NULL);
-                                        //this->currentmountedFolder++;
-                                      //  this->currentmountedFolder &= 0x03;
-
-                                    //}
-                                //}
-
+                            if(!partition.compare("partition")){
+                                aux = this->MountingFolder ; 
+                                this->dir = opendir(aux.c_str());
+                                mount(this->devicenode.c_str(), "media", "vfat", MS_NOATIME, NULL);
                                 udev_unref(udev);
                         }
                 }

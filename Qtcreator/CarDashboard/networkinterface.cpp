@@ -22,8 +22,8 @@ void NetworkInterface::requestWeather()
 
 void NetworkInterface::requestNews()
 {
-    QUrl url("http://webhose.io/filterWebContent?token=cdf0ac25-0d32-4ac2-8e7f-9dba8adb09cd&format=json&ts=1548848178768&sort=relevancy&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
-    //QUrl url("http://webhose.io/filterWebContent?token=ebb54250-6b79-4a85-ba03-5a5a9f9719a3&format=json&ts=1548848178768&sort=social.facebook.likes&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
+    //QUrl url("http://webhose.io/filterWebContent?token=cdf0ac25-0d32-4ac2-8e7f-9dba8adb09cd&format=json&ts=1548848178768&sort=relevancy&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
+    QUrl url("http://webhose.io/filterWebContent?token=ebb54250-6b79-4a85-ba03-5a5a9f9719a3&format=json&ts=1548848178768&sort=social.facebook.likes&q=language%3Aenglish%20site_type%3Anews%20thread.country%3APT");
     QNetworkRequest request;
     request.setUrl(url);
     currentReplyNews = news_networkManager.get(request);

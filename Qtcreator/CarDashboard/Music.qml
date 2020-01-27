@@ -74,7 +74,7 @@ Item {
                 id: id_musicplay_mousearea
                 anchors.fill: parent
                 onClicked: {
-                    myclass.pauseSong()
+                    //myclass.pauseSong()
                 }
             }
         }
@@ -173,7 +173,21 @@ Item {
             delegate: ItemDelegate {
                 id: mydelegate
                 text: fileName
-                width: parent.width
+                contentItem: Text {
+                        text: mydelegate.text
+                        color: "Orange"
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    background: Rectangle {
+                        radius: 10.0
+                        implicitWidth: 798
+                        implicitHeight: 40
+                        opacity: enabled ? 1 : 0.3
+                        color: "#6cc4e0"
+                    }
+
                 property int indexOfThisDelegate: index
 
                 MouseArea{
@@ -197,5 +211,7 @@ Item {
             }
         }
     }
+
+
 
 }
